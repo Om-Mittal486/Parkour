@@ -1,0 +1,7 @@
+THE STILLWORKS — generated geometry validation
+Main route: 13571 m; summit: 588 m; districts: 7
+14 m/s uninterrupted sprint floor: 16.2 minutes. 15–30 minute target requires human playtesting.
+Ground/headroom samples: 9663; jump spans: 59; slide openings: 28
+Issues: 2
+D3_L1_W5 / Recovery rejoin: blocked by Abandoned vehicle body near (-107.16, 196.00, 141.10)
+D5_L1_W2 / Lower roof recovery ramp: blocked by Column arcade near (103.49, 342.58, -125.83)

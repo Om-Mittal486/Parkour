@@ -119,6 +119,8 @@ public class PlayerMovement : MonoBehaviour
         {
             HandleMovement();
             HandleSlideInput();
+            if (!isSliding && CanStand())
+                SmoothControllerHeight(standingHeight);
         }
 
         ApplyGravity();
@@ -384,8 +386,9 @@ public class PlayerMovement : MonoBehaviour
         float targetHeight =
             slidingHeight;
 
-        if (slideTimer <= 0f ||
-            currentSpeed < 2f)
+        bool wantsToStand = slideTimer <= 0f || currentSpeed < 2f;
+        bool canStand = CanStand();
+        if (wantsToStand && canStand)
         {
             targetHeight =
                 standingHeight;
@@ -393,10 +396,14 @@ public class PlayerMovement : MonoBehaviour
 
         SmoothControllerHeight(targetHeight);
 
-        if (slideTimer <= 0f ||
-            currentSpeed < 2f)
+        if (wantsToStand && canStand)
         {
             EndSlide();
+        }
+        else if (wantsToStand)
+        {
+            // Keep moving out of a low opening instead of standing into its roof.
+            horizontalVelocity = slideDirection * Mathf.Max(currentSpeed, walkSpeed * 0.55f);
         }
     }
 
@@ -414,6 +421,25 @@ public class PlayerMovement : MonoBehaviour
         // Make sure the controller returns smoothly
         // to standing height.
         SmoothControllerHeight(standingHeight);
+    }
+
+    private bool CanStand()
+    {
+        float radius = Mathf.Max(0.05f, controller.radius - controller.skinWidth);
+        Vector3 feet = transform.position;
+        return !Physics.CheckCapsule(
+            feet + Vector3.up * (slidingHeight + radius),
+            feet + Vector3.up * (standingHeight - radius),
+            radius, groundMask, QueryTriggerInteraction.Ignore);
+    }
+
+    public void ResetMotion()
+    {
+        horizontalVelocity = Vector3.zero;
+        verticalVelocity = 0f;
+        coyoteTimer = jumpBufferTimer = slideTimer = 0f;
+        isSliding = sprintToggled = IsSprinting = false;
+        SetControllerHeight(standingHeight);
     }
 
     // =========================================================

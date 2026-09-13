@@ -1,0 +1,3256 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f0539a0f6647849a0763ed55d2e45e, type: 3}
+  m_Name: StillworksRoute
+  m_EditorClassIdentifier: Assembly-CSharp::Stillworks.StillworksRoute
+  spawn: {x: -135.6, y: 0.12, z: -103.96}
+  summit: {x: 0, y: 588, z: 0}
+  mainRouteMetres: 13570.904
+  districts:
+  - Intake Quarter
+  - Heat Exchange
+  - Transit Stack
+  - Unfinished Works
+  - The Ministry
+  - Relay Needles
+  - The Crown
+  spans:
+  - name: D1_L1_W1 / Open circulation floor
+    passage: 0
+    from: {x: -135.6, y: 0, z: -103.96}
+    to: {x: -33.086403, y: 0, z: -137.4984}
+    width: 16
+  - name: D1_L1_W1 / Ascending circulation
+    passage: 1
+    from: {x: -33.086403, y: 0, z: -137.4984}
+    to: {x: 18.170393, y: 7, z: -154.26761}
+    width: 11.2
+  - name: D1_L1_W1 / Upper terrace sprint
+    passage: 0
+    from: {x: 18.170393, y: 7, z: -154.26761}
+    to: {x: 47.46, y: 7, z: -163.85}
+    width: 16
+  - name: D1_L1_W1 / Exploration entrance
+    passage: 4
+    from: {x: -125.34865, y: 0, z: -107.31384}
+    to: {x: -132.18939, y: 0, z: -128.22327}
+    width: 7
+  - name: D1_L1_W1 / Exploration gallery
+    passage: 4
+    from: {x: -132.18939, y: 0, z: -128.22327}
+    to: {x: -51.20364, y: 0, z: -154.7186}
+    width: 15
+  - name: D1_L1_W1 / Exploration rejoin
+    passage: 4
+    from: {x: -51.20364, y: 0, z: -154.7186}
+    to: {x: -44.3629, y: 0, z: -133.80917}
+    width: 7
+  - name: D1_L1_W2 / Open circulation floor
+    passage: 0
+    from: {x: 47.46, y: 7, z: -163.85}
+    to: {x: 115.8024, y: 7, z: -108.7964}
+    width: 18
+  - name: D1_L1_W2 / Ascending circulation
+    passage: 1
+    from: {x: 115.8024, y: 7, z: -108.7964}
+    to: {x: 149.9736, y: 14, z: -81.26961}
+    width: 12.599999
+  - name: D1_L1_W2 / Upper terrace sprint
+    passage: 0
+    from: {x: 149.9736, y: 14, z: -81.26961}
+    to: {x: 169.5, y: 14, z: -65.54}
+    width: 18
+  - name: D1_L1_W3 / Open circulation floor
+    passage: 0
+    from: {x: 169.5, y: 14, z: -65.54}
+    to: {x: 144.188, y: 14, z: 45.832798}
+    width: 20
+  - name: D1_L1_W3 / Ascending circulation
+    passage: 1
+    from: {x: 144.188, y: 14, z: 45.832798}
+    to: {x: 131.532, y: 21, z: 101.51919}
+    width: 14
+  - name: D1_L1_W3 / Upper terrace sprint
+    passage: 0
+    from: {x: 131.532, y: 21, z: 101.51919}
+    to: {x: 124.3, y: 21, z: 133.34}
+    width: 20
+  - name: D1_L1_W3 / Loading lintel slide
+    passage: 3
+    from: {x: 171.22334, y: 14, z: -32.061672}
+    to: {x: 169.80498, y: 14, z: -25.820822}
+    width: 2.8
+  - name: D1_L1_W4 / Open circulation floor
+    passage: 0
+    from: {x: 124.3, y: 21, z: 133.34}
+    to: {x: 34.4424, y: 21, z: 157.3864}
+    width: 16
+  - name: D1_L1_W4 / Ascending circulation
+    passage: 1
+    from: {x: 34.4424, y: 21, z: 157.3864}
+    to: {x: -10.486395, y: 28, z: 169.40959}
+    width: 11.2
+  - name: D1_L1_W4 / Upper terrace sprint
+    passage: 0
+    from: {x: -10.486395, y: 28, z: 169.40959}
+    to: {x: -36.16, y: 28, z: 176.28}
+    width: 16
+  - name: D1_L1_W4 / Exploration entrance
+    passage: 4
+    from: {x: 115.31424, y: 21, z: 135.74464}
+    to: {x: 121.00145, y: 21, z: 156.99684}
+    width: 7
+  - name: D1_L1_W4 / Exploration gallery
+    passage: 4
+    from: {x: 121.00145, y: 21, z: 156.99684}
+    to: {x: 50.013947, y: 21, z: 175.99348}
+    width: 15
+  - name: D1_L1_W4 / Exploration rejoin
+    passage: 4
+    from: {x: 50.013947, y: 21, z: 175.99348}
+    to: {x: 44.32674, y: 21, z: 154.74129}
+    width: 7
+  - name: D1_L1_W5 / Open circulation floor
+    passage: 0
+    from: {x: -36.16, y: 28, z: 176.28}
+    to: {x: -110.8304, y: 28, z: 107.9376}
+    width: 18
+  - name: D1_L1_W5 / Ascending circulation
+    passage: 1
+    from: {x: -110.8304, y: 28, z: 107.9376}
+    to: {x: -148.1656, y: 35, z: 73.7664}
+    width: 12.599999
+  - name: D1_L1_W5 / Upper terrace sprint
+    passage: 0
+    from: {x: -148.1656, y: 35, z: 73.7664}
+    to: {x: -169.5, y: 35, z: 54.239998}
+    width: 18
+  - name: D1_L1_W6 / Open circulation floor
+    passage: 0
+    from: {x: -169.5, y: 35, z: 54.239998}
+    to: {x: -150.516, y: 35, z: -34.352}
+    width: 20
+  - name: D1_L1_W6 / Ascending circulation
+    passage: 1
+    from: {x: -150.516, y: 35, z: -34.352}
+    to: {x: -141.024, y: 42, z: -78.647995}
+    width: 14
+  - name: D1_L1_W6 / Upper terrace sprint
+    passage: 0
+    from: {x: -141.024, y: 42, z: -78.647995}
+    to: {x: -135.6, y: 42, z: -103.96}
+    width: 20
+  - name: D1_L1_W6 / Loading lintel slide
+    passage: 3
+    from: {x: -173.12184, y: 35, z: 27.711287}
+    to: {x: -171.78087, y: 35, z: 21.453352}
+    width: 2.8
+  - name: D1_L2_W1 / Open circulation floor
+    passage: 0
+    from: {x: -135.6, y: 42, z: -103.96}
+    to: {x: -33.086403, y: 42, z: -137.4984}
+    width: 16
+  - name: D1_L2_W1 / Ascending circulation
+    passage: 1
+    from: {x: -33.086403, y: 42, z: -137.4984}
+    to: {x: 18.170393, y: 49, z: -154.26761}
+    width: 11.2
+  - name: D1_L2_W1 / Upper terrace sprint
+    passage: 0
+    from: {x: 18.170393, y: 49, z: -154.26761}
+    to: {x: 47.46, y: 49, z: -163.85}
+    width: 16
+  - name: D1_L2_W1 / Exploration entrance
+    passage: 4
+    from: {x: -125.34865, y: 42, z: -107.31384}
+    to: {x: -132.18939, y: 42, z: -128.22327}
+    width: 7
+  - name: D1_L2_W1 / Exploration gallery
+    passage: 4
+    from: {x: -132.18939, y: 42, z: -128.22327}
+    to: {x: -51.20364, y: 42, z: -154.7186}
+    width: 15
+  - name: D1_L2_W1 / Exploration rejoin
+    passage: 4
+    from: {x: -51.20364, y: 42, z: -154.7186}
+    to: {x: -44.3629, y: 42, z: -133.80917}
+    width: 7
+  - name: D1_L2_W2 / Open circulation floor
+    passage: 0
+    from: {x: 47.46, y: 49, z: -163.85}
+    to: {x: 115.8024, y: 49, z: -108.7964}
+    width: 18
+  - name: D1_L2_W2 / Ascending circulation
+    passage: 1
+    from: {x: 115.8024, y: 49, z: -108.7964}
+    to: {x: 149.9736, y: 56, z: -81.26961}
+    width: 12.599999
+  - name: D1_L2_W2 / Upper terrace sprint
+    passage: 0
+    from: {x: 149.9736, y: 56, z: -81.26961}
+    to: {x: 169.5, y: 56, z: -65.54}
+    width: 18
+  - name: D1_L2_W3 / Open circulation floor
+    passage: 0
+    from: {x: 169.5, y: 56, z: -65.54}
+    to: {x: 144.188, y: 56, z: 45.832798}
+    width: 20
+  - name: D1_L2_W3 / Ascending circulation
+    passage: 1
+    from: {x: 144.188, y: 56, z: 45.832798}
+    to: {x: 131.532, y: 63, z: 101.51919}
+    width: 14
+  - name: D1_L2_W3 / Upper terrace sprint
+    passage: 0
+    from: {x: 131.532, y: 63, z: 101.51919}
+    to: {x: 124.3, y: 63, z: 133.34}
+    width: 20
+  - name: D1_L2_W3 / Loading lintel slide
+    passage: 3
+    from: {x: 171.22334, y: 56, z: -32.061672}
+    to: {x: 169.80498, y: 56, z: -25.820822}
+    width: 2.8
+  - name: D1_L2_W4 / Open circulation floor
+    passage: 0
+    from: {x: 124.3, y: 63, z: 133.34}
+    to: {x: 34.4424, y: 63, z: 157.3864}
+    width: 16
+  - name: D1_L2_W4 / Ascending circulation
+    passage: 1
+    from: {x: 34.4424, y: 63, z: 157.3864}
+    to: {x: -10.486395, y: 70, z: 169.40959}
+    width: 11.2
+  - name: D1_L2_W4 / Upper terrace sprint
+    passage: 0
+    from: {x: -10.486395, y: 70, z: 169.40959}
+    to: {x: -36.16, y: 70, z: 176.28}
+    width: 16
+  - name: D1_L2_W4 / Exploration entrance
+    passage: 4
+    from: {x: 115.31424, y: 63, z: 135.74464}
+    to: {x: 121.00145, y: 63, z: 156.99684}
+    width: 7
+  - name: D1_L2_W4 / Exploration gallery
+    passage: 4
+    from: {x: 121.00145, y: 63, z: 156.99684}
+    to: {x: 50.013947, y: 63, z: 175.99348}
+    width: 15
+  - name: D1_L2_W4 / Exploration rejoin
+    passage: 4
+    from: {x: 50.013947, y: 63, z: 175.99348}
+    to: {x: 44.32674, y: 63, z: 154.74129}
+    width: 7
+  - name: D1_L2_W5 / Open circulation floor
+    passage: 0
+    from: {x: -36.16, y: 70, z: 176.28}
+    to: {x: -110.8304, y: 70, z: 107.9376}
+    width: 18
+  - name: D1_L2_W5 / Ascending circulation
+    passage: 1
+    from: {x: -110.8304, y: 70, z: 107.9376}
+    to: {x: -148.1656, y: 77, z: 73.7664}
+    width: 12.599999
+  - name: D1_L2_W5 / Upper terrace sprint
+    passage: 0
+    from: {x: -148.1656, y: 77, z: 73.7664}
+    to: {x: -169.5, y: 77, z: 54.239998}
+    width: 18
+  - name: D1_L2_W6 / Open circulation floor
+    passage: 0
+    from: {x: -169.5, y: 77, z: 54.239998}
+    to: {x: -147.156, y: 77, z: -31.776001}
+    width: 20
+  - name: D1_L2_W6 / Ascending circulation
+    passage: 1
+    from: {x: -147.156, y: 77, z: -31.776001}
+    to: {x: -135.98401, y: 84, z: -74.784}
+    width: 14
+  - name: D1_L2_W6 / Upper terrace sprint
+    passage: 0
+    from: {x: -135.98401, y: 84, z: -74.784}
+    to: {x: -129.6, y: 84, z: -99.36}
+    width: 20
+  - name: D1_L2_W6 / Loading lintel slide
+    passage: 3
+    from: {x: -172.10733, y: 77, z: 28.08302}
+    to: {x: -170.49825, y: 77, z: 21.888603}
+    width: 2.8
+  - name: D1_service_spine / Maintenance access
+    passage: 5
+    from: {x: -135.6, y: 0, z: -103.96}
+    to: {x: -153.08582, y: 0, z: -133.74669}
+    width: 2.2
+  - name: D1_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -153.08582, y: 0, z: -133.74669}
+    to: {x: -168.90503, y: 7, z: -113.11292}
+    width: 1.5
+  - name: D1_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -168.90503, y: 7, z: -113.11292}
+    to: {x: -173.74602, y: 7, z: -116.824356}
+    width: 2.3
+  - name: D1_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -173.74602, y: 7, z: -116.824356}
+    to: {x: -176.76172, y: 7, z: -119.1364}
+    width: 2.3
+  - name: D1_service_spine / Service landing exit
+    passage: 5
+    from: {x: -176.76172, y: 7, z: -119.1364}
+    to: {x: -181.60274, y: 7, z: -122.847824}
+    width: 2.3
+  - name: D1_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -181.60274, y: 7, z: -122.847824}
+    to: {x: -165.78351, y: 14, z: -143.48158}
+    width: 1.5
+  - name: D1_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -165.78351, y: 14, z: -143.48158}
+    to: {x: -160.94252, y: 14, z: -139.77016}
+    width: 2.3
+  - name: D1_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -160.94252, y: 14, z: -139.77016}
+    to: {x: -157.92682, y: 14, z: -137.45811}
+    width: 2.3
+  - name: D1_service_spine / Service landing exit
+    passage: 5
+    from: {x: -157.92682, y: 14, z: -137.45811}
+    to: {x: -153.0858, y: 14, z: -133.74667}
+    width: 2.3
+  - name: D1_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -153.0858, y: 14, z: -133.74667}
+    to: {x: -168.90503, y: 21, z: -113.11292}
+    width: 1.5
+  - name: D1_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -168.90503, y: 21, z: -113.11292}
+    to: {x: -173.74602, y: 21, z: -116.824356}
+    width: 2.3
+  - name: D1_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -173.74602, y: 21, z: -116.824356}
+    to: {x: -176.76172, y: 21, z: -119.1364}
+    width: 2.3
+  - name: D1_service_spine / Service landing exit
+    passage: 5
+    from: {x: -176.76172, y: 21, z: -119.1364}
+    to: {x: -181.60274, y: 21, z: -122.847824}
+    width: 2.3
+  - name: D1_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -181.60274, y: 21, z: -122.847824}
+    to: {x: -165.78351, y: 28, z: -143.48158}
+    width: 1.5
+  - name: D1_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -165.78351, y: 28, z: -143.48158}
+    to: {x: -160.94252, y: 28, z: -139.77016}
+    width: 2.3
+  - name: D1_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -160.94252, y: 28, z: -139.77016}
+    to: {x: -157.92682, y: 28, z: -137.45811}
+    width: 2.3
+  - name: D1_service_spine / Service landing exit
+    passage: 5
+    from: {x: -157.92682, y: 28, z: -137.45811}
+    to: {x: -153.0858, y: 28, z: -133.74667}
+    width: 2.3
+  - name: D1_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -153.0858, y: 28, z: -133.74667}
+    to: {x: -168.90503, y: 35, z: -113.11292}
+    width: 1.5
+  - name: D1_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -168.90503, y: 35, z: -113.11292}
+    to: {x: -173.74602, y: 35, z: -116.824356}
+    width: 2.3
+  - name: D1_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -173.74602, y: 35, z: -116.824356}
+    to: {x: -176.76172, y: 35, z: -119.1364}
+    width: 2.3
+  - name: D1_service_spine / Service landing exit
+    passage: 5
+    from: {x: -176.76172, y: 35, z: -119.1364}
+    to: {x: -181.60274, y: 35, z: -122.847824}
+    width: 2.3
+  - name: D1_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -181.60274, y: 35, z: -122.847824}
+    to: {x: -165.78351, y: 42, z: -143.48158}
+    width: 1.5
+  - name: D1_service_spine / Maintenance upper rejoin
+    passage: 5
+    from: {x: -165.78351, y: 42, z: -143.48158}
+    to: {x: -135.6, y: 42, z: -103.96}
+    width: 2.2
+  - name: D2_L1_W1 / Open circulation floor
+    passage: 0
+    from: {x: -129.6, y: 84, z: -99.36}
+    to: {x: -31.622402, y: 84, z: -131.4144}
+    width: 14
+  - name: D2_L1_W1 / Ascending circulation
+    passage: 1
+    from: {x: -31.622402, y: 84, z: -131.4144}
+    to: {x: 17.366394, y: 91, z: -147.4416}
+    width: 9.8
+  - name: D2_L1_W1 / Upper terrace sprint
+    passage: 0
+    from: {x: 17.366394, y: 91, z: -147.4416}
+    to: {x: 45.36, y: 91, z: -156.6}
+    width: 14
+  - name: D2_L1_W1 / Exploration entrance
+    passage: 4
+    from: {x: -119.802246, y: 84, z: -102.56544}
+    to: {x: -126.33205, y: 84, z: -122.52444}
+    width: 7
+  - name: D2_L1_W1 / Exploration gallery
+    passage: 4
+    from: {x: -126.33205, y: 84, z: -122.52444}
+    to: {x: -48.929737, y: 84, z: -147.84741}
+    width: 15
+  - name: D2_L1_W1 / Exploration rejoin
+    passage: 4
+    from: {x: -48.929737, y: 84, z: -147.84741}
+    to: {x: -42.39994, y: 84, z: -127.88841}
+    width: 7
+  - name: D2_L1_W2 / Gallery approach
+    passage: 0
+    from: {x: 45.36, y: 91, z: -156.6}
+    to: {x: 82.65184, y: 91, z: -126.55936}
+    width: 16
+  - name: D2_L1_W2 / Broken expansion joint
+    passage: 2
+    from: {x: 82.65184, y: 91, z: -126.55936}
+    to: {x: 85.14386, y: 91, z: -124.551895}
+    width: 16
+  - name: D2_L1_W2 / Gallery landing
+    passage: 0
+    from: {x: 85.14386, y: 91, z: -124.551895}
+    to: {x: 110.6784, y: 91, z: -103.98241}
+    width: 16
+  - name: D2_L1_W2 / Lower roof recovery ramp
+    passage: 6
+    from: {x: 86.12595, y: 86, z: -137.88591}
+    to: {x: 104.03729, y: 91, z: -123.45731}
+    width: 4
+  - name: D2_L1_W2 / Recovery elbow
+    passage: 6
+    from: {x: 104.03729, y: 91, z: -123.45731}
+    to: {x: 105.5948, y: 91, z: -122.20265}
+    width: 4
+  - name: D2_L1_W2 / Recovery rejoin
+    passage: 6
+    from: {x: 105.5948, y: 91, z: -122.20265}
+    to: {x: 98.694176, y: 91, z: -113.63636}
+    width: 4
+  - name: D2_L1_W2 / Ascending circulation
+    passage: 1
+    from: {x: 110.6784, y: 91, z: -103.98241}
+    to: {x: 143.3376, y: 98, z: -77.67361}
+    width: 11.2
+  - name: D2_L1_W2 / Upper terrace sprint
+    passage: 0
+    from: {x: 143.3376, y: 98, z: -77.67361}
+    to: {x: 162, y: 98, z: -62.640003}
+    width: 16
+  - name: D2_L1_W3 / Open circulation floor
+    passage: 0
+    from: {x: 162, y: 98, z: -62.640003}
+    to: {x: 137.808, y: 98, z: 43.804802}
+    width: 18
+  - name: D2_L1_W3 / Ascending circulation
+    passage: 1
+    from: {x: 137.808, y: 98, z: 43.804802}
+    to: {x: 125.712006, y: 105, z: 97.0272}
+    width: 12.599999
+  - name: D2_L1_W3 / Upper terrace sprint
+    passage: 0
+    from: {x: 125.712006, y: 105, z: 97.0272}
+    to: {x: 118.8, y: 105, z: 127.44}
+    width: 18
+  - name: D2_L1_W3 / Loading lintel slide
+    passage: 3
+    from: {x: 163.08421, y: 98, z: -30.861694}
+    to: {x: 161.66585, y: 98, z: -24.620844}
+    width: 2.8
+  - name: D2_L1_W4 / Open circulation floor
+    passage: 0
+    from: {x: 118.8, y: 105, z: 127.44}
+    to: {x: 32.9184, y: 105, z: 150.42241}
+    width: 14
+  - name: D2_L1_W4 / Ascending circulation
+    passage: 1
+    from: {x: 32.9184, y: 105, z: 150.42241}
+    to: {x: -10.022397, y: 112, z: 161.9136}
+    width: 9.8
+  - name: D2_L1_W4 / Upper terrace sprint
+    passage: 0
+    from: {x: -10.022397, y: 112, z: 161.9136}
+    to: {x: -34.56, y: 112, z: 168.48001}
+    width: 14
+  - name: D2_L1_W4 / Exploration entrance
+    passage: 4
+    from: {x: 110.211845, y: 105, z: 129.73825}
+    to: {x: 115.64054, y: 105, z: 150.02443}
+    width: 7
+  - name: D2_L1_W4 / Exploration gallery
+    passage: 4
+    from: {x: 115.64054, y: 105, z: 150.02443}
+    to: {x: 47.794075, y: 105, z: 168.18053}
+    width: 15
+  - name: D2_L1_W4 / Exploration rejoin
+    passage: 4
+    from: {x: 47.794075, y: 105, z: 168.18053}
+    to: {x: 42.365376, y: 105, z: 147.89435}
+    width: 7
+  - name: D2_L1_W5 / Gallery approach
+    passage: 0
+    from: {x: -34.56, y: 112, z: 168.48001}
+    to: {x: -75.4859, y: 112, z: 131.0224}
+    width: 16
+  - name: D2_L1_W5 / Broken expansion joint
+    passage: 2
+    from: {x: -75.4859, y: 112, z: 131.0224}
+    to: {x: -77.84645, y: 112, z: 128.86191}
+    width: 16
+  - name: D2_L1_W5 / Gallery landing
+    passage: 0
+    from: {x: -77.84645, y: 112, z: 128.86191}
+    to: {x: -105.9264, y: 112, z: 103.161606}
+    width: 16
+  - name: D2_L1_W5 / Lower roof recovery ramp
+    passage: 6
+    from: {x: -79.66688, y: 107, z: 142.1075}
+    to: {x: -96.633354, y: 112, z: 126.578865}
+    width: 4
+  - name: D2_L1_W5 / Recovery elbow
+    passage: 6
+    from: {x: -96.633354, y: 112, z: 126.578865}
+    to: {x: -98.1087, y: 112, z: 125.228546}
+    width: 4
+  - name: D2_L1_W5 / Recovery rejoin
+    passage: 6
+    from: {x: -98.1087, y: 112, z: 125.228546}
+    to: {x: -90.68196, y: 112, z: 117.11414}
+    width: 4
+  - name: D2_L1_W5 / Ascending circulation
+    passage: 1
+    from: {x: -105.9264, y: 112, z: 103.161606}
+    to: {x: -141.6096, y: 119, z: 70.50241}
+    width: 11.2
+  - name: D2_L1_W5 / Upper terrace sprint
+    passage: 0
+    from: {x: -141.6096, y: 119, z: 70.50241}
+    to: {x: -162, y: 119, z: 51.840004}
+    width: 16
+  - name: D2_L1_W6 / Open circulation floor
+    passage: 0
+    from: {x: -162, y: 119, z: 51.840004}
+    to: {x: -143.856, y: 119, z: -32.832}
+    width: 18
+  - name: D2_L1_W6 / Ascending circulation
+    passage: 1
+    from: {x: -143.856, y: 119, z: -32.832}
+    to: {x: -134.78401, y: 126, z: -75.168}
+    width: 12.599999
+  - name: D2_L1_W6 / Upper terrace sprint
+    passage: 0
+    from: {x: -134.78401, y: 126, z: -75.168}
+    to: {x: -129.6, y: 126, z: -99.36}
+    width: 18
+  - name: D2_L1_W6 / Loading lintel slide
+    passage: 3
+    from: {x: -164.89604, y: 119, z: 26.696821}
+    to: {x: -163.55507, y: 119, z: 20.438887}
+    width: 2.8
+  - name: D2_L2_W1 / Open circulation floor
+    passage: 0
+    from: {x: -129.6, y: 126, z: -99.36}
+    to: {x: -31.622402, y: 126, z: -131.4144}
+    width: 14
+  - name: D2_L2_W1 / Ascending circulation
+    passage: 1
+    from: {x: -31.622402, y: 126, z: -131.4144}
+    to: {x: 17.366394, y: 133, z: -147.4416}
+    width: 9.8
+  - name: D2_L2_W1 / Upper terrace sprint
+    passage: 0
+    from: {x: 17.366394, y: 133, z: -147.4416}
+    to: {x: 45.36, y: 133, z: -156.6}
+    width: 14
+  - name: D2_L2_W1 / Exploration entrance
+    passage: 4
+    from: {x: -119.802246, y: 126, z: -102.56544}
+    to: {x: -126.33205, y: 126, z: -122.52444}
+    width: 7
+  - name: D2_L2_W1 / Exploration gallery
+    passage: 4
+    from: {x: -126.33205, y: 126, z: -122.52444}
+    to: {x: -48.929737, y: 126, z: -147.84741}
+    width: 15
+  - name: D2_L2_W1 / Exploration rejoin
+    passage: 4
+    from: {x: -48.929737, y: 126, z: -147.84741}
+    to: {x: -42.39994, y: 126, z: -127.88841}
+    width: 7
+  - name: D2_L2_W2 / Open circulation floor
+    passage: 0
+    from: {x: 45.36, y: 133, z: -156.6}
+    to: {x: 110.6784, y: 133, z: -103.98241}
+    width: 16
+  - name: D2_L2_W2 / Ascending circulation
+    passage: 1
+    from: {x: 110.6784, y: 133, z: -103.98241}
+    to: {x: 143.3376, y: 140, z: -77.67361}
+    width: 11.2
+  - name: D2_L2_W2 / Upper terrace sprint
+    passage: 0
+    from: {x: 143.3376, y: 140, z: -77.67361}
+    to: {x: 162, y: 140, z: -62.640003}
+    width: 16
+  - name: D2_L2_W3 / Gallery approach
+    passage: 0
+    from: {x: 162, y: 140, z: -62.640003}
+    to: {x: 148.08131, y: 140, z: -1.3977835}
+    width: 18
+  - name: D2_L2_W3 / Broken expansion joint
+    passage: 2
+    from: {x: 148.08131, y: 140, z: -1.3977835}
+    to: {x: 147.37212, y: 140, z: 1.7226415}
+    width: 18
+  - name: D2_L2_W3 / Gallery landing
+    passage: 0
+    from: {x: 147.37212, y: 140, z: 1.7226415}
+    to: {x: 137.808, y: 140, z: 43.804802}
+    width: 18
+  - name: D2_L2_W3 / Lower roof recovery ramp
+    passage: 6
+    from: {x: 160.75804, y: 135, z: -3.028915}
+    to: {x: 155.66075, y: 140, z: 19.39914}
+    width: 4
+  - name: D2_L2_W3 / Recovery elbow
+    passage: 6
+    from: {x: 155.66075, y: 140, z: 19.39914}
+    to: {x: 155.21751, y: 140, z: 21.349405}
+    width: 4
+  - name: D2_L2_W3 / Recovery rejoin
+    passage: 6
+    from: {x: 155.21751, y: 140, z: 21.349405}
+    to: {x: 143.51591, y: 140, z: 18.689953}
+    width: 4
+  - name: D2_L2_W3 / Ascending circulation
+    passage: 1
+    from: {x: 137.808, y: 140, z: 43.804802}
+    to: {x: 125.712006, y: 147, z: 97.0272}
+    width: 12.599999
+  - name: D2_L2_W3 / Upper terrace sprint
+    passage: 0
+    from: {x: 125.712006, y: 147, z: 97.0272}
+    to: {x: 118.8, y: 147, z: 127.44}
+    width: 18
+  - name: D2_L2_W3 / Loading lintel slide
+    passage: 3
+    from: {x: 163.08421, y: 140, z: -30.861694}
+    to: {x: 161.66585, y: 140, z: -24.620844}
+    width: 2.8
+  - name: D2_L2_W4 / Open circulation floor
+    passage: 0
+    from: {x: 118.8, y: 147, z: 127.44}
+    to: {x: 32.9184, y: 147, z: 150.42241}
+    width: 14
+  - name: D2_L2_W4 / Ascending circulation
+    passage: 1
+    from: {x: 32.9184, y: 147, z: 150.42241}
+    to: {x: -10.022397, y: 154, z: 161.9136}
+    width: 9.8
+  - name: D2_L2_W4 / Upper terrace sprint
+    passage: 0
+    from: {x: -10.022397, y: 154, z: 161.9136}
+    to: {x: -34.56, y: 154, z: 168.48001}
+    width: 14
+  - name: D2_L2_W4 / Exploration entrance
+    passage: 4
+    from: {x: 110.211845, y: 147, z: 129.73825}
+    to: {x: 115.64054, y: 147, z: 150.02443}
+    width: 7
+  - name: D2_L2_W4 / Exploration gallery
+    passage: 4
+    from: {x: 115.64054, y: 147, z: 150.02443}
+    to: {x: 47.794075, y: 147, z: 168.18053}
+    width: 15
+  - name: D2_L2_W4 / Exploration rejoin
+    passage: 4
+    from: {x: 47.794075, y: 147, z: 168.18053}
+    to: {x: 42.365376, y: 147, z: 147.89435}
+    width: 7
+  - name: D2_L2_W5 / Open circulation floor
+    passage: 0
+    from: {x: -34.56, y: 154, z: 168.48001}
+    to: {x: -105.9264, y: 154, z: 103.161606}
+    width: 16
+  - name: D2_L2_W5 / Ascending circulation
+    passage: 1
+    from: {x: -105.9264, y: 154, z: 103.161606}
+    to: {x: -141.6096, y: 161, z: 70.50241}
+    width: 11.2
+  - name: D2_L2_W5 / Upper terrace sprint
+    passage: 0
+    from: {x: -141.6096, y: 161, z: 70.50241}
+    to: {x: -162, y: 161, z: 51.840004}
+    width: 16
+  - name: D2_L2_W6 / Gallery approach
+    passage: 0
+    from: {x: -162, y: 161, z: 51.840004}
+    to: {x: -156.99721, y: 161, z: -0.77921283}
+    width: 18
+  - name: D2_L2_W6 / Broken expansion joint
+    passage: 2
+    from: {x: -156.99721, y: 161, z: -0.77921283}
+    to: {x: -156.69432, y: 161, z: -3.964847}
+    width: 18
+  - name: D2_L2_W6 / Gallery landing
+    passage: 0
+    from: {x: -156.69432, y: 161, z: -3.964847}
+    to: {x: -153.264, y: 161, z: -40.044804}
+    width: 18
+  - name: D2_L2_W6 / Lower roof recovery ramp
+    passage: 6
+    from: {x: -169.35977, y: 156, z: 2.46525}
+    to: {x: -167.18286, y: 161, z: -20.431498}
+    width: 4
+  - name: D2_L2_W6 / Recovery elbow
+    passage: 6
+    from: {x: -167.18286, y: 161, z: -20.431498}
+    to: {x: -166.99356, y: 161, z: -22.42252}
+    width: 4
+  - name: D2_L2_W6 / Recovery rejoin
+    passage: 6
+    from: {x: -166.99356, y: 161, z: -22.42252}
+    to: {x: -155.04742, y: 161, z: -21.286736}
+    width: 4
+  - name: D2_L2_W6 / Ascending circulation
+    passage: 1
+    from: {x: -153.264, y: 161, z: -40.044804}
+    to: {x: -148.89601, y: 168, z: -85.9872}
+    width: 12.599999
+  - name: D2_L2_W6 / Upper terrace sprint
+    passage: 0
+    from: {x: -148.89601, y: 168, z: -85.9872}
+    to: {x: -146.40001, y: 168, z: -112.240005}
+    width: 18
+  - name: D2_L2_W6 / Loading lintel slide
+    passage: 3
+    from: {x: -167.63214, y: 161, z: 25.498928}
+    to: {x: -167.02638, y: 161, z: 19.127657}
+    width: 2.8
+  - name: D2_service_spine / Maintenance access
+    passage: 5
+    from: {x: -129.6, y: 84, z: -99.36}
+    to: {x: -147.08582, y: 84, z: -129.1467}
+    width: 2.2
+  - name: D2_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -147.08582, y: 84, z: -129.1467}
+    to: {x: -162.90503, y: 91, z: -108.51293}
+    width: 1.5
+  - name: D2_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -162.90503, y: 91, z: -108.51293}
+    to: {x: -167.74602, y: 91, z: -112.224365}
+    width: 2.3
+  - name: D2_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -167.74602, y: 91, z: -112.224365}
+    to: {x: -170.76172, y: 91, z: -114.53641}
+    width: 2.3
+  - name: D2_service_spine / Service landing exit
+    passage: 5
+    from: {x: -170.76172, y: 91, z: -114.53641}
+    to: {x: -175.60274, y: 91, z: -118.24783}
+    width: 2.3
+  - name: D2_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -175.60274, y: 91, z: -118.24783}
+    to: {x: -159.78351, y: 98, z: -138.88159}
+    width: 1.5
+  - name: D2_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -159.78351, y: 98, z: -138.88159}
+    to: {x: -154.94252, y: 98, z: -135.17015}
+    width: 2.3
+  - name: D2_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -154.94252, y: 98, z: -135.17015}
+    to: {x: -151.92682, y: 98, z: -132.85811}
+    width: 2.3
+  - name: D2_service_spine / Service landing exit
+    passage: 5
+    from: {x: -151.92682, y: 98, z: -132.85811}
+    to: {x: -147.0858, y: 98, z: -129.14668}
+    width: 2.3
+  - name: D2_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -147.0858, y: 98, z: -129.14668}
+    to: {x: -162.90503, y: 105, z: -108.51293}
+    width: 1.5
+  - name: D2_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -162.90503, y: 105, z: -108.51293}
+    to: {x: -167.74602, y: 105, z: -112.224365}
+    width: 2.3
+  - name: D2_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -167.74602, y: 105, z: -112.224365}
+    to: {x: -170.76172, y: 105, z: -114.53641}
+    width: 2.3
+  - name: D2_service_spine / Service landing exit
+    passage: 5
+    from: {x: -170.76172, y: 105, z: -114.53641}
+    to: {x: -175.60274, y: 105, z: -118.24783}
+    width: 2.3
+  - name: D2_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -175.60274, y: 105, z: -118.24783}
+    to: {x: -159.78351, y: 112, z: -138.88159}
+    width: 1.5
+  - name: D2_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -159.78351, y: 112, z: -138.88159}
+    to: {x: -154.94252, y: 112, z: -135.17015}
+    width: 2.3
+  - name: D2_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -154.94252, y: 112, z: -135.17015}
+    to: {x: -151.92682, y: 112, z: -132.85811}
+    width: 2.3
+  - name: D2_service_spine / Service landing exit
+    passage: 5
+    from: {x: -151.92682, y: 112, z: -132.85811}
+    to: {x: -147.0858, y: 112, z: -129.14668}
+    width: 2.3
+  - name: D2_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -147.0858, y: 112, z: -129.14668}
+    to: {x: -162.90503, y: 119, z: -108.51293}
+    width: 1.5
+  - name: D2_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -162.90503, y: 119, z: -108.51293}
+    to: {x: -167.74602, y: 119, z: -112.224365}
+    width: 2.3
+  - name: D2_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -167.74602, y: 119, z: -112.224365}
+    to: {x: -170.76172, y: 119, z: -114.53641}
+    width: 2.3
+  - name: D2_service_spine / Service landing exit
+    passage: 5
+    from: {x: -170.76172, y: 119, z: -114.53641}
+    to: {x: -175.60274, y: 119, z: -118.24783}
+    width: 2.3
+  - name: D2_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -175.60274, y: 119, z: -118.24783}
+    to: {x: -159.78351, y: 126, z: -138.88159}
+    width: 1.5
+  - name: D2_service_spine / Maintenance upper rejoin
+    passage: 5
+    from: {x: -159.78351, y: 126, z: -138.88159}
+    to: {x: -129.6, y: 126, z: -99.36}
+    width: 2.2
+  - name: D3_L1_W1 / Open circulation floor
+    passage: 0
+    from: {x: -146.40001, y: 168, z: -112.240005}
+    to: {x: -35.721603, y: 168, z: -148.4496}
+    width: 23
+  - name: D3_L1_W1 / Ascending circulation
+    passage: 1
+    from: {x: -35.721603, y: 168, z: -148.4496}
+    to: {x: 19.617596, y: 175, z: -166.55441}
+    width: 16.1
+  - name: D3_L1_W1 / Upper terrace sprint
+    passage: 0
+    from: {x: 19.617596, y: 175, z: -166.55441}
+    to: {x: 51.24, y: 175, z: -176.90001}
+    width: 23
+  - name: D3_L1_W1 / Exploration entrance
+    passage: 4
+    from: {x: -135.33217, y: 168, z: -115.86096}
+    to: {x: -143.2612, y: 168, z: -140.0969}
+    width: 7
+  - name: D3_L1_W1 / Exploration gallery
+    passage: 4
+    from: {x: -143.2612, y: 168, z: -140.0969}
+    to: {x: -55.825268, y: 168, z: -168.70247}
+    width: 15
+  - name: D3_L1_W1 / Exploration rejoin
+    passage: 4
+    from: {x: -55.825268, y: 168, z: -168.70247}
+    to: {x: -47.89623, y: 168, z: -144.46654}
+    width: 7
+  - name: D3_L1_W2 / Gallery approach
+    passage: 0
+    from: {x: 51.24, y: 175, z: -176.90001}
+    to: {x: 93.5275, y: 175, z: -142.83507}
+    width: 25
+  - name: D3_L1_W2 / Broken expansion joint
+    passage: 2
+    from: {x: 93.5275, y: 175, z: -142.83507}
+    to: {x: 96.019516, y: 175, z: -140.82762}
+    width: 25
+  - name: D3_L1_W2 / Gallery landing
+    passage: 0
+    from: {x: 96.019516, y: 175, z: -140.82762}
+    to: {x: 125.025604, y: 175, z: -117.4616}
+    width: 25
+  - name: D3_L1_W2 / Lower roof recovery ramp
+    passage: 6
+    from: {x: 99.82459, y: 170, z: -157.666}
+    to: {x: 117.73593, y: 175, z: -143.23743}
+    width: 4
+  - name: D3_L1_W2 / Recovery elbow
+    passage: 6
+    from: {x: 117.73593, y: 175, z: -143.23743}
+    to: {x: 119.29344, y: 175, z: -141.98277}
+    width: 4
+  - name: D3_L1_W2 / Recovery rejoin
+    passage: 6
+    from: {x: 119.29344, y: 175, z: -141.98277}
+    to: {x: 109.56983, y: 175, z: -129.9121}
+    width: 4
+  - name: D3_L1_W2 / Ascending circulation
+    passage: 1
+    from: {x: 125.025604, y: 175, z: -117.4616}
+    to: {x: 161.9184, y: 182, z: -87.74241}
+    width: 17.5
+  - name: D3_L1_W2 / Upper terrace sprint
+    passage: 0
+    from: {x: 161.9184, y: 182, z: -87.74241}
+    to: {x: 183, y: 182, z: -70.76}
+    width: 25
+  - name: D3_L1_W3 / Open circulation floor
+    passage: 0
+    from: {x: 183, y: 182, z: -70.76}
+    to: {x: 155.672, y: 182, z: 49.483204}
+    width: 27
+  - name: D3_L1_W3 / Ascending circulation
+    passage: 1
+    from: {x: 155.672, y: 182, z: 49.483204}
+    to: {x: 142.008, y: 189, z: 109.6048}
+    width: 18.9
+  - name: D3_L1_W3 / Upper terrace sprint
+    passage: 0
+    from: {x: 142.008, y: 189, z: 109.6048}
+    to: {x: 134.2, y: 189, z: 143.96}
+    width: 27
+  - name: D3_L1_W3 / Loading lintel slide
+    passage: 3
+    from: {x: 187.53152, y: 182, z: -33.844875}
+    to: {x: 186.11316, y: 182, z: -27.604027}
+    width: 2.8
+  - name: D3_L1_W4 / Open circulation floor
+    passage: 0
+    from: {x: 134.2, y: 189, z: 143.96}
+    to: {x: 37.185596, y: 189, z: 169.9216}
+    width: 23
+  - name: D3_L1_W4 / Ascending circulation
+    passage: 1
+    from: {x: 37.185596, y: 189, z: 169.9216}
+    to: {x: -11.321597, y: 196, z: 182.9024}
+    width: 16.1
+  - name: D3_L1_W4 / Upper terrace sprint
+    passage: 0
+    from: {x: -11.321597, y: 196, z: 182.9024}
+    to: {x: -39.04, y: 196, z: 190.32}
+    width: 23
+  - name: D3_L1_W4 / Exploration entrance
+    passage: 4
+    from: {x: 124.49856, y: 189, z: 146.55617}
+    to: {x: 131.09055, y: 189, z: 171.18939}
+    width: 7
+  - name: D3_L1_W4 / Exploration gallery
+    passage: 4
+    from: {x: 131.09055, y: 189, z: 171.18939}
+    to: {x: 54.449173, y: 189, z: 191.69905}
+    width: 15
+  - name: D3_L1_W4 / Exploration rejoin
+    passage: 4
+    from: {x: 54.449173, y: 189, z: 191.69905}
+    to: {x: 47.85718, y: 189, z: 167.06583}
+    width: 7
+  - name: D3_L1_W5 / Gallery approach
+    passage: 0
+    from: {x: -39.04, y: 196, z: 190.32}
+    to: {x: -85.42411, y: 196, z: 147.86674}
+    width: 25
+  - name: D3_L1_W5 / Broken expansion joint
+    passage: 2
+    from: {x: -85.42411, y: 196, z: 147.86674}
+    to: {x: -87.78466, y: 196, z: 145.70625}
+    width: 25
+  - name: D3_L1_W5 / Gallery landing
+    passage: 0
+    from: {x: -87.78466, y: 196, z: 145.70625}
+    to: {x: -119.6576, y: 196, z: 116.5344}
+    width: 25
+  - name: D3_L1_W5 / Lower roof recovery ramp
+    passage: 6
+    from: {x: -92.643295, y: 191, z: 162.27138}
+    to: {x: -109.60977, y: 196, z: 146.74274}
+    width: 4
+  - name: D3_L1_W5 / Recovery elbow
+    passage: 6
+    from: {x: -109.60977, y: 196, z: 146.74274}
+    to: {x: -111.08512, y: 196, z: 145.39243}
+    width: 4
+  - name: D3_L1_W5 / Recovery rejoin
+    passage: 6
+    from: {x: -111.08512, y: 196, z: 145.39243}
+    to: {x: -100.62017, y: 196, z: 133.9585}
+    width: 4
+  - name: D3_L1_W5 / Ascending circulation
+    passage: 1
+    from: {x: -119.6576, y: 196, z: 116.5344}
+    to: {x: -159.9664, y: 203, z: 79.64161}
+    width: 17.5
+  - name: D3_L1_W5 / Upper terrace sprint
+    passage: 0
+    from: {x: -159.9664, y: 203, z: 79.64161}
+    to: {x: -183, y: 203, z: 58.56}
+    width: 25
+  - name: D3_L1_W6 / Open circulation floor
+    passage: 0
+    from: {x: -183, y: 203, z: 58.56}
+    to: {x: -162.504, y: 203, z: -37.088}
+    width: 27
+  - name: D3_L1_W6 / Ascending circulation
+    passage: 1
+    from: {x: -162.504, y: 203, z: -37.088}
+    to: {x: -152.25601, y: 210, z: -84.912}
+    width: 18.9
+  - name: D3_L1_W6 / Upper terrace sprint
+    passage: 0
+    from: {x: -152.25601, y: 210, z: -84.912}
+    to: {x: -146.40001, y: 210, z: -112.240005}
+    width: 27
+  - name: D3_L1_W6 / Loading lintel slide
+    passage: 3
+    from: {x: -189.59056, y: 203, z: 29.181137}
+    to: {x: -188.24959, y: 203, z: 22.923203}
+    width: 2.8
+  - name: D3_L2_W1 / Open circulation floor
+    passage: 0
+    from: {x: -146.40001, y: 210, z: -112.240005}
+    to: {x: -35.721603, y: 210, z: -148.4496}
+    width: 23
+  - name: D3_L2_W1 / Ascending circulation
+    passage: 1
+    from: {x: -35.721603, y: 210, z: -148.4496}
+    to: {x: 19.617596, y: 217, z: -166.55441}
+    width: 16.1
+  - name: D3_L2_W1 / Upper terrace sprint
+    passage: 0
+    from: {x: 19.617596, y: 217, z: -166.55441}
+    to: {x: 51.24, y: 217, z: -176.90001}
+    width: 23
+  - name: D3_L2_W1 / Exploration entrance
+    passage: 4
+    from: {x: -135.33217, y: 210, z: -115.86096}
+    to: {x: -143.2612, y: 210, z: -140.0969}
+    width: 7
+  - name: D3_L2_W1 / Exploration gallery
+    passage: 4
+    from: {x: -143.2612, y: 210, z: -140.0969}
+    to: {x: -55.825268, y: 210, z: -168.70247}
+    width: 15
+  - name: D3_L2_W1 / Exploration rejoin
+    passage: 4
+    from: {x: -55.825268, y: 210, z: -168.70247}
+    to: {x: -47.89623, y: 210, z: -144.46654}
+    width: 7
+  - name: D3_L2_W2 / Open circulation floor
+    passage: 0
+    from: {x: 51.24, y: 217, z: -176.90001}
+    to: {x: 125.025604, y: 217, z: -117.4616}
+    width: 25
+  - name: D3_L2_W2 / Ascending circulation
+    passage: 1
+    from: {x: 125.025604, y: 217, z: -117.4616}
+    to: {x: 161.9184, y: 224, z: -87.74241}
+    width: 17.5
+  - name: D3_L2_W2 / Upper terrace sprint
+    passage: 0
+    from: {x: 161.9184, y: 224, z: -87.74241}
+    to: {x: 183, y: 224, z: -70.76}
+    width: 25
+  - name: D3_L2_W3 / Gallery approach
+    passage: 0
+    from: {x: 183, y: 224, z: -70.76}
+    to: {x: 167.23108, y: 224, z: -1.3767264}
+    width: 27
+  - name: D3_L2_W3 / Broken expansion joint
+    passage: 2
+    from: {x: 167.23108, y: 224, z: -1.3767264}
+    to: {x: 166.52188, y: 224, z: 1.7436988}
+    width: 27
+  - name: D3_L2_W3 / Gallery landing
+    passage: 0
+    from: {x: 166.52188, y: 224, z: 1.7436988}
+    to: {x: 155.672, y: 224, z: 49.483204}
+    width: 27
+  - name: D3_L2_W3 / Lower roof recovery ramp
+    passage: 6
+    from: {x: 184.2959, y: 219, z: -2.0105622}
+    to: {x: 179.19861, y: 224, z: 20.417494}
+    width: 4
+  - name: D3_L2_W3 / Recovery elbow
+    passage: 6
+    from: {x: 179.19861, y: 224, z: 20.417494}
+    to: {x: 178.75537, y: 224, z: 22.36776}
+    width: 4
+  - name: D3_L2_W3 / Recovery rejoin
+    passage: 6
+    from: {x: 178.75537, y: 224, z: 22.36776}
+    to: {x: 162.66568, y: 224, z: 18.711012}
+    width: 4
+  - name: D3_L2_W3 / Ascending circulation
+    passage: 1
+    from: {x: 155.672, y: 224, z: 49.483204}
+    to: {x: 142.008, y: 231, z: 109.6048}
+    width: 18.9
+  - name: D3_L2_W3 / Upper terrace sprint
+    passage: 0
+    from: {x: 142.008, y: 231, z: 109.6048}
+    to: {x: 134.2, y: 231, z: 143.96}
+    width: 27
+  - name: D3_L2_W3 / Loading lintel slide
+    passage: 3
+    from: {x: 187.53152, y: 224, z: -33.844875}
+    to: {x: 186.11316, y: 224, z: -27.604027}
+    width: 2.8
+  - name: D3_L2_W4 / Open circulation floor
+    passage: 0
+    from: {x: 134.2, y: 231, z: 143.96}
+    to: {x: 37.185596, y: 231, z: 169.9216}
+    width: 23
+  - name: D3_L2_W4 / Ascending circulation
+    passage: 1
+    from: {x: 37.185596, y: 231, z: 169.9216}
+    to: {x: -11.321597, y: 238, z: 182.9024}
+    width: 16.1
+  - name: D3_L2_W4 / Upper terrace sprint
+    passage: 0
+    from: {x: -11.321597, y: 238, z: 182.9024}
+    to: {x: -39.04, y: 238, z: 190.32}
+    width: 23
+  - name: D3_L2_W4 / Exploration entrance
+    passage: 4
+    from: {x: 124.49856, y: 231, z: 146.55617}
+    to: {x: 131.09055, y: 231, z: 171.18939}
+    width: 7
+  - name: D3_L2_W4 / Exploration gallery
+    passage: 4
+    from: {x: 131.09055, y: 231, z: 171.18939}
+    to: {x: 54.449173, y: 231, z: 191.69905}
+    width: 15
+  - name: D3_L2_W4 / Exploration rejoin
+    passage: 4
+    from: {x: 54.449173, y: 231, z: 191.69905}
+    to: {x: 47.85718, y: 231, z: 167.06583}
+    width: 7
+  - name: D3_L2_W5 / Open circulation floor
+    passage: 0
+    from: {x: -39.04, y: 238, z: 190.32}
+    to: {x: -119.6576, y: 238, z: 116.5344}
+    width: 25
+  - name: D3_L2_W5 / Ascending circulation
+    passage: 1
+    from: {x: -119.6576, y: 238, z: 116.5344}
+    to: {x: -159.9664, y: 245, z: 79.64161}
+    width: 17.5
+  - name: D3_L2_W5 / Upper terrace sprint
+    passage: 0
+    from: {x: -159.9664, y: 245, z: 79.64161}
+    to: {x: -183, y: 245, z: 58.56}
+    width: 25
+  - name: D3_L2_W6 / Gallery approach
+    passage: 0
+    from: {x: -183, y: 245, z: 58.56}
+    to: {x: -162.03592, y: 245, z: 10.887551}
+    width: 27
+  - name: D3_L2_W6 / Broken expansion joint
+    passage: 2
+    from: {x: -162.03592, y: 245, z: 10.887551}
+    to: {x: -160.74777, y: 245, z: 7.958276}
+    width: 27
+  - name: D3_L2_W6 / Gallery landing
+    passage: 0
+    from: {x: -160.74777, y: 245, z: 7.958276}
+    to: {x: -146.376, y: 245, z: -24.723202}
+    width: 27
+  - name: D3_L2_W6 / Lower roof recovery ramp
+    passage: 6
+    from: {x: -178.91122, y: 240, z: 8.273249}
+    to: {x: -169.6526, y: 245, z: -12.780917}
+    width: 4
+  - name: D3_L2_W6 / Recovery elbow
+    passage: 6
+    from: {x: -169.6526, y: 245, z: -12.780917}
+    to: {x: -168.8475, y: 245, z: -14.611714}
+    width: 4
+  - name: D3_L2_W6 / Recovery rejoin
+    passage: 6
+    from: {x: -168.8475, y: 245, z: -14.611714}
+    to: {x: -153.74342, y: 245, z: -7.969659}
+    width: 4
+  - name: D3_L2_W6 / Ascending circulation
+    passage: 1
+    from: {x: -146.376, y: 245, z: -24.723202}
+    to: {x: -128.06401, y: 252, z: -66.3648}
+    width: 18.9
+  - name: D3_L2_W6 / Upper terrace sprint
+    passage: 0
+    from: {x: -128.06401, y: 252, z: -66.3648}
+    to: {x: -117.600006, y: 252, z: -90.16}
+    width: 27
+  - name: D3_L2_W6 / Loading lintel slide
+    passage: 3
+    from: {x: -184.35193, y: 245, z: 30.333721}
+    to: {x: -181.77562, y: 245, z: 24.47517}
+    width: 2.8
+  - name: D3_service_spine / Maintenance access
+    passage: 5
+    from: {x: -146.40001, y: 168, z: -112.240005}
+    to: {x: -163.8858, y: 168, z: -142.0267}
+    width: 2.2
+  - name: D3_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -163.8858, y: 168, z: -142.0267}
+    to: {x: -179.70502, y: 175, z: -121.39294}
+    width: 1.5
+  - name: D3_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -179.70502, y: 175, z: -121.39294}
+    to: {x: -184.546, y: 175, z: -125.10437}
+    width: 2.3
+  - name: D3_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -184.546, y: 175, z: -125.10437}
+    to: {x: -187.5617, y: 175, z: -127.41641}
+    width: 2.3
+  - name: D3_service_spine / Service landing exit
+    passage: 5
+    from: {x: -187.5617, y: 175, z: -127.41641}
+    to: {x: -192.40273, y: 175, z: -131.12784}
+    width: 2.3
+  - name: D3_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -192.40273, y: 175, z: -131.12784}
+    to: {x: -176.5835, y: 182, z: -151.7616}
+    width: 1.5
+  - name: D3_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -176.5835, y: 182, z: -151.7616}
+    to: {x: -171.74251, y: 182, z: -148.05016}
+    width: 2.3
+  - name: D3_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -171.74251, y: 182, z: -148.05016}
+    to: {x: -168.7268, y: 182, z: -145.73811}
+    width: 2.3
+  - name: D3_service_spine / Service landing exit
+    passage: 5
+    from: {x: -168.7268, y: 182, z: -145.73811}
+    to: {x: -163.88579, y: 182, z: -142.02669}
+    width: 2.3
+  - name: D3_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -163.88579, y: 182, z: -142.02669}
+    to: {x: -179.70502, y: 189, z: -121.39294}
+    width: 1.5
+  - name: D3_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -179.70502, y: 189, z: -121.39294}
+    to: {x: -184.546, y: 189, z: -125.10437}
+    width: 2.3
+  - name: D3_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -184.546, y: 189, z: -125.10437}
+    to: {x: -187.5617, y: 189, z: -127.41641}
+    width: 2.3
+  - name: D3_service_spine / Service landing exit
+    passage: 5
+    from: {x: -187.5617, y: 189, z: -127.41641}
+    to: {x: -192.40273, y: 189, z: -131.12784}
+    width: 2.3
+  - name: D3_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -192.40273, y: 189, z: -131.12784}
+    to: {x: -176.5835, y: 196, z: -151.7616}
+    width: 1.5
+  - name: D3_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -176.5835, y: 196, z: -151.7616}
+    to: {x: -171.74251, y: 196, z: -148.05016}
+    width: 2.3
+  - name: D3_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -171.74251, y: 196, z: -148.05016}
+    to: {x: -168.7268, y: 196, z: -145.73811}
+    width: 2.3
+  - name: D3_service_spine / Service landing exit
+    passage: 5
+    from: {x: -168.7268, y: 196, z: -145.73811}
+    to: {x: -163.88579, y: 196, z: -142.02669}
+    width: 2.3
+  - name: D3_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -163.88579, y: 196, z: -142.02669}
+    to: {x: -179.70502, y: 203, z: -121.39294}
+    width: 1.5
+  - name: D3_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -179.70502, y: 203, z: -121.39294}
+    to: {x: -184.546, y: 203, z: -125.10437}
+    width: 2.3
+  - name: D3_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -184.546, y: 203, z: -125.10437}
+    to: {x: -187.5617, y: 203, z: -127.41641}
+    width: 2.3
+  - name: D3_service_spine / Service landing exit
+    passage: 5
+    from: {x: -187.5617, y: 203, z: -127.41641}
+    to: {x: -192.40273, y: 203, z: -131.12784}
+    width: 2.3
+  - name: D3_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -192.40273, y: 203, z: -131.12784}
+    to: {x: -176.5835, y: 210, z: -151.7616}
+    width: 1.5
+  - name: D3_service_spine / Maintenance upper rejoin
+    passage: 5
+    from: {x: -176.5835, y: 210, z: -151.7616}
+    to: {x: -146.40001, y: 210, z: -112.240005}
+    width: 2.2
+  - name: D4_L1_W1 / Open circulation floor
+    passage: 0
+    from: {x: -117.600006, y: 252, z: -90.16}
+    to: {x: -28.694403, y: 252, z: -119.24641}
+    width: 7
+  - name: D4_L1_W1 / Ascending circulation
+    passage: 1
+    from: {x: -28.694403, y: 252, z: -119.24641}
+    to: {x: 15.758395, y: 259, z: -133.78961}
+    width: 4.9
+  - name: D4_L1_W1 / Upper terrace sprint
+    passage: 0
+    from: {x: 15.758395, y: 259, z: -133.78961}
+    to: {x: 41.16, y: 259, z: -142.1}
+    width: 7
+  - name: D4_L1_W1 / Exploration entrance
+    passage: 4
+    from: {x: -108.70944, y: 252, z: -93.06864}
+    to: {x: -114.15094, y: 252, z: -109.70114}
+    width: 7
+  - name: D4_L1_W1 / Exploration gallery
+    passage: 4
+    from: {x: -114.15094, y: 252, z: -109.70114}
+    to: {x: -43.91552, y: 252, z: -132.67941}
+    width: 15
+  - name: D4_L1_W1 / Exploration rejoin
+    passage: 4
+    from: {x: -43.91552, y: 252, z: -132.67941}
+    to: {x: -38.474022, y: 252, z: -116.046906}
+    width: 7
+  - name: D4_L1_W2 / Gallery approach
+    passage: 0
+    from: {x: 41.16, y: 259, z: -142.1}
+    to: {x: 74.88352, y: 259, z: -114.93383}
+    width: 9
+  - name: D4_L1_W2 / Broken expansion joint
+    passage: 2
+    from: {x: 74.88352, y: 259, z: -114.93383}
+    to: {x: 77.37554, y: 259, z: -112.92637}
+    width: 9
+  - name: D4_L1_W2 / Gallery landing
+    passage: 0
+    from: {x: 77.37554, y: 259, z: -112.92637}
+    to: {x: 100.4304, y: 259, z: -94.3544}
+    width: 9
+  - name: D4_L1_W2 / Lower roof recovery ramp
+    passage: 6
+    from: {x: 76.16198, y: 254, z: -123.53473}
+    to: {x: 94.07332, y: 259, z: -109.10615}
+    width: 4
+  - name: D4_L1_W2 / Recovery elbow
+    passage: 6
+    from: {x: 94.07332, y: 259, z: -109.10615}
+    to: {x: 95.63083, y: 259, z: -107.85149}
+    width: 4
+  - name: D4_L1_W2 / Recovery rejoin
+    passage: 6
+    from: {x: 95.63083, y: 259, z: -107.85149}
+    to: {x: 90.92586, y: 259, z: -102.01083}
+    width: 4
+  - name: D4_L1_W2 / Ascending circulation
+    passage: 1
+    from: {x: 100.4304, y: 259, z: -94.3544}
+    to: {x: 130.0656, y: 266, z: -70.481606}
+    width: 6.2999997
+  - name: D4_L1_W2 / Upper terrace sprint
+    passage: 0
+    from: {x: 130.0656, y: 266, z: -70.481606}
+    to: {x: 147, y: 266, z: -56.84}
+    width: 9
+  - name: D4_L1_W3 / Open circulation floor
+    passage: 0
+    from: {x: 147, y: 266, z: -56.84}
+    to: {x: 125.048004, y: 266, z: 39.7488}
+    width: 11
+  - name: D4_L1_W3 / Ascending circulation
+    passage: 1
+    from: {x: 125.048004, y: 266, z: 39.7488}
+    to: {x: 114.07201, y: 273, z: 88.0432}
+    width: 7.7
+  - name: D4_L1_W3 / Upper terrace sprint
+    passage: 0
+    from: {x: 114.07201, y: 273, z: 88.0432}
+    to: {x: 107.8, y: 273, z: 115.64}
+    width: 11
+  - name: D4_L1_W3 / Loading lintel slide
+    passage: 3
+    from: {x: 145.34325, y: 266, z: -28.794168}
+    to: {x: 143.92488, y: 266, z: -22.553318}
+    width: 2.8
+  - name: D4_L1_W4 / Open circulation floor
+    passage: 0
+    from: {x: 107.8, y: 273, z: 115.64}
+    to: {x: 29.870401, y: 273, z: 136.4944}
+    width: 7
+  - name: D4_L1_W4 / Ascending circulation
+    passage: 1
+    from: {x: 29.870401, y: 273, z: 136.4944}
+    to: {x: -9.094397, y: 280, z: 146.9216}
+    width: 4.9
+  - name: D4_L1_W4 / Upper terrace sprint
+    passage: 0
+    from: {x: -9.094397, y: 280, z: 146.9216}
+    to: {x: -31.36, y: 280, z: 152.88}
+    width: 7
+  - name: D4_L1_W4 / Exploration entrance
+    passage: 4
+    from: {x: 100.00704, y: 273, z: 117.72544}
+    to: {x: 104.53096, y: 273, z: 134.6306}
+    width: 7
+  - name: D4_L1_W4 / Exploration gallery
+    passage: 4
+    from: {x: 104.53096, y: 273, z: 134.6306}
+    to: {x: 42.96657, y: 273, z: 151.10556}
+    width: 15
+  - name: D4_L1_W4 / Exploration rejoin
+    passage: 4
+    from: {x: 42.96657, y: 273, z: 151.10556}
+    to: {x: 38.442657, y: 273, z: 134.20041}
+    width: 7
+  - name: D4_L1_W5 / Gallery approach
+    passage: 0
+    from: {x: -31.36, y: 280, z: 152.88}
+    to: {x: -68.38718, y: 280, z: 118.99072}
+    width: 9
+  - name: D4_L1_W5 / Broken expansion joint
+    passage: 2
+    from: {x: -68.38718, y: 280, z: 118.99072}
+    to: {x: -70.74773, y: 280, z: 116.830215}
+    width: 9
+  - name: D4_L1_W5 / Gallery landing
+    passage: 0
+    from: {x: -70.74773, y: 280, z: 116.830215}
+    to: {x: -96.1184, y: 280, z: 93.609604}
+    width: 9
+  - name: D4_L1_W5 / Lower roof recovery ramp
+    passage: 6
+    from: {x: -70.2051, y: 275, z: 127.493965}
+    to: {x: -87.171585, y: 280, z: 111.965324}
+    width: 4
+  - name: D4_L1_W5 / Recovery elbow
+    passage: 6
+    from: {x: -87.171585, y: 280, z: 111.965324}
+    to: {x: -88.646935, y: 280, z: 110.615005}
+    width: 4
+  - name: D4_L1_W5 / Recovery rejoin
+    passage: 6
+    from: {x: -88.646935, y: 280, z: 110.615005}
+    to: {x: -83.583244, y: 280, z: 105.08246}
+    width: 4
+  - name: D4_L1_W5 / Ascending circulation
+    passage: 1
+    from: {x: -96.1184, y: 280, z: 93.609604}
+    to: {x: -128.4976, y: 287, z: 63.974403}
+    width: 6.2999997
+  - name: D4_L1_W5 / Upper terrace sprint
+    passage: 0
+    from: {x: -128.4976, y: 287, z: 63.974403}
+    to: {x: -147, y: 287, z: 47.04}
+    width: 9
+  - name: D4_L1_W6 / Open circulation floor
+    passage: 0
+    from: {x: -147, y: 287, z: 47.04}
+    to: {x: -130.53601, y: 287, z: -29.792002}
+    width: 11
+  - name: D4_L1_W6 / Ascending circulation
+    passage: 1
+    from: {x: -130.53601, y: 287, z: -29.792002}
+    to: {x: -122.30401, y: 294, z: -68.208}
+    width: 7.7
+  - name: D4_L1_W6 / Upper terrace sprint
+    passage: 0
+    from: {x: -122.30401, y: 294, z: -68.208}
+    to: {x: -117.600006, y: 294, z: -90.16}
+    width: 11
+  - name: D4_L1_W6 / Loading lintel slide
+    passage: 3
+    from: {x: -146.97775, y: 287, z: 24.98217}
+    to: {x: -145.63678, y: 287, z: 18.724236}
+    width: 2.8
+  - name: D4_L2_W1 / Open circulation floor
+    passage: 0
+    from: {x: -117.600006, y: 294, z: -90.16}
+    to: {x: -28.694403, y: 294, z: -119.24641}
+    width: 7
+  - name: D4_L2_W1 / Ascending circulation
+    passage: 1
+    from: {x: -28.694403, y: 294, z: -119.24641}
+    to: {x: 15.758395, y: 301, z: -133.78961}
+    width: 4.9
+  - name: D4_L2_W1 / Upper terrace sprint
+    passage: 0
+    from: {x: 15.758395, y: 301, z: -133.78961}
+    to: {x: 41.16, y: 301, z: -142.1}
+    width: 7
+  - name: D4_L2_W1 / Exploration entrance
+    passage: 4
+    from: {x: -108.70944, y: 294, z: -93.06864}
+    to: {x: -114.15094, y: 294, z: -109.70114}
+    width: 7
+  - name: D4_L2_W1 / Exploration gallery
+    passage: 4
+    from: {x: -114.15094, y: 294, z: -109.70114}
+    to: {x: -43.91552, y: 294, z: -132.67941}
+    width: 15
+  - name: D4_L2_W1 / Exploration rejoin
+    passage: 4
+    from: {x: -43.91552, y: 294, z: -132.67941}
+    to: {x: -38.474022, y: 294, z: -116.046906}
+    width: 7
+  - name: D4_L2_W2 / Open circulation floor
+    passage: 0
+    from: {x: 41.16, y: 301, z: -142.1}
+    to: {x: 100.4304, y: 301, z: -94.3544}
+    width: 9
+  - name: D4_L2_W2 / Ascending circulation
+    passage: 1
+    from: {x: 100.4304, y: 301, z: -94.3544}
+    to: {x: 130.0656, y: 308, z: -70.481606}
+    width: 6.2999997
+  - name: D4_L2_W2 / Upper terrace sprint
+    passage: 0
+    from: {x: 130.0656, y: 308, z: -70.481606}
+    to: {x: 147, y: 308, z: -56.84}
+    width: 9
+  - name: D4_L2_W3 / Gallery approach
+    passage: 0
+    from: {x: 147, y: 308, z: -56.84}
+    to: {x: 134.40292, y: 308, z: -1.412824}
+    width: 11
+  - name: D4_L2_W3 / Broken expansion joint
+    passage: 2
+    from: {x: 134.40292, y: 308, z: -1.412824}
+    to: {x: 133.69373, y: 308, z: 1.707601}
+    width: 11
+  - name: D4_L2_W3 / Gallery landing
+    passage: 0
+    from: {x: 133.69373, y: 308, z: 1.707601}
+    to: {x: 125.048004, y: 308, z: 39.7488}
+    width: 11
+  - name: D4_L2_W3 / Lower roof recovery ramp
+    passage: 6
+    from: {x: 143.66669, y: 303, z: -3.8196292}
+    to: {x: 138.5694, y: 308, z: 18.608425}
+    width: 4
+  - name: D4_L2_W3 / Recovery elbow
+    passage: 6
+    from: {x: 138.5694, y: 308, z: 18.608425}
+    to: {x: 138.12616, y: 308, z: 20.558691}
+    width: 4
+  - name: D4_L2_W3 / Recovery rejoin
+    passage: 6
+    from: {x: 138.12616, y: 308, z: 20.558691}
+    to: {x: 129.83752, y: 308, z: 18.674911}
+    width: 4
+  - name: D4_L2_W3 / Ascending circulation
+    passage: 1
+    from: {x: 125.048004, y: 308, z: 39.7488}
+    to: {x: 114.07201, y: 315, z: 88.0432}
+    width: 7.7
+  - name: D4_L2_W3 / Upper terrace sprint
+    passage: 0
+    from: {x: 114.07201, y: 315, z: 88.0432}
+    to: {x: 107.8, y: 315, z: 115.64}
+    width: 11
+  - name: D4_L2_W3 / Loading lintel slide
+    passage: 3
+    from: {x: 145.34325, y: 308, z: -28.794168}
+    to: {x: 143.92488, y: 308, z: -22.553318}
+    width: 2.8
+  - name: D4_L2_W4 / Open circulation floor
+    passage: 0
+    from: {x: 107.8, y: 315, z: 115.64}
+    to: {x: 29.870401, y: 315, z: 136.4944}
+    width: 7
+  - name: D4_L2_W4 / Ascending circulation
+    passage: 1
+    from: {x: 29.870401, y: 315, z: 136.4944}
+    to: {x: -9.094397, y: 322, z: 146.9216}
+    width: 4.9
+  - name: D4_L2_W4 / Upper terrace sprint
+    passage: 0
+    from: {x: -9.094397, y: 322, z: 146.9216}
+    to: {x: -31.36, y: 322, z: 152.88}
+    width: 7
+  - name: D4_L2_W4 / Exploration entrance
+    passage: 4
+    from: {x: 100.00704, y: 315, z: 117.72544}
+    to: {x: 104.53096, y: 315, z: 134.6306}
+    width: 7
+  - name: D4_L2_W4 / Exploration gallery
+    passage: 4
+    from: {x: 104.53096, y: 315, z: 134.6306}
+    to: {x: 42.96657, y: 315, z: 151.10556}
+    width: 15
+  - name: D4_L2_W4 / Exploration rejoin
+    passage: 4
+    from: {x: 42.96657, y: 315, z: 151.10556}
+    to: {x: 38.442657, y: 315, z: 134.20041}
+    width: 7
+  - name: D4_L2_W5 / Open circulation floor
+    passage: 0
+    from: {x: -31.36, y: 322, z: 152.88}
+    to: {x: -96.1184, y: 322, z: 93.609604}
+    width: 9
+  - name: D4_L2_W5 / Ascending circulation
+    passage: 1
+    from: {x: -96.1184, y: 322, z: 93.609604}
+    to: {x: -128.4976, y: 329, z: 63.974403}
+    width: 6.2999997
+  - name: D4_L2_W5 / Upper terrace sprint
+    passage: 0
+    from: {x: -128.4976, y: 329, z: 63.974403}
+    to: {x: -147, y: 329, z: 47.04}
+    width: 9
+  - name: D4_L2_W6 / Gallery approach
+    passage: 0
+    from: {x: -147, y: 329, z: 47.04}
+    to: {x: -141.43987, y: 329, z: 0.25826}
+    width: 11
+  - name: D4_L2_W6 / Broken expansion joint
+    passage: 2
+    from: {x: -141.43987, y: 329, z: 0.25826}
+    to: {x: -141.06221, y: 329, z: -2.9193752}
+    width: 11
+  - name: D4_L2_W6 / Gallery landing
+    passage: 0
+    from: {x: -141.06221, y: 329, z: -2.9193752}
+    to: {x: -137.256, y: 329, z: -34.944}
+    width: 11
+  - name: D4_L2_W6 / Lower roof recovery ramp
+    passage: 6
+    from: {x: -150.39977, y: 324, z: 3.6243234}
+    to: {x: -147.68527, y: 329, z: -19.21493}
+    width: 4
+  - name: D4_L2_W6 / Recovery elbow
+    passage: 6
+    from: {x: -147.68527, y: 329, z: -19.21493}
+    to: {x: -147.44923, y: 329, z: -21.20095}
+    width: 4
+  - name: D4_L2_W6 / Recovery rejoin
+    passage: 6
+    from: {x: -147.44923, y: 329, z: -21.20095}
+    to: {x: -139.00864, y: 329, z: -20.197765}
+    width: 4
+  - name: D4_L2_W6 / Ascending circulation
+    passage: 1
+    from: {x: -137.256, y: 329, z: -34.944}
+    to: {x: -132.384, y: 336, z: -75.936}
+    width: 7.7
+  - name: D4_L2_W6 / Upper terrace sprint
+    passage: 0
+    from: {x: -132.384, y: 336, z: -75.936}
+    to: {x: -129.6, y: 336, z: -99.36}
+    width: 11
+  - name: D4_L2_W6 / Loading lintel slide
+    passage: 3
+    from: {x: -148.88069, y: 329, z: 23.88792}
+    to: {x: -148.12537, y: 329, z: 17.53265}
+    width: 2.8
+  - name: D4_service_spine / Maintenance access
+    passage: 5
+    from: {x: -117.600006, y: 252, z: -90.16}
+    to: {x: -135.08582, y: 252, z: -119.94669}
+    width: 2.2
+  - name: D4_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -135.08582, y: 252, z: -119.94669}
+    to: {x: -150.90503, y: 259, z: -99.312935}
+    width: 1.5
+  - name: D4_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -150.90503, y: 259, z: -99.312935}
+    to: {x: -155.74602, y: 259, z: -103.02437}
+    width: 2.3
+  - name: D4_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -155.74602, y: 259, z: -103.02437}
+    to: {x: -158.76172, y: 259, z: -105.33641}
+    width: 2.3
+  - name: D4_service_spine / Service landing exit
+    passage: 5
+    from: {x: -158.76172, y: 259, z: -105.33641}
+    to: {x: -163.60274, y: 259, z: -109.04784}
+    width: 2.3
+  - name: D4_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -163.60274, y: 259, z: -109.04784}
+    to: {x: -147.78351, y: 266, z: -129.6816}
+    width: 1.5
+  - name: D4_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -147.78351, y: 266, z: -129.6816}
+    to: {x: -142.94252, y: 266, z: -125.97016}
+    width: 2.3
+  - name: D4_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -142.94252, y: 266, z: -125.97016}
+    to: {x: -139.92682, y: 266, z: -123.65812}
+    width: 2.3
+  - name: D4_service_spine / Service landing exit
+    passage: 5
+    from: {x: -139.92682, y: 266, z: -123.65812}
+    to: {x: -135.0858, y: 266, z: -119.946686}
+    width: 2.3
+  - name: D4_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -135.0858, y: 266, z: -119.946686}
+    to: {x: -150.90503, y: 273, z: -99.312935}
+    width: 1.5
+  - name: D4_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -150.90503, y: 273, z: -99.312935}
+    to: {x: -155.74602, y: 273, z: -103.02437}
+    width: 2.3
+  - name: D4_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -155.74602, y: 273, z: -103.02437}
+    to: {x: -158.76172, y: 273, z: -105.33641}
+    width: 2.3
+  - name: D4_service_spine / Service landing exit
+    passage: 5
+    from: {x: -158.76172, y: 273, z: -105.33641}
+    to: {x: -163.60274, y: 273, z: -109.04784}
+    width: 2.3
+  - name: D4_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -163.60274, y: 273, z: -109.04784}
+    to: {x: -147.78351, y: 280, z: -129.6816}
+    width: 1.5
+  - name: D4_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -147.78351, y: 280, z: -129.6816}
+    to: {x: -142.94252, y: 280, z: -125.97016}
+    width: 2.3
+  - name: D4_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -142.94252, y: 280, z: -125.97016}
+    to: {x: -139.92682, y: 280, z: -123.65812}
+    width: 2.3
+  - name: D4_service_spine / Service landing exit
+    passage: 5
+    from: {x: -139.92682, y: 280, z: -123.65812}
+    to: {x: -135.0858, y: 280, z: -119.946686}
+    width: 2.3
+  - name: D4_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -135.0858, y: 280, z: -119.946686}
+    to: {x: -150.90503, y: 287, z: -99.312935}
+    width: 1.5
+  - name: D4_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -150.90503, y: 287, z: -99.312935}
+    to: {x: -155.74602, y: 287, z: -103.02437}
+    width: 2.3
+  - name: D4_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -155.74602, y: 287, z: -103.02437}
+    to: {x: -158.76172, y: 287, z: -105.33641}
+    width: 2.3
+  - name: D4_service_spine / Service landing exit
+    passage: 5
+    from: {x: -158.76172, y: 287, z: -105.33641}
+    to: {x: -163.60274, y: 287, z: -109.04784}
+    width: 2.3
+  - name: D4_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -163.60274, y: 287, z: -109.04784}
+    to: {x: -147.78351, y: 294, z: -129.6816}
+    width: 1.5
+  - name: D4_service_spine / Maintenance upper rejoin
+    passage: 5
+    from: {x: -147.78351, y: 294, z: -129.6816}
+    to: {x: -117.600006, y: 294, z: -90.16}
+    width: 2.2
+  - name: D5_L1_W1 / Open circulation floor
+    passage: 0
+    from: {x: -129.6, y: 336, z: -99.36}
+    to: {x: -31.622402, y: 336, z: -131.4144}
+    width: 17
+  - name: D5_L1_W1 / Ascending circulation
+    passage: 1
+    from: {x: -31.622402, y: 336, z: -131.4144}
+    to: {x: 17.366394, y: 343, z: -147.4416}
+    width: 11.9
+  - name: D5_L1_W1 / Upper terrace sprint
+    passage: 0
+    from: {x: 17.366394, y: 343, z: -147.4416}
+    to: {x: 45.36, y: 343, z: -156.6}
+    width: 17
+  - name: D5_L1_W1 / Exploration entrance
+    passage: 4
+    from: {x: -119.802246, y: 336, z: -102.56544}
+    to: {x: -126.798454, y: 336, z: -123.95008}
+    width: 7
+  - name: D5_L1_W1 / Exploration gallery
+    passage: 4
+    from: {x: -126.798454, y: 336, z: -123.95008}
+    to: {x: -49.396152, y: 336, z: -149.27306}
+    width: 15
+  - name: D5_L1_W1 / Exploration rejoin
+    passage: 4
+    from: {x: -49.396152, y: 336, z: -149.27306}
+    to: {x: -42.39994, y: 336, z: -127.88841}
+    width: 7
+  - name: D5_L1_W2 / Gallery approach
+    passage: 0
+    from: {x: 45.36, y: 343, z: -156.6}
+    to: {x: 82.65184, y: 343, z: -126.55936}
+    width: 19
+  - name: D5_L1_W2 / Broken expansion joint
+    passage: 2
+    from: {x: 82.65184, y: 343, z: -126.55936}
+    to: {x: 85.14386, y: 343, z: -124.551895}
+    width: 19
+  - name: D5_L1_W2 / Gallery landing
+    passage: 0
+    from: {x: 85.14386, y: 343, z: -124.551895}
+    to: {x: 110.6784, y: 343, z: -103.98241}
+    width: 19
+  - name: D5_L1_W2 / Lower roof recovery ramp
+    passage: 6
+    from: {x: 87.06695, y: 338, z: -139.05403}
+    to: {x: 104.97829, y: 343, z: -124.62544}
+    width: 4
+  - name: D5_L1_W2 / Recovery elbow
+    passage: 6
+    from: {x: 104.97829, y: 343, z: -124.62544}
+    to: {x: 106.5358, y: 343, z: -123.37078}
+    width: 4
+  - name: D5_L1_W2 / Recovery rejoin
+    passage: 6
+    from: {x: 106.5358, y: 343, z: -123.37078}
+    to: {x: 98.694176, y: 343, z: -113.63636}
+    width: 4
+  - name: D5_L1_W2 / Ascending circulation
+    passage: 1
+    from: {x: 110.6784, y: 343, z: -103.98241}
+    to: {x: 143.3376, y: 350, z: -77.67361}
+    width: 13.3
+  - name: D5_L1_W2 / Upper terrace sprint
+    passage: 0
+    from: {x: 143.3376, y: 350, z: -77.67361}
+    to: {x: 162, y: 350, z: -62.640003}
+    width: 19
+  - name: D5_L1_W3 / Open circulation floor
+    passage: 0
+    from: {x: 162, y: 350, z: -62.640003}
+    to: {x: 137.808, y: 350, z: 43.804802}
+    width: 21
+  - name: D5_L1_W3 / Ascending circulation
+    passage: 1
+    from: {x: 137.808, y: 350, z: 43.804802}
+    to: {x: 125.712006, y: 357, z: 97.0272}
+    width: 14.7
+  - name: D5_L1_W3 / Upper terrace sprint
+    passage: 0
+    from: {x: 125.712006, y: 357, z: 97.0272}
+    to: {x: 118.8, y: 357, z: 127.44}
+    width: 21
+  - name: D5_L1_W3 / Loading lintel slide
+    passage: 3
+    from: {x: 164.54692, y: 350, z: -30.529264}
+    to: {x: 163.12856, y: 350, z: -24.288414}
+    width: 2.8
+  - name: D5_L1_W4 / Open circulation floor
+    passage: 0
+    from: {x: 118.8, y: 357, z: 127.44}
+    to: {x: 32.9184, y: 357, z: 150.42241}
+    width: 17
+  - name: D5_L1_W4 / Ascending circulation
+    passage: 1
+    from: {x: 32.9184, y: 357, z: 150.42241}
+    to: {x: -10.022397, y: 364, z: 161.9136}
+    width: 11.9
+  - name: D5_L1_W4 / Upper terrace sprint
+    passage: 0
+    from: {x: -10.022397, y: 364, z: 161.9136}
+    to: {x: -34.56, y: 364, z: 168.48001}
+    width: 17
+  - name: D5_L1_W4 / Exploration entrance
+    passage: 4
+    from: {x: 110.211845, y: 357, z: 129.73825}
+    to: {x: 116.028305, y: 357, z: 151.47345}
+    width: 7
+  - name: D5_L1_W4 / Exploration gallery
+    passage: 4
+    from: {x: 116.028305, y: 357, z: 151.47345}
+    to: {x: 48.18184, y: 357, z: 169.62955}
+    width: 15
+  - name: D5_L1_W4 / Exploration rejoin
+    passage: 4
+    from: {x: 48.18184, y: 357, z: 169.62955}
+    to: {x: 42.365376, y: 357, z: 147.89435}
+    width: 7
+  - name: D5_L1_W5 / Gallery approach
+    passage: 0
+    from: {x: -34.56, y: 364, z: 168.48001}
+    to: {x: -75.4859, y: 364, z: 131.0224}
+    width: 19
+  - name: D5_L1_W5 / Broken expansion joint
+    passage: 2
+    from: {x: -75.4859, y: 364, z: 131.0224}
+    to: {x: -77.84645, y: 364, z: 128.86191}
+    width: 19
+  - name: D5_L1_W5 / Gallery landing
+    passage: 0
+    from: {x: -77.84645, y: 364, z: 128.86191}
+    to: {x: -105.9264, y: 364, z: 103.161606}
+    width: 19
+  - name: D5_L1_W5 / Lower roof recovery ramp
+    passage: 6
+    from: {x: -80.67961, y: 359, z: 143.21402}
+    to: {x: -97.64609, y: 364, z: 127.68537}
+    width: 4
+  - name: D5_L1_W5 / Recovery elbow
+    passage: 6
+    from: {x: -97.64609, y: 364, z: 127.68537}
+    to: {x: -99.12144, y: 364, z: 126.33505}
+    width: 4
+  - name: D5_L1_W5 / Recovery rejoin
+    passage: 6
+    from: {x: -99.12144, y: 364, z: 126.33505}
+    to: {x: -90.68196, y: 364, z: 117.11414}
+    width: 4
+  - name: D5_L1_W5 / Ascending circulation
+    passage: 1
+    from: {x: -105.9264, y: 364, z: 103.161606}
+    to: {x: -141.6096, y: 371, z: 70.50241}
+    width: 13.3
+  - name: D5_L1_W5 / Upper terrace sprint
+    passage: 0
+    from: {x: -141.6096, y: 371, z: 70.50241}
+    to: {x: -162, y: 371, z: 51.840004}
+    width: 19
+  - name: D5_L1_W6 / Open circulation floor
+    passage: 0
+    from: {x: -162, y: 371, z: 51.840004}
+    to: {x: -143.856, y: 371, z: -32.832}
+    width: 21
+  - name: D5_L1_W6 / Ascending circulation
+    passage: 1
+    from: {x: -143.856, y: 371, z: -32.832}
+    to: {x: -134.78401, y: 378, z: -75.168}
+    width: 14.7
+  - name: D5_L1_W6 / Upper terrace sprint
+    passage: 0
+    from: {x: -134.78401, y: 378, z: -75.168}
+    to: {x: -129.6, y: 378, z: -99.36}
+    width: 21
+  - name: D5_L1_W6 / Loading lintel slide
+    passage: 3
+    from: {x: -166.36275, y: 371, z: 26.382528}
+    to: {x: -165.02177, y: 371, z: 20.124594}
+    width: 2.8
+  - name: D5_L2_W1 / Open circulation floor
+    passage: 0
+    from: {x: -129.6, y: 378, z: -99.36}
+    to: {x: -31.622402, y: 378, z: -131.4144}
+    width: 17
+  - name: D5_L2_W1 / Ascending circulation
+    passage: 1
+    from: {x: -31.622402, y: 378, z: -131.4144}
+    to: {x: 17.366394, y: 385, z: -147.4416}
+    width: 11.9
+  - name: D5_L2_W1 / Upper terrace sprint
+    passage: 0
+    from: {x: 17.366394, y: 385, z: -147.4416}
+    to: {x: 45.36, y: 385, z: -156.6}
+    width: 17
+  - name: D5_L2_W1 / Exploration entrance
+    passage: 4
+    from: {x: -119.802246, y: 378, z: -102.56544}
+    to: {x: -126.798454, y: 378, z: -123.95008}
+    width: 7
+  - name: D5_L2_W1 / Exploration gallery
+    passage: 4
+    from: {x: -126.798454, y: 378, z: -123.95008}
+    to: {x: -49.396152, y: 378, z: -149.27306}
+    width: 15
+  - name: D5_L2_W1 / Exploration rejoin
+    passage: 4
+    from: {x: -49.396152, y: 378, z: -149.27306}
+    to: {x: -42.39994, y: 378, z: -127.88841}
+    width: 7
+  - name: D5_L2_W2 / Open circulation floor
+    passage: 0
+    from: {x: 45.36, y: 385, z: -156.6}
+    to: {x: 110.6784, y: 385, z: -103.98241}
+    width: 19
+  - name: D5_L2_W2 / Ascending circulation
+    passage: 1
+    from: {x: 110.6784, y: 385, z: -103.98241}
+    to: {x: 143.3376, y: 392, z: -77.67361}
+    width: 13.3
+  - name: D5_L2_W2 / Upper terrace sprint
+    passage: 0
+    from: {x: 143.3376, y: 392, z: -77.67361}
+    to: {x: 162, y: 392, z: -62.640003}
+    width: 19
+  - name: D5_L2_W3 / Gallery approach
+    passage: 0
+    from: {x: 162, y: 392, z: -62.640003}
+    to: {x: 148.08131, y: 392, z: -1.3977835}
+    width: 21
+  - name: D5_L2_W3 / Broken expansion joint
+    passage: 2
+    from: {x: 148.08131, y: 392, z: -1.3977835}
+    to: {x: 147.37212, y: 392, z: 1.7226415}
+    width: 21
+  - name: D5_L2_W3 / Gallery landing
+    passage: 0
+    from: {x: 147.37212, y: 392, z: 1.7226415}
+    to: {x: 137.808, y: 392, z: 43.804802}
+    width: 21
+  - name: D5_L2_W3 / Lower roof recovery ramp
+    passage: 6
+    from: {x: 162.22073, y: 387, z: -2.6964831}
+    to: {x: 157.12344, y: 392, z: 19.731571}
+    width: 4
+  - name: D5_L2_W3 / Recovery elbow
+    passage: 6
+    from: {x: 157.12344, y: 392, z: 19.731571}
+    to: {x: 156.6802, y: 392, z: 21.681837}
+    width: 4
+  - name: D5_L2_W3 / Recovery rejoin
+    passage: 6
+    from: {x: 156.6802, y: 392, z: 21.681837}
+    to: {x: 143.51591, y: 392, z: 18.689953}
+    width: 4
+  - name: D5_L2_W3 / Ascending circulation
+    passage: 1
+    from: {x: 137.808, y: 392, z: 43.804802}
+    to: {x: 125.712006, y: 399, z: 97.0272}
+    width: 14.7
+  - name: D5_L2_W3 / Upper terrace sprint
+    passage: 0
+    from: {x: 125.712006, y: 399, z: 97.0272}
+    to: {x: 118.8, y: 399, z: 127.44}
+    width: 21
+  - name: D5_L2_W3 / Loading lintel slide
+    passage: 3
+    from: {x: 164.54692, y: 392, z: -30.529264}
+    to: {x: 163.12856, y: 392, z: -24.288414}
+    width: 2.8
+  - name: D5_L2_W4 / Open circulation floor
+    passage: 0
+    from: {x: 118.8, y: 399, z: 127.44}
+    to: {x: 32.9184, y: 399, z: 150.42241}
+    width: 17
+  - name: D5_L2_W4 / Ascending circulation
+    passage: 1
+    from: {x: 32.9184, y: 399, z: 150.42241}
+    to: {x: -10.022397, y: 406, z: 161.9136}
+    width: 11.9
+  - name: D5_L2_W4 / Upper terrace sprint
+    passage: 0
+    from: {x: -10.022397, y: 406, z: 161.9136}
+    to: {x: -34.56, y: 406, z: 168.48001}
+    width: 17
+  - name: D5_L2_W4 / Exploration entrance
+    passage: 4
+    from: {x: 110.211845, y: 399, z: 129.73825}
+    to: {x: 116.028305, y: 399, z: 151.47345}
+    width: 7
+  - name: D5_L2_W4 / Exploration gallery
+    passage: 4
+    from: {x: 116.028305, y: 399, z: 151.47345}
+    to: {x: 48.18184, y: 399, z: 169.62955}
+    width: 15
+  - name: D5_L2_W4 / Exploration rejoin
+    passage: 4
+    from: {x: 48.18184, y: 399, z: 169.62955}
+    to: {x: 42.365376, y: 399, z: 147.89435}
+    width: 7
+  - name: D5_L2_W5 / Open circulation floor
+    passage: 0
+    from: {x: -34.56, y: 406, z: 168.48001}
+    to: {x: -105.9264, y: 406, z: 103.161606}
+    width: 19
+  - name: D5_L2_W5 / Ascending circulation
+    passage: 1
+    from: {x: -105.9264, y: 406, z: 103.161606}
+    to: {x: -141.6096, y: 413, z: 70.50241}
+    width: 13.3
+  - name: D5_L2_W5 / Upper terrace sprint
+    passage: 0
+    from: {x: -141.6096, y: 413, z: 70.50241}
+    to: {x: -162, y: 413, z: 51.840004}
+    width: 19
+  - name: D5_L2_W6 / Gallery approach
+    passage: 0
+    from: {x: -162, y: 413, z: 51.840004}
+    to: {x: -143.60936, y: 413, z: 9.733102}
+    width: 21
+  - name: D5_L2_W6 / Broken expansion joint
+    passage: 2
+    from: {x: -143.60936, y: 413, z: 9.733102}
+    to: {x: -142.32857, y: 413, z: 6.800603}
+    width: 21
+  - name: D5_L2_W6 / Gallery landing
+    passage: 0
+    from: {x: -142.32857, y: 413, z: 6.800603}
+    to: {x: -129.744, y: 413, z: -22.012798}
+    width: 21
+  - name: D5_L2_W6 / Lower roof recovery ramp
+    passage: 6
+    from: {x: -157.74194, y: 408, z: 8.361912}
+    to: {x: -148.5362, y: 413, z: -12.7154255}
+    width: 4
+  - name: D5_L2_W6 / Recovery elbow
+    passage: 6
+    from: {x: -148.5362, y: 413, z: -12.7154255}
+    to: {x: -147.73569, y: 413, z: -14.548238}
+    width: 4
+  - name: D5_L2_W6 / Recovery rejoin
+    passage: 6
+    from: {x: -147.73569, y: 413, z: -14.548238}
+    to: {x: -135.36421, y: 413, z: -9.144861}
+    width: 4
+  - name: D5_L2_W6 / Ascending circulation
+    passage: 1
+    from: {x: -129.744, y: 413, z: -22.012798}
+    to: {x: -113.616005, y: 420, z: -58.939198}
+    width: 14.7
+  - name: D5_L2_W6 / Upper terrace sprint
+    passage: 0
+    from: {x: -113.616005, y: 420, z: -58.939198}
+    to: {x: -104.4, y: 420, z: -80.04}
+    width: 21
+  - name: D5_L2_W6 / Loading lintel slide
+    passage: 3
+    from: {x: -161.9212, y: 413, z: 27.674572}
+    to: {x: -159.35959, y: 413, z: 21.809574}
+    width: 2.8
+  - name: D5_service_spine / Maintenance access
+    passage: 5
+    from: {x: -129.6, y: 336, z: -99.36}
+    to: {x: -147.08582, y: 336, z: -129.1467}
+    width: 2.2
+  - name: D5_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -147.08582, y: 336, z: -129.1467}
+    to: {x: -162.90503, y: 343, z: -108.51293}
+    width: 1.5
+  - name: D5_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -162.90503, y: 343, z: -108.51293}
+    to: {x: -167.74602, y: 343, z: -112.224365}
+    width: 2.3
+  - name: D5_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -167.74602, y: 343, z: -112.224365}
+    to: {x: -170.76172, y: 343, z: -114.53641}
+    width: 2.3
+  - name: D5_service_spine / Service landing exit
+    passage: 5
+    from: {x: -170.76172, y: 343, z: -114.53641}
+    to: {x: -175.60274, y: 343, z: -118.24783}
+    width: 2.3
+  - name: D5_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -175.60274, y: 343, z: -118.24783}
+    to: {x: -159.78351, y: 350, z: -138.88159}
+    width: 1.5
+  - name: D5_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -159.78351, y: 350, z: -138.88159}
+    to: {x: -154.94252, y: 350, z: -135.17015}
+    width: 2.3
+  - name: D5_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -154.94252, y: 350, z: -135.17015}
+    to: {x: -151.92682, y: 350, z: -132.85811}
+    width: 2.3
+  - name: D5_service_spine / Service landing exit
+    passage: 5
+    from: {x: -151.92682, y: 350, z: -132.85811}
+    to: {x: -147.0858, y: 350, z: -129.14668}
+    width: 2.3
+  - name: D5_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -147.0858, y: 350, z: -129.14668}
+    to: {x: -162.90503, y: 357, z: -108.51293}
+    width: 1.5
+  - name: D5_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -162.90503, y: 357, z: -108.51293}
+    to: {x: -167.74602, y: 357, z: -112.224365}
+    width: 2.3
+  - name: D5_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -167.74602, y: 357, z: -112.224365}
+    to: {x: -170.76172, y: 357, z: -114.53641}
+    width: 2.3
+  - name: D5_service_spine / Service landing exit
+    passage: 5
+    from: {x: -170.76172, y: 357, z: -114.53641}
+    to: {x: -175.60274, y: 357, z: -118.24783}
+    width: 2.3
+  - name: D5_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -175.60274, y: 357, z: -118.24783}
+    to: {x: -159.78351, y: 364, z: -138.88159}
+    width: 1.5
+  - name: D5_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -159.78351, y: 364, z: -138.88159}
+    to: {x: -154.94252, y: 364, z: -135.17015}
+    width: 2.3
+  - name: D5_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -154.94252, y: 364, z: -135.17015}
+    to: {x: -151.92682, y: 364, z: -132.85811}
+    width: 2.3
+  - name: D5_service_spine / Service landing exit
+    passage: 5
+    from: {x: -151.92682, y: 364, z: -132.85811}
+    to: {x: -147.0858, y: 364, z: -129.14668}
+    width: 2.3
+  - name: D5_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -147.0858, y: 364, z: -129.14668}
+    to: {x: -162.90503, y: 371, z: -108.51293}
+    width: 1.5
+  - name: D5_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -162.90503, y: 371, z: -108.51293}
+    to: {x: -167.74602, y: 371, z: -112.224365}
+    width: 2.3
+  - name: D5_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -167.74602, y: 371, z: -112.224365}
+    to: {x: -170.76172, y: 371, z: -114.53641}
+    width: 2.3
+  - name: D5_service_spine / Service landing exit
+    passage: 5
+    from: {x: -170.76172, y: 371, z: -114.53641}
+    to: {x: -175.60274, y: 371, z: -118.24783}
+    width: 2.3
+  - name: D5_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -175.60274, y: 371, z: -118.24783}
+    to: {x: -159.78351, y: 378, z: -138.88159}
+    width: 1.5
+  - name: D5_service_spine / Maintenance upper rejoin
+    passage: 5
+    from: {x: -159.78351, y: 378, z: -138.88159}
+    to: {x: -129.6, y: 378, z: -99.36}
+    width: 2.2
+  - name: D6_L1_W1 / Open circulation floor
+    passage: 0
+    from: {x: -104.4, y: 420, z: -80.04}
+    to: {x: -25.4736, y: 420, z: -105.8616}
+    width: 5
+  - name: D6_L1_W1 / Ascending circulation
+    passage: 1
+    from: {x: -25.4736, y: 420, z: -105.8616}
+    to: {x: 13.989596, y: 427, z: -118.7724}
+    width: 3.5
+  - name: D6_L1_W1 / Upper terrace sprint
+    passage: 0
+    from: {x: 13.989596, y: 427, z: -118.7724}
+    to: {x: 36.54, y: 427, z: -126.15}
+    width: 5
+  - name: D6_L1_W1 / Exploration entrance
+    passage: 4
+    from: {x: -96.50736, y: 420, z: -82.62216}
+    to: {x: -101.63792, y: 420, z: -98.30424}
+    width: 7
+  - name: D6_L1_W1 / Exploration gallery
+    passage: 4
+    from: {x: -101.63792, y: 420, z: -98.30424}
+    to: {x: -39.28606, y: 420, z: -118.7033}
+    width: 15
+  - name: D6_L1_W1 / Exploration rejoin
+    passage: 4
+    from: {x: -39.28606, y: 420, z: -118.7033}
+    to: {x: -34.155506, y: 420, z: -103.021225}
+    width: 7
+  - name: D6_L1_W2 / Gallery approach
+    passage: 0
+    from: {x: 36.54, y: 427, z: -126.15}
+    to: {x: 65.949, y: 427, z: -102.45942}
+    width: 7
+  - name: D6_L1_W2 / Broken expansion joint
+    passage: 2
+    from: {x: 65.949, y: 427, z: -102.45942}
+    to: {x: 69.219765, y: 427, z: -99.82464}
+    width: 7
+  - name: D6_L1_W2 / Gallery landing
+    passage: 0
+    from: {x: 69.219765, y: 427, z: -99.82464}
+    to: {x: 89.1576, y: 427, z: -83.7636}
+    width: 7
+  - name: D6_L1_W2 / Lower roof recovery ramp
+    passage: 6
+    from: {x: 66.9895, y: 422, z: -109.9679}
+    to: {x: 84.90084, y: 427, z: -95.53932}
+    width: 4
+  - name: D6_L1_W2 / Recovery elbow
+    passage: 6
+    from: {x: 84.90084, y: 427, z: -95.53932}
+    to: {x: 86.45835, y: 427, z: -94.28466}
+    width: 4
+  - name: D6_L1_W2 / Recovery rejoin
+    passage: 6
+    from: {x: 86.45835, y: 427, z: -94.28466}
+    to: {x: 82.38071, y: 427, z: -89.22276}
+    width: 4
+  - name: D6_L1_W2 / Ascending circulation
+    passage: 1
+    from: {x: 89.1576, y: 427, z: -83.7636}
+    to: {x: 115.4664, y: 434, z: -62.5704}
+    width: 4.9
+  - name: D6_L1_W2 / Upper terrace sprint
+    passage: 0
+    from: {x: 115.4664, y: 434, z: -62.5704}
+    to: {x: 130.5, y: 434, z: -50.46}
+    width: 7
+  - name: D6_L1_W3 / Open circulation floor
+    passage: 0
+    from: {x: 130.5, y: 434, z: -50.46}
+    to: {x: 111.012, y: 434, z: 35.2872}
+    width: 9
+  - name: D6_L1_W3 / Ascending circulation
+    passage: 1
+    from: {x: 111.012, y: 434, z: 35.2872}
+    to: {x: 101.268, y: 441, z: 78.1608}
+    width: 6.2999997
+  - name: D6_L1_W3 / Upper terrace sprint
+    passage: 0
+    from: {x: 101.268, y: 441, z: 78.1608}
+    to: {x: 95.7, y: 441, z: 102.66}
+    width: 9
+  - name: D6_L1_W3 / Loading lintel slide
+    passage: 3
+    from: {x: 128.60732, y: 434, z: -25.888268}
+    to: {x: 127.18894, y: 434, z: -19.647417}
+    width: 2.8
+  - name: D6_L1_W4 / Open circulation floor
+    passage: 0
+    from: {x: 95.7, y: 441, z: 102.66}
+    to: {x: 26.5176, y: 441, z: 121.1736}
+    width: 5
+  - name: D6_L1_W4 / Ascending circulation
+    passage: 1
+    from: {x: 26.5176, y: 441, z: 121.1736}
+    to: {x: -8.073597, y: 448, z: 130.4304}
+    width: 3.5
+  - name: D6_L1_W4 / Upper terrace sprint
+    passage: 0
+    from: {x: -8.073597, y: 448, z: 130.4304}
+    to: {x: -27.84, y: 448, z: 135.72}
+    width: 5
+  - name: D6_L1_W4 / Exploration entrance
+    passage: 4
+    from: {x: 88.78175, y: 441, z: 104.51136}
+    to: {x: 93.04716, y: 441, z: 120.45051}
+    width: 7
+  - name: D6_L1_W4 / Exploration gallery
+    passage: 4
+    from: {x: 93.04716, y: 441, z: 120.45051}
+    to: {x: 38.393066, y: 441, z: 135.07625}
+    width: 15
+  - name: D6_L1_W4 / Exploration rejoin
+    passage: 4
+    from: {x: 38.393066, y: 441, z: 135.07625}
+    to: {x: 34.127663, y: 441, z: 119.1371}
+    width: 7
+  - name: D6_L1_W5 / Gallery approach
+    passage: 0
+    from: {x: -27.84, y: 448, z: 135.72}
+    to: {x: -60.209747, y: 448, z: 106.09345}
+    width: 7
+  - name: D6_L1_W5 / Broken expansion joint
+    passage: 2
+    from: {x: -60.209747, y: 448, z: 106.09345}
+    to: {x: -63.307976, y: 448, z: 103.25779}
+    width: 7
+  - name: D6_L1_W5 / Gallery landing
+    passage: 0
+    from: {x: -63.307976, y: 448, z: 103.25779}
+    to: {x: -85.3296, y: 448, z: 83.1024}
+    width: 7
+  - name: D6_L1_W5 / Lower roof recovery ramp
+    passage: 6
+    from: {x: -61.72135, y: 443, z: 113.52145}
+    to: {x: -78.68783, y: 448, z: 97.992805}
+    width: 4
+  - name: D6_L1_W5 / Recovery elbow
+    passage: 6
+    from: {x: -78.68783, y: 448, z: 97.992805}
+    to: {x: -80.16318, y: 448, z: 96.64249}
+    width: 4
+  - name: D6_L1_W5 / Recovery rejoin
+    passage: 6
+    from: {x: -80.16318, y: 448, z: 96.64249}
+    to: {x: -75.77465, y: 448, z: 91.84761}
+    width: 4
+  - name: D6_L1_W5 / Ascending circulation
+    passage: 1
+    from: {x: -85.3296, y: 448, z: 83.1024}
+    to: {x: -114.074394, y: 455, z: 56.793606}
+    width: 4.9
+  - name: D6_L1_W5 / Upper terrace sprint
+    passage: 0
+    from: {x: -114.074394, y: 455, z: 56.793606}
+    to: {x: -130.5, y: 455, z: 41.760002}
+    width: 7
+  - name: D6_L1_W6 / Open circulation floor
+    passage: 0
+    from: {x: -130.5, y: 455, z: 41.760002}
+    to: {x: -115.884, y: 455, z: -26.448}
+    width: 9
+  - name: D6_L1_W6 / Ascending circulation
+    passage: 1
+    from: {x: -115.884, y: 455, z: -26.448}
+    to: {x: -108.576004, y: 462, z: -60.552}
+    width: 6.2999997
+  - name: D6_L1_W6 / Upper terrace sprint
+    passage: 0
+    from: {x: -108.576004, y: 462, z: -60.552}
+    to: {x: -104.4, y: 462, z: -80.04}
+    width: 9
+  - name: D6_L1_W6 / Loading lintel slide
+    passage: 3
+    from: {x: -130.05435, y: 455, z: 22.4989}
+    to: {x: -128.71338, y: 455, z: 16.240965}
+    width: 2.8
+  - name: D6_L2_W1 / Open circulation floor
+    passage: 0
+    from: {x: -104.4, y: 462, z: -80.04}
+    to: {x: -25.4736, y: 462, z: -105.8616}
+    width: 5
+  - name: D6_L2_W1 / Ascending circulation
+    passage: 1
+    from: {x: -25.4736, y: 462, z: -105.8616}
+    to: {x: 13.989596, y: 469, z: -118.7724}
+    width: 3.5
+  - name: D6_L2_W1 / Upper terrace sprint
+    passage: 0
+    from: {x: 13.989596, y: 469, z: -118.7724}
+    to: {x: 36.54, y: 469, z: -126.15}
+    width: 5
+  - name: D6_L2_W1 / Exploration entrance
+    passage: 4
+    from: {x: -96.50736, y: 462, z: -82.62216}
+    to: {x: -101.63792, y: 462, z: -98.30424}
+    width: 7
+  - name: D6_L2_W1 / Exploration gallery
+    passage: 4
+    from: {x: -101.63792, y: 462, z: -98.30424}
+    to: {x: -39.28606, y: 462, z: -118.7033}
+    width: 15
+  - name: D6_L2_W1 / Exploration rejoin
+    passage: 4
+    from: {x: -39.28606, y: 462, z: -118.7033}
+    to: {x: -34.155506, y: 462, z: -103.021225}
+    width: 7
+  - name: D6_L2_W2 / Open circulation floor
+    passage: 0
+    from: {x: 36.54, y: 469, z: -126.15}
+    to: {x: 89.1576, y: 469, z: -83.7636}
+    width: 7
+  - name: D6_L2_W2 / Ascending circulation
+    passage: 1
+    from: {x: 89.1576, y: 469, z: -83.7636}
+    to: {x: 115.4664, y: 476, z: -62.5704}
+    width: 4.9
+  - name: D6_L2_W2 / Upper terrace sprint
+    passage: 0
+    from: {x: 115.4664, y: 476, z: -62.5704}
+    to: {x: 130.5, y: 476, z: -50.46}
+    width: 7
+  - name: D6_L2_W3 / Gallery approach
+    passage: 0
+    from: {x: 130.5, y: 476, z: -50.46}
+    to: {x: 119.46748, y: 476, z: -1.9169321}
+    width: 9
+  - name: D6_L2_W3 / Broken expansion joint
+    passage: 2
+    from: {x: 119.46748, y: 476, z: -1.9169321}
+    to: {x: 118.53668, y: 476, z: 2.1786256}
+    width: 9
+  - name: D6_L2_W3 / Gallery landing
+    passage: 0
+    from: {x: 118.53668, y: 476, z: 2.1786256}
+    to: {x: 111.012, y: 476, z: 35.2872}
+    width: 9
+  - name: D6_L2_W3 / Lower roof recovery ramp
+    passage: 6
+    from: {x: 127.64531, y: 471, z: -4.057792}
+    to: {x: 122.54802, y: 476, z: 18.370264}
+    width: 4
+  - name: D6_L2_W3 / Recovery elbow
+    passage: 6
+    from: {x: 122.54802, y: 476, z: 18.370264}
+    to: {x: 122.104774, y: 476, z: 20.32053}
+    width: 4
+  - name: D6_L2_W3 / Recovery rejoin
+    passage: 6
+    from: {x: 122.104774, y: 476, z: 20.32053}
+    to: {x: 114.791275, y: 476, z: 18.658371}
+    width: 4
+  - name: D6_L2_W3 / Ascending circulation
+    passage: 1
+    from: {x: 111.012, y: 476, z: 35.2872}
+    to: {x: 101.268, y: 483, z: 78.1608}
+    width: 6.2999997
+  - name: D6_L2_W3 / Upper terrace sprint
+    passage: 0
+    from: {x: 101.268, y: 483, z: 78.1608}
+    to: {x: 95.7, y: 483, z: 102.66}
+    width: 9
+  - name: D6_L2_W3 / Loading lintel slide
+    passage: 3
+    from: {x: 128.60732, y: 476, z: -25.888268}
+    to: {x: 127.18894, y: 476, z: -19.647417}
+    width: 2.8
+  - name: D6_L2_W4 / Open circulation floor
+    passage: 0
+    from: {x: 95.7, y: 483, z: 102.66}
+    to: {x: 26.5176, y: 483, z: 121.1736}
+    width: 5
+  - name: D6_L2_W4 / Ascending circulation
+    passage: 1
+    from: {x: 26.5176, y: 483, z: 121.1736}
+    to: {x: -8.073597, y: 490, z: 130.4304}
+    width: 3.5
+  - name: D6_L2_W4 / Upper terrace sprint
+    passage: 0
+    from: {x: -8.073597, y: 490, z: 130.4304}
+    to: {x: -27.84, y: 490, z: 135.72}
+    width: 5
+  - name: D6_L2_W4 / Exploration entrance
+    passage: 4
+    from: {x: 88.78175, y: 483, z: 104.51136}
+    to: {x: 93.04716, y: 483, z: 120.45051}
+    width: 7
+  - name: D6_L2_W4 / Exploration gallery
+    passage: 4
+    from: {x: 93.04716, y: 483, z: 120.45051}
+    to: {x: 38.393066, y: 483, z: 135.07625}
+    width: 15
+  - name: D6_L2_W4 / Exploration rejoin
+    passage: 4
+    from: {x: 38.393066, y: 483, z: 135.07625}
+    to: {x: 34.127663, y: 483, z: 119.1371}
+    width: 7
+  - name: D6_L2_W5 / Open circulation floor
+    passage: 0
+    from: {x: -27.84, y: 490, z: 135.72}
+    to: {x: -85.3296, y: 490, z: 83.1024}
+    width: 7
+  - name: D6_L2_W5 / Ascending circulation
+    passage: 1
+    from: {x: -85.3296, y: 490, z: 83.1024}
+    to: {x: -114.074394, y: 497, z: 56.793606}
+    width: 4.9
+  - name: D6_L2_W5 / Upper terrace sprint
+    passage: 0
+    from: {x: -114.074394, y: 497, z: 56.793606}
+    to: {x: -130.5, y: 497, z: 41.760002}
+    width: 7
+  - name: D6_L2_W6 / Gallery approach
+    passage: 0
+    from: {x: -130.5, y: 497, z: 41.760002}
+    to: {x: -118.95742, y: 497, z: 6.250138}
+    width: 9
+  - name: D6_L2_W6 / Broken expansion joint
+    passage: 2
+    from: {x: -118.95742, y: 497, z: 6.250138}
+    to: {x: -117.659065, y: 497, z: 2.255857}
+    width: 9
+  - name: D6_L2_W6 / Gallery landing
+    passage: 0
+    from: {x: -117.659065, y: 497, z: 2.255857}
+    to: {x: -109.836, y: 497, z: -21.811195}
+    width: 9
+  - name: D6_L2_W6 / Lower roof recovery ramp
+    passage: 6
+    from: {x: -127.29568, y: 492, z: 7.6406264}
+    to: {x: -120.18565, y: 497, z: -14.232817}
+    width: 4
+  - name: D6_L2_W6 / Recovery elbow
+    passage: 6
+    from: {x: -120.18565, y: 497, z: -14.232817}
+    to: {x: -119.56739, y: 497, z: -16.134855}
+    width: 4
+  - name: D6_L2_W6 / Recovery rejoin
+    passage: 6
+    from: {x: -119.56739, y: 497, z: -16.134855}
+    to: {x: -112.434746, y: 497, z: -13.816368}
+    width: 4
+  - name: D6_L2_W6 / Ascending circulation
+    passage: 1
+    from: {x: -109.836, y: 497, z: -21.811195}
+    to: {x: -99.504, y: 504, z: -53.59679}
+    width: 6.2999997
+  - name: D6_L2_W6 / Upper terrace sprint
+    passage: 0
+    from: {x: -99.504, y: 504, z: -53.59679}
+    to: {x: -93.6, y: 504, z: -71.759995}
+    width: 9
+  - name: D6_L2_W6 / Loading lintel slide
+    passage: 3
+    from: {x: -128.34273, y: 497, z: 23.477808}
+    to: {x: -126.36429, y: 497, z: 17.391285}
+    width: 2.8
+  - name: D6_service_spine / Maintenance access
+    passage: 5
+    from: {x: -104.4, y: 420, z: -80.04}
+    to: {x: -121.885796, y: 420, z: -109.8267}
+    width: 2.2
+  - name: D6_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -121.885796, y: 420, z: -109.8267}
+    to: {x: -137.70502, y: 427, z: -89.192924}
+    width: 1.5
+  - name: D6_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -137.70502, y: 427, z: -89.192924}
+    to: {x: -142.546, y: 427, z: -92.90436}
+    width: 2.3
+  - name: D6_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -142.546, y: 427, z: -92.90436}
+    to: {x: -145.5617, y: 427, z: -95.2164}
+    width: 2.3
+  - name: D6_service_spine / Service landing exit
+    passage: 5
+    from: {x: -145.5617, y: 427, z: -95.2164}
+    to: {x: -150.40273, y: 427, z: -98.927826}
+    width: 2.3
+  - name: D6_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -150.40273, y: 427, z: -98.927826}
+    to: {x: -134.5835, y: 434, z: -119.56161}
+    width: 1.5
+  - name: D6_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -134.5835, y: 434, z: -119.56161}
+    to: {x: -129.74251, y: 434, z: -115.850174}
+    width: 2.3
+  - name: D6_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -129.74251, y: 434, z: -115.850174}
+    to: {x: -126.72681, y: 434, z: -113.53813}
+    width: 2.3
+  - name: D6_service_spine / Service landing exit
+    passage: 5
+    from: {x: -126.72681, y: 434, z: -113.53813}
+    to: {x: -121.885796, y: 434, z: -109.826706}
+    width: 2.3
+  - name: D6_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -121.885796, y: 434, z: -109.826706}
+    to: {x: -137.70502, y: 441, z: -89.192924}
+    width: 1.5
+  - name: D6_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -137.70502, y: 441, z: -89.192924}
+    to: {x: -142.546, y: 441, z: -92.90436}
+    width: 2.3
+  - name: D6_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -142.546, y: 441, z: -92.90436}
+    to: {x: -145.5617, y: 441, z: -95.2164}
+    width: 2.3
+  - name: D6_service_spine / Service landing exit
+    passage: 5
+    from: {x: -145.5617, y: 441, z: -95.2164}
+    to: {x: -150.40273, y: 441, z: -98.927826}
+    width: 2.3
+  - name: D6_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -150.40273, y: 441, z: -98.927826}
+    to: {x: -134.5835, y: 448, z: -119.56161}
+    width: 1.5
+  - name: D6_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -134.5835, y: 448, z: -119.56161}
+    to: {x: -129.74251, y: 448, z: -115.850174}
+    width: 2.3
+  - name: D6_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -129.74251, y: 448, z: -115.850174}
+    to: {x: -126.72681, y: 448, z: -113.53813}
+    width: 2.3
+  - name: D6_service_spine / Service landing exit
+    passage: 5
+    from: {x: -126.72681, y: 448, z: -113.53813}
+    to: {x: -121.885796, y: 448, z: -109.826706}
+    width: 2.3
+  - name: D6_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -121.885796, y: 448, z: -109.826706}
+    to: {x: -137.70502, y: 455, z: -89.192924}
+    width: 1.5
+  - name: D6_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -137.70502, y: 455, z: -89.192924}
+    to: {x: -142.546, y: 455, z: -92.90436}
+    width: 2.3
+  - name: D6_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -142.546, y: 455, z: -92.90436}
+    to: {x: -145.5617, y: 455, z: -95.2164}
+    width: 2.3
+  - name: D6_service_spine / Service landing exit
+    passage: 5
+    from: {x: -145.5617, y: 455, z: -95.2164}
+    to: {x: -150.40273, y: 455, z: -98.927826}
+    width: 2.3
+  - name: D6_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -150.40273, y: 455, z: -98.927826}
+    to: {x: -134.5835, y: 462, z: -119.56161}
+    width: 1.5
+  - name: D6_service_spine / Maintenance upper rejoin
+    passage: 5
+    from: {x: -134.5835, y: 462, z: -119.56161}
+    to: {x: -104.4, y: 462, z: -80.04}
+    width: 2.2
+  - name: D7_L1_W1 / Open circulation floor
+    passage: 0
+    from: {x: -93.6, y: 504, z: -71.759995}
+    to: {x: -22.8384, y: 504, z: -94.9104}
+    width: 10
+  - name: D7_L1_W1 / Ascending circulation
+    passage: 1
+    from: {x: -22.8384, y: 504, z: -94.9104}
+    to: {x: 12.542396, y: 511, z: -106.485596}
+    width: 7
+  - name: D7_L1_W1 / Upper terrace sprint
+    passage: 0
+    from: {x: 12.542396, y: 511, z: -106.485596}
+    to: {x: 32.76, y: 511, z: -113.1}
+    width: 10
+  - name: D7_L1_W1 / Exploration entrance
+    passage: 4
+    from: {x: -86.52384, y: 504, z: -74.075035}
+    to: {x: -92.431755, y: 504, z: -92.13318}
+    width: 7
+  - name: D7_L1_W1 / Exploration gallery
+    passage: 4
+    from: {x: -92.431755, y: 504, z: -92.13318}
+    to: {x: -36.53009, y: 504, z: -110.422}
+    width: 15
+  - name: D7_L1_W1 / Exploration rejoin
+    passage: 4
+    from: {x: -36.53009, y: 504, z: -110.422}
+    to: {x: -30.622177, y: 504, z: -92.36385}
+    width: 7
+  - name: D7_L1_W2 / Gallery approach
+    passage: 0
+    from: {x: 32.76, y: 511, z: -113.1}
+    to: {x: 58.957508, y: 511, z: -91.996445}
+    width: 12
+  - name: D7_L1_W2 / Broken expansion joint
+    passage: 2
+    from: {x: 58.957508, y: 511, z: -91.996445}
+    to: {x: 62.228275, y: 511, z: -89.361664}
+    width: 12
+  - name: D7_L1_W2 / Gallery landing
+    passage: 0
+    from: {x: 62.228275, y: 511, z: -89.361664}
+    to: {x: 79.934395, y: 511, z: -75.0984}
+    width: 12
+  - name: D7_L1_W2 / Lower roof recovery ramp
+    passage: 6
+    from: {x: 61.566334, y: 506, z: -101.45181}
+    to: {x: 79.47768, y: 511, z: -87.02323}
+    width: 4
+  - name: D7_L1_W2 / Recovery elbow
+    passage: 6
+    from: {x: 79.47768, y: 511, z: -87.02323}
+    to: {x: 81.03519, y: 511, z: -85.76857}
+    width: 4
+  - name: D7_L1_W2 / Recovery rejoin
+    passage: 6
+    from: {x: 81.03519, y: 511, z: -85.76857}
+    to: {x: 75.38922, y: 511, z: -78.75979}
+    width: 4
+  - name: D7_L1_W2 / Ascending circulation
+    passage: 1
+    from: {x: 79.934395, y: 511, z: -75.0984}
+    to: {x: 103.52159, y: 518, z: -56.0976}
+    width: 8.4
+  - name: D7_L1_W2 / Upper terrace sprint
+    passage: 0
+    from: {x: 103.52159, y: 518, z: -56.0976}
+    to: {x: 116.99999, y: 518, z: -45.239998}
+    width: 12
+  - name: D7_L1_W3 / Open circulation floor
+    passage: 0
+    from: {x: 116.99999, y: 518, z: -45.239998}
+    to: {x: 99.52799, y: 518, z: 31.636797}
+    width: 14
+  - name: D7_L1_W3 / Ascending circulation
+    passage: 1
+    from: {x: 99.52799, y: 518, z: 31.636797}
+    to: {x: 90.79199, y: 525, z: 70.07519}
+    width: 9.8
+  - name: D7_L1_W3 / Upper terrace sprint
+    passage: 0
+    from: {x: 90.79199, y: 525, z: 70.07519}
+    to: {x: 85.799995, y: 525, z: 92.03999}
+    width: 14
+  - name: D7_L1_W3 / Loading lintel slide
+    passage: 3
+    from: {x: 118.14995, y: 518, z: -22.775335}
+    to: {x: 116.73157, y: 518, z: -16.534485}
+    width: 2.8
+  - name: D7_L1_W4 / Open circulation floor
+    passage: 0
+    from: {x: 85.799995, y: 525, z: 92.03999}
+    to: {x: 23.774399, y: 525, z: 108.63839}
+    width: 10
+  - name: D7_L1_W4 / Ascending circulation
+    passage: 1
+    from: {x: 23.774399, y: 525, z: 108.63839}
+    to: {x: -7.238397, y: 532, z: 116.93759}
+    width: 7
+  - name: D7_L1_W4 / Upper terrace sprint
+    passage: 0
+    from: {x: -7.238397, y: 532, z: 116.93759}
+    to: {x: -24.96, y: 532, z: 121.67999}
+    width: 10
+  - name: D7_L1_W4 / Exploration entrance
+    passage: 4
+    from: {x: 79.597435, y: 525, z: 93.69984}
+    to: {x: 84.50911, y: 525, z: 112.054}
+    width: 7
+  - name: D7_L1_W4 / Exploration gallery
+    passage: 4
+    from: {x: 84.50911, y: 525, z: 112.054}
+    to: {x: 35.508896, y: 525, z: 125.16673}
+    width: 15
+  - name: D7_L1_W4 / Exploration rejoin
+    passage: 4
+    from: {x: 35.508896, y: 525, z: 125.16673}
+    to: {x: 30.597216, y: 525, z: 106.81257}
+    width: 7
+  - name: D7_L1_W5 / Gallery approach
+    passage: 0
+    from: {x: -24.96, y: 532, z: 121.67999}
+    to: {x: -53.820896, y: 532, z: 95.26493}
+    width: 12
+  - name: D7_L1_W5 / Broken expansion joint
+    passage: 2
+    from: {x: -53.820896, y: 532, z: 95.26493}
+    to: {x: -56.919125, y: 532, z: 92.42927}
+    width: 12
+  - name: D7_L1_W5 / Gallery landing
+    passage: 0
+    from: {x: -56.919125, y: 532, z: 92.42927}
+    to: {x: -76.502396, y: 532, z: 74.50559}
+    width: 12
+  - name: D7_L1_W5 / Lower roof recovery ramp
+    passage: 6
+    from: {x: -57.020397, y: 527, z: 104.5371}
+    to: {x: -73.98687, y: 532, z: 89.00846}
+    width: 4
+  - name: D7_L1_W5 / Recovery elbow
+    passage: 6
+    from: {x: -73.98687, y: 532, z: 89.00846}
+    to: {x: -75.46222, y: 532, z: 87.65814}
+    width: 4
+  - name: D7_L1_W5 / Recovery rejoin
+    passage: 6
+    from: {x: -75.46222, y: 532, z: 87.65814}
+    to: {x: -69.385796, y: 532, z: 81.01909}
+    width: 4
+  - name: D7_L1_W5 / Ascending circulation
+    passage: 1
+    from: {x: -76.502396, y: 532, z: 74.50559}
+    to: {x: -102.27359, y: 539, z: 50.9184}
+    width: 8.4
+  - name: D7_L1_W5 / Upper terrace sprint
+    passage: 0
+    from: {x: -102.27359, y: 539, z: 50.9184}
+    to: {x: -116.99999, y: 539, z: 37.44}
+    width: 12
+  - name: D7_L1_W6 / Open circulation floor
+    passage: 0
+    from: {x: -116.99999, y: 539, z: 37.44}
+    to: {x: -103.895996, y: 539, z: -23.711998}
+    width: 14
+  - name: D7_L1_W6 / Ascending circulation
+    passage: 1
+    from: {x: -103.895996, y: 539, z: -23.711998}
+    to: {x: -97.344, y: 546, z: -54.287994}
+    width: 9.8
+  - name: D7_L1_W6 / Upper terrace sprint
+    passage: 0
+    from: {x: -97.344, y: 546, z: -54.287994}
+    to: {x: -93.6, y: 546, z: -71.759995}
+    width: 14
+  - name: D7_L1_W6 / Loading lintel slide
+    passage: 3
+    from: {x: -119.452446, y: 539, z: 19.771875}
+    to: {x: -118.11146, y: 539, z: 13.513941}
+    width: 2.8
+  - name: D7_L2_W1 / Open circulation floor
+    passage: 0
+    from: {x: -93.6, y: 546, z: -71.759995}
+    to: {x: -22.8384, y: 546, z: -94.9104}
+    width: 10
+  - name: D7_L2_W1 / Ascending circulation
+    passage: 1
+    from: {x: -22.8384, y: 546, z: -94.9104}
+    to: {x: 12.542396, y: 553, z: -106.485596}
+    width: 7
+  - name: D7_L2_W1 / Upper terrace sprint
+    passage: 0
+    from: {x: 12.542396, y: 553, z: -106.485596}
+    to: {x: 32.76, y: 553, z: -113.1}
+    width: 10
+  - name: D7_L2_W1 / Exploration entrance
+    passage: 4
+    from: {x: -86.52384, y: 546, z: -74.075035}
+    to: {x: -92.431755, y: 546, z: -92.13318}
+    width: 7
+  - name: D7_L2_W1 / Exploration gallery
+    passage: 4
+    from: {x: -92.431755, y: 546, z: -92.13318}
+    to: {x: -36.53009, y: 546, z: -110.422}
+    width: 15
+  - name: D7_L2_W1 / Exploration rejoin
+    passage: 4
+    from: {x: -36.53009, y: 546, z: -110.422}
+    to: {x: -30.622177, y: 546, z: -92.36385}
+    width: 7
+  - name: D7_L2_W2 / Open circulation floor
+    passage: 0
+    from: {x: 32.76, y: 553, z: -113.1}
+    to: {x: 79.934395, y: 553, z: -75.0984}
+    width: 12
+  - name: D7_L2_W2 / Ascending circulation
+    passage: 1
+    from: {x: 79.934395, y: 553, z: -75.0984}
+    to: {x: 103.52159, y: 560, z: -56.0976}
+    width: 8.4
+  - name: D7_L2_W2 / Upper terrace sprint
+    passage: 0
+    from: {x: 103.52159, y: 560, z: -56.0976}
+    to: {x: 116.99999, y: 560, z: -45.239998}
+    width: 12
+  - name: D7_L2_W3 / Gallery approach
+    passage: 0
+    from: {x: 116.99999, y: 560, z: -45.239998}
+    to: {x: 107.15691, y: 560, z: -1.9304698}
+    width: 14
+  - name: D7_L2_W3 / Broken expansion joint
+    passage: 2
+    from: {x: 107.15691, y: 560, z: -1.9304698}
+    to: {x: 106.22611, y: 560, z: 2.165088}
+    width: 14
+  - name: D7_L2_W3 / Gallery landing
+    passage: 0
+    from: {x: 106.22611, y: 560, z: 2.165088}
+    to: {x: 99.52799, y: 560, z: 31.636797}
+    width: 14
+  - name: D7_L2_W3 / Lower roof recovery ramp
+    passage: 6
+    from: {x: 117.77257, y: 555, z: -3.5172772}
+    to: {x: 112.675285, y: 560, z: 18.91078}
+    width: 4
+  - name: D7_L2_W3 / Recovery elbow
+    passage: 6
+    from: {x: 112.675285, y: 560, z: 18.91078}
+    to: {x: 112.23204, y: 560, z: 20.861046}
+    width: 4
+  - name: D7_L2_W3 / Recovery rejoin
+    passage: 6
+    from: {x: 112.23204, y: 560, z: 20.861046}
+    to: {x: 102.48071, y: 560, z: 18.644835}
+    width: 4
+  - name: D7_L2_W3 / Ascending circulation
+    passage: 1
+    from: {x: 99.52799, y: 560, z: 31.636797}
+    to: {x: 90.79199, y: 567, z: 70.07519}
+    width: 9.8
+  - name: D7_L2_W3 / Upper terrace sprint
+    passage: 0
+    from: {x: 90.79199, y: 567, z: 70.07519}
+    to: {x: 85.799995, y: 567, z: 92.03999}
+    width: 14
+  - name: D7_L2_W3 / Loading lintel slide
+    passage: 3
+    from: {x: 118.14995, y: 560, z: -22.775335}
+    to: {x: 116.73157, y: 560, z: -16.534485}
+    width: 2.8
+  - name: D7_L2_W4 / Open circulation floor
+    passage: 0
+    from: {x: 85.799995, y: 567, z: 92.03999}
+    to: {x: 23.774399, y: 567, z: 108.63839}
+    width: 10
+  - name: D7_L2_W4 / Ascending circulation
+    passage: 1
+    from: {x: 23.774399, y: 567, z: 108.63839}
+    to: {x: -7.238397, y: 574, z: 116.93759}
+    width: 7
+  - name: D7_L2_W4 / Upper terrace sprint
+    passage: 0
+    from: {x: -7.238397, y: 574, z: 116.93759}
+    to: {x: -24.96, y: 574, z: 121.67999}
+    width: 10
+  - name: D7_L2_W4 / Exploration entrance
+    passage: 4
+    from: {x: 79.597435, y: 567, z: 93.69984}
+    to: {x: 84.50911, y: 567, z: 112.054}
+    width: 7
+  - name: D7_L2_W4 / Exploration gallery
+    passage: 4
+    from: {x: 84.50911, y: 567, z: 112.054}
+    to: {x: 35.508896, y: 567, z: 125.16673}
+    width: 15
+  - name: D7_L2_W4 / Exploration rejoin
+    passage: 4
+    from: {x: 35.508896, y: 567, z: 125.16673}
+    to: {x: 30.597216, y: 567, z: 106.81257}
+    width: 7
+  - name: D7_L2_W5 / Open circulation floor
+    passage: 0
+    from: {x: -24.96, y: 574, z: 121.67999}
+    to: {x: -76.502396, y: 574, z: 74.50559}
+    width: 12
+  - name: D7_L2_W5 / Ascending circulation
+    passage: 1
+    from: {x: -76.502396, y: 574, z: 74.50559}
+    to: {x: -102.27359, y: 581, z: 50.9184}
+    width: 8.4
+  - name: D7_L2_W5 / Upper terrace sprint
+    passage: 0
+    from: {x: -102.27359, y: 581, z: 50.9184}
+    to: {x: -116.99999, y: 581, z: 37.44}
+    width: 12
+  - name: D7_L2_W6 / Gallery approach
+    passage: 0
+    from: {x: -116.99999, y: 581, z: 37.44}
+    to: {x: -109.70865, y: 581, z: 3.4137073}
+    width: 14
+  - name: D7_L2_W6 / Broken expansion joint
+    passage: 2
+    from: {x: -109.70865, y: 581, z: 3.4137073}
+    to: {x: -108.82863, y: 581, z: -0.6930628}
+    width: 14
+  - name: D7_L2_W6 / Gallery landing
+    passage: 0
+    from: {x: -108.82863, y: 581, z: -0.6930628}
+    to: {x: -103.895996, y: 581, z: -23.711998}
+    width: 14
+  - name: D7_L2_W6 / Lower roof recovery ramp
+    passage: 6
+    from: {x: -120.30383, y: 576, z: 5.1318464}
+    to: {x: -115.484665, y: 581, z: -17.357609}
+    width: 4
+  - name: D7_L2_W6 / Recovery elbow
+    passage: 6
+    from: {x: -115.484665, y: 581, z: -17.357609}
+    to: {x: -115.065605, y: 581, z: -19.313213}
+    width: 4
+  - name: D7_L2_W6 / Recovery rejoin
+    passage: 6
+    from: {x: -115.065605, y: 581, z: -19.313213}
+    to: {x: -105.28758, y: 581, z: -17.217922}
+    width: 4
+  - name: D7_L2_W6 / Ascending circulation
+    passage: 1
+    from: {x: -103.895996, y: 581, z: -23.711998}
+    to: {x: -97.344, y: 588, z: -54.287994}
+    width: 9.8
+  - name: D7_L2_W6 / Upper terrace sprint
+    passage: 0
+    from: {x: -97.344, y: 588, z: -54.287994}
+    to: {x: -93.6, y: 588, z: -71.759995}
+    width: 14
+  - name: D7_L2_W6 / Loading lintel slide
+    passage: 3
+    from: {x: -119.452446, y: 581, z: 19.771875}
+    to: {x: -118.11146, y: 581, z: 13.513941}
+    width: 2.8
+  - name: D7_service_spine / Maintenance access
+    passage: 5
+    from: {x: -93.6, y: 504, z: -71.759995}
+    to: {x: -111.08579, y: 504, z: -101.546684}
+    width: 2.2
+  - name: D7_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -111.08579, y: 504, z: -101.546684}
+    to: {x: -126.90501, y: 511, z: -80.912926}
+    width: 1.5
+  - name: D7_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -126.90501, y: 511, z: -80.912926}
+    to: {x: -131.746, y: 511, z: -84.62436}
+    width: 2.3
+  - name: D7_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -131.746, y: 511, z: -84.62436}
+    to: {x: -134.7617, y: 511, z: -86.9364}
+    width: 2.3
+  - name: D7_service_spine / Service landing exit
+    passage: 5
+    from: {x: -134.7617, y: 511, z: -86.9364}
+    to: {x: -139.6027, y: 511, z: -90.64783}
+    width: 2.3
+  - name: D7_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -139.6027, y: 511, z: -90.64783}
+    to: {x: -123.7835, y: 518, z: -111.28159}
+    width: 1.5
+  - name: D7_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -123.7835, y: 518, z: -111.28159}
+    to: {x: -118.9425, y: 518, z: -107.57016}
+    width: 2.3
+  - name: D7_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -118.9425, y: 518, z: -107.57016}
+    to: {x: -115.926796, y: 518, z: -105.25812}
+    width: 2.3
+  - name: D7_service_spine / Service landing exit
+    passage: 5
+    from: {x: -115.926796, y: 518, z: -105.25812}
+    to: {x: -111.0858, y: 518, z: -101.54669}
+    width: 2.3
+  - name: D7_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -111.0858, y: 518, z: -101.54669}
+    to: {x: -126.90501, y: 525, z: -80.912926}
+    width: 1.5
+  - name: D7_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -126.90501, y: 525, z: -80.912926}
+    to: {x: -131.746, y: 525, z: -84.62436}
+    width: 2.3
+  - name: D7_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -131.746, y: 525, z: -84.62436}
+    to: {x: -134.7617, y: 525, z: -86.9364}
+    width: 2.3
+  - name: D7_service_spine / Service landing exit
+    passage: 5
+    from: {x: -134.7617, y: 525, z: -86.9364}
+    to: {x: -139.6027, y: 525, z: -90.64783}
+    width: 2.3
+  - name: D7_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -139.6027, y: 525, z: -90.64783}
+    to: {x: -123.7835, y: 532, z: -111.28159}
+    width: 1.5
+  - name: D7_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -123.7835, y: 532, z: -111.28159}
+    to: {x: -118.9425, y: 532, z: -107.57016}
+    width: 2.3
+  - name: D7_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -118.9425, y: 532, z: -107.57016}
+    to: {x: -115.926796, y: 532, z: -105.25812}
+    width: 2.3
+  - name: D7_service_spine / Service landing exit
+    passage: 5
+    from: {x: -115.926796, y: 532, z: -105.25812}
+    to: {x: -111.0858, y: 532, z: -101.54669}
+    width: 2.3
+  - name: D7_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -111.0858, y: 532, z: -101.54669}
+    to: {x: -126.90501, y: 539, z: -80.912926}
+    width: 1.5
+  - name: D7_service_spine / Service landing takeoff
+    passage: 5
+    from: {x: -126.90501, y: 539, z: -80.912926}
+    to: {x: -131.746, y: 539, z: -84.62436}
+    width: 2.3
+  - name: D7_service_spine / Shortcut gap (3.8m)
+    passage: 2
+    from: {x: -131.746, y: 539, z: -84.62436}
+    to: {x: -134.7617, y: 539, z: -86.9364}
+    width: 2.3
+  - name: D7_service_spine / Service landing exit
+    passage: 5
+    from: {x: -134.7617, y: 539, z: -86.9364}
+    to: {x: -139.6027, y: 539, z: -90.64783}
+    width: 2.3
+  - name: D7_service_spine / Exposed service stair
+    passage: 5
+    from: {x: -139.6027, y: 539, z: -90.64783}
+    to: {x: -123.7835, y: 546, z: -111.28159}
+    width: 1.5
+  - name: D7_service_spine / Maintenance upper rejoin
+    passage: 5
+    from: {x: -123.7835, y: 546, z: -111.28159}
+    to: {x: -93.6, y: 546, z: -71.759995}
+    width: 2.2
+  - name: Crown_observation / Final communications bridge
+    passage: 0
+    from: {x: -93.6, y: 588, z: -71.759995}
+    to: {x: 0, y: 588, z: 0}
+    width: 12
