@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Stillworks
 {
-    public enum Passage { Run, Ramp, Jump, Slide, Exploration, Shortcut, Recovery }
+    public enum Passage { Run, Ramp, Jump, Slide, Exploration, Shortcut, Recovery, WallRun, Precision }
 
     [Serializable]
     public struct RouteSpan

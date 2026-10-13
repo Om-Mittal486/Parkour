@@ -36,6 +36,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float slidingHeight = 1.0f;
     [SerializeField] private float heightTransitionSpeed = 8f;
 
+    [Header("Wall Traversal")]
+    [SerializeField] private float wallReach = 0.85f;
+    [SerializeField] private float wallRunDuration = 1.65f;
+    [SerializeField] private float wallRunMinimumSpeed = 8f;
+    [SerializeField] private float wallSlideFallSpeed = 3.5f;
+    [SerializeField] private float wallJumpPush = 8f;
+
     [Header("Input")]
     [SerializeField] private InputActionReference moveAction;
     [SerializeField] private InputActionReference lookAction;
@@ -58,10 +65,17 @@ public class PlayerMovement : MonoBehaviour
     private bool wasGrounded;
     private bool isSliding;
     private bool sprintToggled;
+    private float wallTimer, wallCooldown;
+    private Collider lastRunWall;
+    private Vector3 wallNormal;
 
     public bool IsGrounded => isGrounded;
     public bool IsSprinting { get; private set; }
     public bool IsSliding => isSliding;
+    public bool IsWallRunning { get; private set; }
+    public bool IsWallSliding { get; private set; }
+    public Vector3 WallNormal => wallNormal;
+    public float WallSide => Vector3.Dot(transform.right, -wallNormal);
 
     public float CurrentSpeed
     {
@@ -97,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDisable()
     {
+        IsWallRunning = IsWallSliding = false;
         moveAction.action.Disable();
         lookAction.action.Disable();
         jumpAction.action.Disable();
@@ -109,7 +124,6 @@ public class PlayerMovement : MonoBehaviour
         CheckGround();
 
         HandleTimers();
-        HandleJumpInput();
 
         if (isSliding)
         {
@@ -123,6 +137,8 @@ public class PlayerMovement : MonoBehaviour
                 SmoothControllerHeight(standingHeight);
         }
 
+        HandleWalls();
+        HandleJumpInput();
         ApplyGravity();
         MovePlayer();
     }
@@ -135,15 +151,15 @@ public class PlayerMovement : MonoBehaviour
     {
         wasGrounded = isGrounded;
 
-        isGrounded = Physics.CheckSphere(
-            groundCheck.position,
-            groundCheckRadius,
-            groundMask,
-            QueryTriggerInteraction.Ignore
-        );
+        // A wall touching the foot probe is not a floor. Require an upward-facing surface.
+        isGrounded = Physics.SphereCast(groundCheck.position + Vector3.up * .35f,
+            groundCheckRadius * .8f, Vector3.down, out RaycastHit floor, .4f,
+            groundMask, QueryTriggerInteraction.Ignore) && floor.normal.y > .55f;
 
         if (isGrounded)
         {
+            lastRunWall = null;
+            wallTimer = 0;
             coyoteTimer = coyoteTime;
 
             if (verticalVelocity < 0f)
@@ -157,6 +173,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleTimers()
     {
+        wallCooldown = Mathf.Max(0, wallCooldown - Time.deltaTime);
         if (!isGrounded)
             coyoteTimer -= Time.deltaTime;
 
@@ -178,7 +195,11 @@ public class PlayerMovement : MonoBehaviour
             jumpBufferTimer = jumpBufferTime;
         }
 
-        if (jumpBufferTimer > 0f && coyoteTimer > 0f)
+        if (jumpBufferTimer > 0f && IsWallSliding)
+        {
+            WallJump();
+        }
+        else if (jumpBufferTimer > 0f && coyoteTimer > 0f)
         {
             Jump();
         }
@@ -266,6 +287,50 @@ public class PlayerMovement : MonoBehaviour
                 targetVelocity,
                 rate * control * Time.deltaTime
             );
+    }
+
+    private bool FindWall(Vector3 direction, out RaycastHit hit)
+    {
+        return Physics.Raycast(transform.position + Vector3.up * .9f, direction, out hit,
+            wallReach, groundMask, QueryTriggerInteraction.Ignore) && Mathf.Abs(hit.normal.y) < .2f;
+    }
+
+    private void HandleWalls()
+    {
+        if (!isGrounded && IsWallRunning && jumpAction.action.WasReleasedThisFrame())
+        { WallJump(); return; }
+        IsWallRunning = IsWallSliding = false;
+        if (isGrounded || isSliding || wallCooldown > 0 || controller.height < standingHeight - .1f) return;
+        Vector2 input = moveAction.action.ReadValue<Vector2>();
+        bool sideWall = FindWall(transform.right, out RaycastHit hit) || FindWall(-transform.right, out hit);
+        bool holdingSlide = slideAction.action.IsPressed();
+        if (!sideWall && !(holdingSlide && FindWall(transform.forward, out hit))) return;
+        wallNormal = hit.normal;
+        if (holdingSlide && verticalVelocity < 0)
+        {
+            IsWallSliding = true;
+            horizontalVelocity = Vector3.ProjectOnPlane(horizontalVelocity, wallNormal);
+            return;
+        }
+        if (holdingSlide || !jumpAction.action.IsPressed() || !sideWall || input.y < .1f || CurrentSpeed < wallRunMinimumSpeed) return;
+        if (lastRunWall != hit.collider) { lastRunWall = hit.collider; wallTimer = 0; }
+        wallTimer += Time.deltaTime;
+        if (wallTimer > wallRunDuration) return;
+        Vector3 along = Vector3.Cross(Vector3.up, wallNormal);
+        if (Vector3.Dot(along, cameraTransform.forward) < 0) along = -along;
+        IsWallRunning = true;
+        IsSprinting = true;
+        float speed = Mathf.Clamp(Vector3.ProjectOnPlane(horizontalVelocity, wallNormal).magnitude, wallRunMinimumSpeed, sprintSpeed);
+        horizontalVelocity = along * speed - wallNormal * 2f;
+    }
+
+    private void WallJump()
+    {
+        horizontalVelocity = Vector3.ProjectOnPlane(horizontalVelocity, wallNormal) * .8f + wallNormal * wallJumpPush;
+        verticalVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        wallCooldown = .3f;
+        IsWallRunning = IsWallSliding = false;
+        jumpBufferTimer = coyoteTimer = 0;
     }
 
     // =========================================================
@@ -425,7 +490,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CanStand()
     {
-        float radius = Mathf.Max(0.05f, controller.radius - controller.skinWidth);
+        float radius = Mathf.Max(0.05f, controller.radius - controller.skinWidth - .03f);
         Vector3 feet = transform.position;
         return !Physics.CheckCapsule(
             feet + Vector3.up * (slidingHeight + radius),
@@ -439,6 +504,9 @@ public class PlayerMovement : MonoBehaviour
         verticalVelocity = 0f;
         coyoteTimer = jumpBufferTimer = slideTimer = 0f;
         isSliding = sprintToggled = IsSprinting = false;
+        IsWallRunning = IsWallSliding = false;
+        wallTimer = wallCooldown = 0;
+        lastRunWall = null;
         SetControllerHeight(standingHeight);
     }
 
@@ -495,6 +563,8 @@ public class PlayerMovement : MonoBehaviour
             verticalVelocity +=
                 gravity *
                 Time.deltaTime;
+            if (IsWallRunning) verticalVelocity = Mathf.Max(verticalVelocity, -1.5f);
+            if (IsWallSliding) verticalVelocity = Mathf.Max(verticalVelocity, -wallSlideFallSpeed);
         }
     }
 
@@ -509,10 +579,11 @@ public class PlayerMovement : MonoBehaviour
             Vector3.up *
             verticalVelocity;
 
-        controller.Move(
+        CollisionFlags flags = controller.Move(
             movement *
             Time.deltaTime
         );
+        if ((flags & CollisionFlags.Above) != 0 && verticalVelocity > 0) verticalVelocity = 0;
     }
 
     // =========================================================

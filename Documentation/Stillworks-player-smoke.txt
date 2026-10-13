@@ -1,0 +1,4 @@
+PASS Windows v0.5 player launched with Direct3D 11 on RTX 2050.
+PASS Player stayed responsive after startup.
+PASS Startup log contains no exceptions or shader errors.
+This smoke check does not replace human run balancing or performance profiling.

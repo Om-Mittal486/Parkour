@@ -22,10 +22,17 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _DetailTex:
+        m_Texture: {fileID: 2800000, guid: b9e0abdacf1b50f4bad81a633475ad22, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _Board: 0
+    - _Bump: 0.008
+    - _Paint: 1
+    - _SurfaceScale: 3
     - _Weather: 0.45
     m_Colors:
     - _BaseColor: {r: 0.65, g: 0.51, b: 0.25, a: 1}

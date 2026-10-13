@@ -1,0 +1,83 @@
+PASS Starting shelter floors have distinct surface heights, removing coplanar ground flicker.
+PASS Architecture uses imported seamless textures with mipmaps instead of aliasing shader noise.
+PASS Game opens on the title screen.
+PASS Dense rain emits around the title camera with a bounded particle pool.
+PASS Near, middle, distant and city-wide rain cover the skyline and exposed architecture.
+PASS The original soundtrack is playing on the title screen.
+PASS Exactly one UI EventSystem is active.
+PASS Rain actually draws visible streaks in the camera image (710 pixels).
+PASS The atmospheric filter changes the rendered image (average channel difference 25.1/255).
+PASS The title button produces audible click feedback.
+PASS Sprint reaches serialized 14 m/s (14.00).
+PASS Player actually advances along the intake floor.
+PASS Pause freezes timer and movement.
+PASS Settings return to the paused run.
+PASS A suspended run can be read back.
+PASS Continue restores location and elapsed time.
+PASS Space produces a real jump.
+PASS Controller lands on the architectural floor.
+PASS Ctrl enters the 1 m slide capsule.
+PASS Player exits the 1.25 m loading opening.
+PASS Standing height is restored after clearance.
+PASS Guard fences close both sides of the required slide lane.
+PASS Real controller crosses the 65 cm transfer girder: D4_L1_W2 / Precision transfer girder (65cm)
+PASS Real controller crosses the 65 cm transfer girder: D4_L1_W4 / Precision transfer girder (65cm)
+PASS A controlled sprint jump clears 6.4 m onto the 85 cm fire-escape landing.
+PASS Ramp ascent reaches its upper landing with the real controller.
+PASS Recovery ascent reaches its upper landing with the real controller.
+PASS District 2 broken gallery: sprint jump clears 3.2 m and lands. Position (93.93, 91.08, -117.47); landing (85.14, 91.00, -124.55); grounded True.
+PASS District 3 broken gallery: sprint jump clears 3.2 m and lands. Position (-96.11, 196.08, 138.09); landing (-87.78, 196.00, 145.71); grounded True.
+PASS District 4 broken gallery: sprint jump clears 3.2 m and lands. Position (86.17, 259.08, -105.85); landing (77.38, 259.00, -112.93); grounded True.
+PASS District 5 broken gallery: sprint jump clears 3.2 m and lands. Position (93.93, 343.08, -117.47); landing (85.14, 343.00, -124.55); grounded True.
+PASS District 6 broken gallery: sprint jump clears 4.2 m and lands. Position (77.23, 427.08, -93.37); landing (69.22, 427.00, -99.82); grounded True.
+PASS District 7 broken gallery: sprint jump clears 4.2 m and lands. Position (103.95, 560.08, 12.20); landing (106.23, 560.00, 2.17); grounded True.
+PASS District 1: real sprint jump clears the concrete/girder obstacle.
+PASS District 2: real sprint jump clears the concrete/girder obstacle.
+PASS District 3: real sprint jump clears the concrete/girder obstacle.
+PASS District 4: real sprint jump clears the concrete/girder obstacle.
+PASS District 5: real sprint jump clears the concrete/girder obstacle.
+PASS District 6: real sprint jump clears the concrete/girder obstacle.
+PASS District 7: real sprint jump clears the concrete/girder obstacle.
+PASS Real controller jumps the new pipe bundle obstacle.
+PASS Real controller jumps the new toppled cabinets obstacle.
+PASS Real controller jumps the new abandoned shuttering obstacle.
+PASS A controlled jump lands on the raised cable inspection bed.
+PASS Real controller traverses D1_L1_W6 / Weave approach.
+PASS Real controller traverses D1_L1_W6 / Weave through infrastructure.
+PASS Real controller traverses D1_L1_W6 / Weave approach.
+PASS Real controller traverses D1_L1_W6 / Weave through infrastructure.
+PASS Real controller threads D1_L1_W3 / Weave approach.
+PASS Real controller threads D1_L1_W3 / Weave through offset loading door.
+PASS Real controller threads D1_L1_W3 / Weave approach.
+PASS Real controller threads D1_L1_W3 / Weave through offset loading door.
+PASS Wall-running requires holding Space.
+PASS Holding Space engages right wall-running.
+PASS Wall-running slows the fall while preserving forward travel.
+PASS Wall camera roll uses the corrected side on right walls.
+PASS Releasing Space kicks away from the wall and gains height.
+PASS Wall-running requires holding Space.
+PASS Holding Space engages left wall-running.
+PASS Wall-running slows the fall while preserving forward travel.
+PASS Wall camera roll uses the corrected side on left walls.
+PASS Releasing Space kicks away from the wall and gains height.
+PASS Wall-run duration expires; the same wall cannot grant unlimited hovering.
+PASS Holding Ctrl while falling against a front wall engages wall-sliding.
+PASS Wall-slide caps descent at 3.5 m/s.
+PASS Space exits a wall-slide with an outward jump.
+PASS The Ministry facade engages wall-running across an actual broken gallery. Grounded False, speed 14.1, position (78.87, 345.34, -117.74).
+PASS Real facade wall-run crosses the broken gallery and reaches the upper landing.
+PASS Global atmosphere profile and gameplay camera post-processing are active.
+PASS Entering the second-level zone triggers its specific voiced dialogue.
+PASS Re-entering a visited level does not repeat its story line.
+PASS A high-index gallery cue triggers independently without overflowing the story save mask.
+PASS An actual eight-metre fall triggers a mocking narrator line.
+PASS A subsequent fall plays a different taunt rather than exhausting a one-time cue (count 2).
+PASS The Crown offers laundry collection rather than ending the errand.
+PASS E collects the clothes and removes them from the line.
+PASS All 56 narrator clips, including location cues and six fall taunts, are connected.
+PASS The collection dialogue fires once with subtitles.
+PASS Pausing stops the wetness clock.
+PASS Returning the clothes to the street shelter completes the errand.
+PASS Restart resets laundry, narration and the street start.
+PASS Continue preserves collected laundry and the expanded 64-bit dialogue history.
+PASS The deadline produces the soaked-laundry failure screen.

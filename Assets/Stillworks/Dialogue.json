@@ -1,0 +1,340 @@
+{
+  "cues": [
+    {
+      "id": "00-street",
+      "event": "start",
+      "height": 0,
+      "text": "You left the washing on the highest roof in the city. The forecast has some thoughts about that."
+    },
+    {
+      "id": "01-heat",
+      "event": "location",
+      "height": 84,
+      "text": "The building was designed to carry water. Your shirts were not."
+    },
+    {
+      "id": "02-parking",
+      "event": "location",
+      "height": 168,
+      "text": "Seven floors of parking, and not one person thought to put a washing machine down here."
+    },
+    {
+      "id": "03-works",
+      "event": "location",
+      "height": 252,
+      "text": "Someone stopped building halfway up. You, unfortunately, still have an errand."
+    },
+    {
+      "id": "04-ministry",
+      "event": "location",
+      "height": 336,
+      "text": "A staircase this grand ought to lead to something important. Today it leads to socks."
+    },
+    {
+      "id": "05-relays",
+      "event": "location",
+      "height": 420,
+      "text": "The rain has no sense of urgency. That is because it is already where it needs to be."
+    },
+    {
+      "id": "06-crown",
+      "event": "location",
+      "height": 504,
+      "text": "Nearly there. Do not celebrate yet. Bringing the washing down is the other half of bringing it in."
+    },
+    {
+      "id": "07-line",
+      "event": "altitude",
+      "height": 580,
+      "text": "There they are, enjoying the view at your expense. Take them off the line."
+    },
+    {
+      "id": "08-collected",
+      "event": "collected",
+      "height": 0,
+      "text": "Laundry secured. Now get it back to the shelter. The weather is still keeping score."
+    },
+    {
+      "id": "09-descent",
+      "event": "descent",
+      "height": 330,
+      "text": "Going down looks simpler from the top. So does most bad advice. Use the walls to slow your fall."
+    },
+    {
+      "id": "10-nearly",
+      "event": "descent",
+      "height": 84,
+      "text": "The shelter is below you. For once, the finish line is a perfectly ordinary patch of roof."
+    },
+    {
+      "id": "11-wet",
+      "event": "wet",
+      "height": 0,
+      "text": "They are getting properly wet now. This is the part where a shortcut starts to look like a sensible idea."
+    },
+    {
+      "id": "12-fall",
+      "event": "fall",
+      "height": 0,
+      "text": "Gravity offers an excellent delivery service. It does not handle complaints."
+    },
+    {
+      "id": "13-delivered",
+      "event": "delivered",
+      "height": 0,
+      "text": "Home, and dry enough. Next time, perhaps use the balcony. It has considerably less city attached to it."
+    },
+    {
+      "id": "14-soaked",
+      "event": "soaked",
+      "height": 0,
+      "text": "Too late. The rain has done the washing again. Give it another try; this time, bring the weather less sightseeing."
+    },
+    {
+      "id": "15-taunt",
+      "event": "fall-taunt",
+      "height": 0,
+      "text": "That was down. A bold interpretation of up."
+    },
+    {
+      "id": "16-taunt",
+      "event": "fall-taunt",
+      "height": 0,
+      "text": "The washing asked for a tumble dryer. You appear to have volunteered."
+    },
+    {
+      "id": "17-taunt",
+      "event": "fall-taunt",
+      "height": 0,
+      "text": "Excellent. Now you know that particular piece of floor from both sides."
+    },
+    {
+      "id": "18-taunt",
+      "event": "fall-taunt",
+      "height": 0,
+      "text": "A smaller correction next time. The entire building was a little excessive."
+    },
+    {
+      "id": "19-taunt",
+      "event": "fall-taunt",
+      "height": 0,
+      "text": "Same city. Lower address. The rent is probably better."
+    },
+    {
+      "id": "20-taunt",
+      "event": "fall-taunt",
+      "height": 0,
+      "text": "Do take your time. The rain has cleared its schedule."
+    },
+    {
+      "id": "21-level-02",
+      "event": "location",
+      "height": 0,
+      "text": "Second level. You have climbed one whole storey of regret. Only the rest of the city remains."
+    },
+    {
+      "id": "22-level-04",
+      "event": "location",
+      "height": 0,
+      "text": "Another floor above the boilers. The shirts are still upstairs; the excuses are multiplying."
+    },
+    {
+      "id": "23-level-06",
+      "event": "location",
+      "height": 0,
+      "text": "The upper parking deck. You could leave your confidence here. Nobody is charging."
+    },
+    {
+      "id": "24-level-08",
+      "event": "location",
+      "height": 0,
+      "text": "Another construction floor. Try to finish your jump more decisively than they finished this building."
+    },
+    {
+      "id": "25-level-10",
+      "event": "location",
+      "height": 0,
+      "text": "The upper Ministry. All this authority, and nobody authorised a lift to the washing."
+    },
+    {
+      "id": "26-level-12",
+      "event": "location",
+      "height": 0,
+      "text": "The second relay gallery. Plenty of aerials. Absolutely no drying signal."
+    },
+    {
+      "id": "27-level-14",
+      "event": "location",
+      "height": 0,
+      "text": "The upper Crown. You can almost smell the damp cotton. That is motivation, apparently."
+    },
+    {
+      "id": "28-gallery-01-02",
+      "event": "location",
+      "height": 0,
+      "text": "A service alley. Whoever left these barriers clearly expected a less ambitious pedestrian."
+    },
+    {
+      "id": "29-gallery-01-05",
+      "event": "location",
+      "height": 0,
+      "text": "The first ramp is behind you. An excellent place to discover whether you packed patience."
+    },
+    {
+      "id": "30-gallery-02-02",
+      "event": "location",
+      "height": 0,
+      "text": "You are above the street now. The washing has a better view and considerably worse judgement."
+    },
+    {
+      "id": "31-gallery-02-05",
+      "event": "location",
+      "height": 0,
+      "text": "Those painted numbers were for maintenance crews. Today they measure the distance to your socks."
+    },
+    {
+      "id": "32-gallery-03-02",
+      "event": "location",
+      "height": 0,
+      "text": "Old pipes ahead. They once moved heat through the city. You will have to supply your own momentum."
+    },
+    {
+      "id": "33-gallery-03-05",
+      "event": "location",
+      "height": 0,
+      "text": "The loading shutters never opened again. At least they left room for a person with low expectations."
+    },
+    {
+      "id": "34-gallery-04-02",
+      "event": "location",
+      "height": 0,
+      "text": "The upper heat gallery. Even the machinery has stopped working. You do not have that luxury."
+    },
+    {
+      "id": "35-gallery-04-05",
+      "event": "location",
+      "height": 0,
+      "text": "Nothing here is switched on. Except the rain, which seems particularly committed."
+    },
+    {
+      "id": "36-gallery-05-02",
+      "event": "location",
+      "height": 0,
+      "text": "Parking circulation. Built for cars, currently occupied by one person who forgot the laundry."
+    },
+    {
+      "id": "37-gallery-05-05",
+      "event": "location",
+      "height": 0,
+      "text": "Mind the inspection beds. A raised floor is still a floor; it is just feeling important."
+    },
+    {
+      "id": "38-gallery-06-02",
+      "event": "location",
+      "height": 0,
+      "text": "Another empty deck. Hundreds of spaces, and somehow you chose the roof for storage."
+    },
+    {
+      "id": "39-gallery-06-05",
+      "event": "location",
+      "height": 0,
+      "text": "The broken joint is not a shortcut. The jump over it might be. There is a distinction."
+    },
+    {
+      "id": "40-gallery-07-02",
+      "event": "location",
+      "height": 0,
+      "text": "Exposed shuttering. The workers left, but their timing problems stayed behind."
+    },
+    {
+      "id": "41-gallery-07-05",
+      "event": "location",
+      "height": 0,
+      "text": "A crane, a beam, a very small margin. Your shirts had better appreciate this."
+    },
+    {
+      "id": "42-gallery-08-02",
+      "event": "location",
+      "height": 0,
+      "text": "The upper construction gallery. The narrow steel is structural. Your confidence is optional."
+    },
+    {
+      "id": "43-gallery-08-05",
+      "event": "location",
+      "height": 0,
+      "text": "There are lower maintenance roofs beneath you. Try to meet them only when necessary."
+    },
+    {
+      "id": "44-gallery-09-02",
+      "event": "location",
+      "height": 0,
+      "text": "Welcome to the administrative passages. They made the walls enormous to keep the answers small."
+    },
+    {
+      "id": "45-gallery-09-05",
+      "event": "location",
+      "height": 0,
+      "text": "These doors once led to offices. None of them leads to a conveniently placed tumble dryer."
+    },
+    {
+      "id": "46-gallery-10-02",
+      "event": "location",
+      "height": 0,
+      "text": "The upper courtyards. A fine place to contemplate the decision that brought you here."
+    },
+    {
+      "id": "47-gallery-10-05",
+      "event": "location",
+      "height": 0,
+      "text": "Follow the old service paint if you get turned around. It has been lost here longer than you."
+    },
+    {
+      "id": "48-gallery-11-02",
+      "event": "location",
+      "height": 0,
+      "text": "Relay infrastructure. Everything points upward, which is encouraging until you look down."
+    },
+    {
+      "id": "49-gallery-11-05",
+      "event": "location",
+      "height": 0,
+      "text": "The transfer girder is narrow because steel costs money. Courage was apparently free."
+    },
+    {
+      "id": "50-gallery-12-02",
+      "event": "location",
+      "height": 0,
+      "text": "Another aerial gallery. Keep the movement small. The consequences have plenty of room."
+    },
+    {
+      "id": "51-gallery-12-05",
+      "event": "location",
+      "height": 0,
+      "text": "The city is below your shoes now. A poor moment to start admiring the scenery while running."
+    },
+    {
+      "id": "52-gallery-13-02",
+      "event": "location",
+      "height": 0,
+      "text": "The Crown approach. The wind has found the shirts before you have."
+    },
+    {
+      "id": "53-gallery-13-05",
+      "event": "location",
+      "height": 0,
+      "text": "Those concrete blades frame the summit. They do not make the last jumps on your behalf."
+    },
+    {
+      "id": "54-gallery-14-02",
+      "event": "location",
+      "height": 0,
+      "text": "Nearly the drying yard. The clothes are wet, but so far your plan is only questionable."
+    },
+    {
+      "id": "55-gallery-14-05",
+      "event": "location",
+      "height": 0,
+      "text": "One final gallery. Once you collect the washing, every metre you climbed becomes a delivery address."
+    }
+  ]
+}

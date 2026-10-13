@@ -6,7 +6,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Narrow exposed fire stair / smooth collision
+  m_Name: Unmarked maintenance access
   serializedVersion: 12
   m_SubMeshes:
   - serializedVersion: 2
@@ -17,8 +17,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 24
     localAABB:
-      m_Center: {x: -118.9954, y: 507.1, z: -91.229805}
-      m_Extent: {x: 8.504814, y: 3.899994, z: 10.773201}
+      m_Center: {x: -102.342896, y: 503.76752, z: -86.653336}
+      m_Extent: {x: 9.691521, y: 0.26750183, z: 15.450222}
   m_Shapes:
     vertices: []
     shapes: []
@@ -97,7 +97,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 576
-    _typelessdata: ac5cdfc29a99fb438a01ccc2f6c11b3f00000000f3294bbfac5cdfc20000fc438a01ccc2f6c11b3f00000000f3294bbf2efbdcc20000fc43442ecac2f6c11b3f00000000f3294bbf2efbdcc29a99fb43442ecac2f6c11b3f00000000f3294bbf1c00ffc29a19ff430ebda2c2f6c11bbf00000000f3294b3f9e9efcc29a19ff43c8e9a0c2f6c11bbf00000000f3294b3f9e9efcc20080ff43c8e9a0c2f6c11bbf00000000f3294b3f1c00ffc20080ff430ebda2c2f6c11bbf00000000f3294b3fac5cdfc29a99fb438a01ccc2cb294bbf0000000029c21bbf1c00ffc29a19ff430ebda2c2cc294bbf0000000027c21bbf1c00ffc20080ff430ebda2c2cb294bbf0000000029c21bbfac5cdfc20000fc438a01ccc2c9294bbf000000002ac21bbf2efbdcc29a99fb43442ecac2cb294b3f0000000029c21b3f2efbdcc20000fc43442ecac2c9294b3f000000002ac21b3f9e9efcc20080ff43c8e9a0c2cb294b3f0000000029c21b3f9e9efcc29a19ff43c8e9a0c2cc294b3f0000000027c21b3fac5cdfc29a99fb438a01ccc2b3f821be983277bfd844533e2efbdcc29a99fb43442ecac2b3f821be973277bfd844533e9e9efcc29a19ff43c8e9a0c2b3f821be983277bfd844533e1c00ffc29a19ff430ebda2c2b2f821be973277bfd644533eac5cdfc20000fc438a01ccc2b3f8213e9832773fd84453be1c00ffc20080ff430ebda2c2b2f8213e9732773fd64453be9e9efcc20080ff43c8e9a0c2b3f8213e9832773fd84453be2efbdcc20000fc43442ecac2b3f8213e9732773fd84453be
+    _typelessdata: 814db9c27bc4fb433da290c2be99013f000000004cc55c3f814db9c27b04fc433da290c2be99013f000000004cc55c3fe518bdc27b04fc43ff678ec2be99013f000000004cc55c3fe518bdc27bc4fb43ff678ec2be99013f000000004cc55c3f3b46dcc200c0fb430635ccc2be9901bf000000004cc55cbf9f11e0c200c0fb43c8fac9c2be9901bf000000004cc55cbf9f11e0c20000fc43c8fac9c2be9901bf000000004cc55cbf3b46dcc20000fc430635ccc2be9901bf000000004cc55cbf814db9c27bc4fb433da290c260c55c3f000000009c9901bf3b46dcc200c0fb430635ccc260c55c3f000000009c9901bf3b46dcc20000fc430635ccc260c55c3f000000009c9901bf814db9c27b04fc433da290c260c55c3f000000009c9901bfe518bdc27bc4fb43ff678ec260c55cbf000000009c99013fe518bdc27b04fc43ff678ec260c55cbf000000009c99013f9f11e0c20000fc43c8fac9c260c55cbf000000009c99013f9f11e0c200c0fb43c8fac9c260c55cbf000000009c99013f814db9c27bc4fb433da290c23b7e063af8ff7fbfde1a653ae518bdc27bc4fb43ff678ec2397e063af7ff7fbfdc1a653a9f11e0c200c0fb43c8fac9c23b7e063af8ff7fbfde1a653a3b46dcc200c0fb430635ccc23e7e063af7ff7fbfdf1a653a814db9c27b04fc433da290c23b7e06baf8ff7f3fde1a65ba3b46dcc20000fc430635ccc23e7e06baf7ff7f3fdf1a65ba9f11e0c20000fc43c8fac9c23b7e06baf8ff7f3fde1a65bae518bdc27b04fc43ff678ec2397e06baf7ff7f3fdc1a65ba
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -151,8 +151,8 @@ Mesh:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
-    m_Center: {x: -118.9954, y: 507.1, z: -91.229805}
-    m_Extent: {x: 8.504814, y: 3.899994, z: 10.773201}
+    m_Center: {x: -102.342896, y: 503.76752, z: -86.653336}
+    m_Extent: {x: 9.691521, y: 0.26750183, z: 15.450222}
   m_MeshUsageFlags: 0
   m_CookingOptions: 30
   m_BakedConvexCollisionMesh: 

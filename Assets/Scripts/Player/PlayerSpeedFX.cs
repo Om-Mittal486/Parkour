@@ -33,11 +33,20 @@ public class PlayerSpeedFX : MonoBehaviour
     private ChromaticAberration chromatic;
     private LensDistortion lensDistortion;
 
+    public void Configure(float fieldOfView, bool reducedMotion)
+    {
+        normalFOV = fieldOfView;
+        maxFOV = reducedMotion ? fieldOfView : fieldOfView + 9f;
+        maxChromatic = reducedMotion ? 0f : 0.07f;
+        maxLensDistortion = 0f;
+        if (playerCamera != null) playerCamera.fieldOfView = fieldOfView;
+    }
+
     private void Awake()
     {
         if (speedVolume == null)
         {
-            Debug.LogError("PlayerSpeedFX: Speed Volume is not assigned.");
+            // Post processing is optional; speed FOV works without a Volume.
             return;
         }
 
@@ -97,7 +106,7 @@ public class PlayerSpeedFX : MonoBehaviour
             return;
 
         float targetIntensity =
-            maxVignette * speedPercent;
+            .19f + maxVignette * speedPercent;
 
         vignette.intensity.value = Mathf.Lerp(
             vignette.intensity.value,

@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 namespace Stillworks.Editor
@@ -18,6 +19,7 @@ namespace Stillworks.Editor
         private static readonly string[] Districts = { "Intake Quarter", "Heat Exchange", "Transit Stack", "Unfinished Works", "The Ministry", "Relay Needles", "The Crown" };
         private static readonly float[] Scale = { 1.13f, 1.08f, 1.22f, 0.98f, 1.08f, 0.87f, 0.78f, 0.78f };
         private static readonly float[] Width = { 18, 16, 25, 9, 19, 7, 12 };
+        private static readonly int[] Accent = { 9, 4, 5, 10, 11, 9, 10 };
         private static readonly Vector3[] Plan = {
             new Vector3(-120, 0, -92), new Vector3(42, 0, -145),
             new Vector3(150, 0, -58), new Vector3(110, 0, 118),
@@ -32,10 +34,30 @@ namespace Stillworks.Editor
         private static int colliderCount;
         private static readonly int[] Faces = { 0,3,2,1, 4,5,6,7, 0,4,7,3, 1,2,6,5, 0,1,5,4, 3,7,6,2 };
 
+        public static void PrepareGameResources()
+        {
+            if (File.Exists("Assets/TextMesh Pro/Resources/TMP Settings.asset"))
+            { EditorApplication.Exit(0); return; }
+            AssetDatabase.importPackageCompleted += package => {
+                AssetDatabase.SaveAssets();
+                Debug.Log("Stillworks UI resources imported: " + package);
+                EditorApplication.Exit(0);
+            };
+            AssetDatabase.importPackageFailed += (package, error) => {
+                Debug.LogError(error); EditorApplication.Exit(1);
+            };
+            TMPro.TMP_PackageResourceImporter.ImportResources(true, false, false);
+        }
+
         [MenuItem("Stillworks/Build playable map")]
         public static void Build()
         {
             if (!Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+            if (!File.Exists("Assets/TextMesh Pro/Resources/TMP Settings.asset"))
+            {
+                TMPro.TMP_PackageResourceImporter.ImportResources(true, false, false);
+                AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
+            }
             Directory.CreateDirectory(Output + "/Meshes");
             Directory.CreateDirectory(Output + "/Materials");
             Spans.Clear(); Chunks.Clear(); metres = 0; colliderCount = 0;
@@ -86,8 +108,9 @@ namespace Stillworks.Editor
             Box("Crown lintel", new Vector3(0, 620, 18), new Vector3(86, 6, 18), 1);
             Cylinder("Transmission mast", new Vector3(30, 648, 18), 0.8f, 54, 3);
             for (int i = 0; i < 5; i++) Box("Antenna array", new Vector3(30, 635 + i * 7, 18), new Vector3(14 - i * 1.5f, 0.28f, 0.5f), 3);
-            Label("THE CROWN\nEND OF TRANSMISSION", new Vector3(0, 590.5f, 24), Quaternion.identity, 1.1f);
+            Label("THE CROWN\nROOFTOP DRYING YARD", new Vector3(0, 590.5f, 24), Quaternion.identity, 1.1f);
             Box("Summit survey table", new Vector3(0, 588.5f, 5), new Vector3(4, 1, 2), 3);
+            LaundryLine(summit);
             PerimeterRoofRails(summit, 90, 76);
             foreach (Chunk c in Chunks) c.Bake();
 
@@ -122,18 +145,27 @@ namespace Stillworks.Editor
         {
             Shader shader = Shader.Find("Stillworks/Board concrete");
             if (shader == null) throw new InvalidOperationException("Stillworks concrete shader not imported.");
-            Color[] colors = { new Color(.47f,.48f,.45f), new Color(.63f,.62f,.56f), new Color(.22f,.25f,.25f), new Color(.13f,.17f,.18f), new Color(.43f,.23f,.14f), new Color(.65f,.51f,.25f), new Color(.74f,.73f,.64f), new Color(.17f,.23f,.16f) };
-            string[] names = { "Boardformed concrete", "Chalk concrete", "Asphalt", "Oxidised steel", "Iron oxide", "Faded ochre", "Old enamel", "Moss" };
+            Color[] colors = { new Color(.47f,.48f,.45f), new Color(.63f,.62f,.56f), new Color(.22f,.25f,.25f), new Color(.13f,.17f,.18f), new Color(.43f,.23f,.14f), new Color(.65f,.51f,.25f), new Color(.74f,.73f,.64f), new Color(.17f,.23f,.16f), new Color(.12f,.20f,.21f), new Color(.22f,.47f,.65f), new Color(.65f,.25f,.18f), new Color(.15f,.48f,.40f) };
+            string[] names = { "Boardformed concrete", "Chalk concrete", "Asphalt", "Oxidised steel", "Iron oxide", "Faded ochre", "Old enamel", "Moss", "Reservoir water", "Faded service blue", "Signal oxide red", "Patina teal" };
+            Texture2D[] surfaces = StillworksSurfaceTextures.Bake();
             palette = new Material[colors.Length];
             for (int i = 0; i < colors.Length; i++)
             {
                 string path = Output + "/Materials/" + names[i] + ".mat";
                 Material material = AssetDatabase.LoadAssetAtPath<Material>(path);
                 if (material == null) { material = new Material(shader); AssetDatabase.CreateAsset(material, path); }
-                material.shader = shader;
+                material.shader = i == 8 ? Shader.Find("Stillworks/Reservoir water") : shader;
                 material.SetColor("_BaseColor", colors[i]);
                 material.SetFloat("_Weather", i == 3 || i == 4 ? .85f : .45f);
                 material.SetFloat("_Board", i < 2 ? 1 : 0);
+                if (i != 8)
+                {
+                    bool painted = i == 5 || i == 6 || i >= 9;
+                    material.SetTexture("_DetailTex",surfaces[painted ? 3 : i == 2 ? 1 : i == 3 || i == 4 ? 2 : 0]);
+                    material.SetFloat("_SurfaceScale",i == 2 ? 4 : 3);
+                    material.SetFloat("_Bump",i == 2 ? .012f : .008f);
+                    material.SetFloat("_Paint",painted ? 1 : 0);
+                }
                 material.enableInstancing = true;
                 EditorUtility.SetDirty(material);
                 palette[i] = material;
@@ -143,8 +175,14 @@ namespace Stillworks.Editor
         private static void Foundation()
         {
             chunk = new Chunk("00_raft_and_city", root); Chunks.Add(chunk);
-            Box("Abandoned concrete floodplain", new Vector3(0, -12, 0), new Vector3(4200, 4, 4200), 2);
-            Box("City foundation raft", new Vector3(0, -5, 0), new Vector3(650, 10, 650), 2);
+            Box("Abandoned concrete floodplain", new Vector3(0, -12, 0), new Vector3(18000, 4, 18000), 2);
+            Box("City foundation raft", new Vector3(0, -5.18f, 0), new Vector3(650, 10, 650), 2);
+            foreach (Vector3 direction in new[] { Vector3.forward, Vector3.back, Vector3.left, Vector3.right })
+            {
+                Vector3 from = direction * 375 - Vector3.up * 10, to = direction * 325;
+                Deck("Floodplain access ramp", from, to, 24, 1.4f, 0);
+                AddSpan("Floodplain return to city", Passage.Recovery, from, to, 24);
+            }
             // The inhabited circulation wraps around a hollow structural core.
             for (int x = -1; x <= 1; x += 2)
                 for (int z = -1; z <= 1; z += 2)
@@ -180,6 +218,93 @@ namespace Stillworks.Editor
                 Box("Lost carriageway centre line", p, new Vector3(12, .035f, .23f), 6, false);
                 Car(p + new Vector3(7, 0, -8), Quaternion.Euler(0, i * 17, 0), i % 2 == 0 ? 3 : 4);
             }
+            Surroundings();
+            Vector3 shelter = Node(0,0);
+            Vector3 forward = Node(0,1) - shelter; forward.y = 0; forward.Normalize();
+            Vector3 side = Vector3.Cross(Vector3.up,forward);
+            Box("Laundry receiving shelter roof",shelter + Vector3.up * 3.8f,new Vector3(12,.45f,10),1,true,Quaternion.LookRotation(forward));
+            foreach (float sign in new[] { -1f,1f })
+                Box("Shelter corner pier",shelter + side * sign * 5.8f + forward * 4 + Vector3.up * 1.9f,new Vector3(.35f,3.8f,.35f),3);
+            Label("BRING THE WASHING IN\nSTREET SHELTER",shelter - forward * 3 + Vector3.up * 3.1f,Quaternion.LookRotation(-forward),.35f);
+        }
+
+        private static void LaundryLine(Vector3 summit)
+        {
+            Beam("Rooftop clothesline",summit + new Vector3(-4,3.5f,5),summit + new Vector3(4,3.5f,5),.025f,.025f,3);
+            foreach (float sign in new[] { -1f,1f })
+                Cylinder("Clothesline pole",summit + new Vector3(sign * 4,1.75f,5),.075f,3.5f,3);
+            var laundry = new GameObject("Laundry to bring home"); laundry.transform.SetParent(root);
+            string path = Output + "/Materials/Weathered linen.mat";
+            Material fabric = AssetDatabase.LoadAssetAtPath<Material>(path);
+            if (fabric == null) { fabric = new Material(Shader.Find("Stillworks/Board concrete")); AssetDatabase.CreateAsset(fabric,path); }
+            fabric.shader = Shader.Find("Stillworks/Board concrete");
+            fabric.SetColor("_BaseColor",new Color(.86f,.83f,.74f)); fabric.SetFloat("_Board",0); fabric.SetFloat("_Weather",.12f); EditorUtility.SetDirty(fabric);
+            for (int i = 0; i < 6; i++)
+            {
+                var cloth = GameObject.CreatePrimitive(PrimitiveType.Cube); cloth.name = "Hanging laundry " + (i + 1);
+                UnityEngine.Object.DestroyImmediate(cloth.GetComponent<Collider>());
+                cloth.transform.SetParent(laundry.transform);
+                cloth.transform.position = summit + new Vector3(-3 + i * 1.2f,2.68f,5);
+                cloth.transform.localScale = new Vector3(.9f,1.5f - i % 2 * .3f,.025f);
+                cloth.transform.rotation = Quaternion.Euler(0,0,(i % 3 - 1) * 4);
+                Material garment = i == 1 ? palette[9] : i == 3 ? palette[10] : i == 4 ? palette[5] : fabric;
+                cloth.GetComponent<Renderer>().sharedMaterial = garment;
+                if (i == 1 || i == 3)
+                    foreach (float sign in new[] { -1f,1f })
+                    {
+                        var sleeve = GameObject.CreatePrimitive(PrimitiveType.Cube); sleeve.name = "Shirt sleeve";
+                        UnityEngine.Object.DestroyImmediate(sleeve.GetComponent<Collider>());
+                        sleeve.transform.SetParent(cloth.transform,false);
+                        sleeve.transform.localPosition = new Vector3(sign * .56f,.24f,0);
+                        sleeve.transform.localScale = new Vector3(.4f,.26f,1);
+                        sleeve.transform.localRotation = Quaternion.Euler(0,0,-sign * 20);
+                        sleeve.GetComponent<Renderer>().sharedMaterial = garment;
+                    }
+                Box("Wooden clothes peg",summit + new Vector3(-3 + i * 1.2f,3.42f,5),new Vector3(.08f,.20f,.08f),5,false);
+            }
+        }
+
+        private static void Surroundings()
+        {
+            // Reservoirs sit on the floodplain; the existing dry return ramps remain unobstructed.
+            foreach (float sign in new[] { -1f,1f })
+            {
+                Box("Flood retention basin",new Vector3(sign * 510,-9.82f,0),new Vector3(240,.03f,900),8,false);
+                Box("Reservoir outer retaining wall",new Vector3(sign * 640,-8.8f,0),new Vector3(6,2.4f,940),0);
+                Box("Settling basin",new Vector3(0,-9.82f,sign * 510),new Vector3(780,.03f,240),8,false);
+                Box("Northern / southern flood embankment",new Vector3(0,-8.8f,sign * 640),new Vector3(1290,2.4f,6),0);
+                for (int i = 0; i < 8; i++)
+                    Box("Water-stained reservoir divider",new Vector3(sign * 510,-9.3f,-390 + i * 110),new Vector3(230,1.4f,2),0);
+            }
+            for (int i = 0; i < 18; i++)
+            {
+                float angle = (i + .35f) * Mathf.PI * 2 / 18;
+                float radius = 920 + i % 4 * 105;
+                Vector3 p = new Vector3(Mathf.Cos(angle) * radius,-10,Mathf.Sin(angle) * radius);
+                float height = 45 + i % 5 * 19;
+                Box("Distant utility hall",p + Vector3.up * height / 2,new Vector3(55,height,40),i % 2);
+                Box("Industrial roof duct",p + Vector3.up * (height + 3),new Vector3(43,6,10),3);
+                if (i % 3 == 0)
+                {
+                    Vector3 basePoint = p + new Vector3(65,0,0);
+                    CylinderBetween("Distant exhaust stack",basePoint,basePoint + Vector3.up * (height + 70),7,0,false);
+                    CylinderBetween("Rust-stained exhaust crown",basePoint + Vector3.up * (height + 63),basePoint + Vector3.up * (height + 73),7.3f,4,false);
+                    Box("Stack foundation",basePoint + Vector3.up * 6,new Vector3(24,12,24),0);
+                }
+            }
+            for (int i = 0; i < 36; i++)
+            {
+                float angle = (i + .5f) * Mathf.PI * 2 / 36;
+                Vector3 p = new Vector3(Mathf.Cos(angle) * 337,-9.97f,Mathf.Sin(angle) * 337);
+                Box("Floodplain moss bed",p,new Vector3(10,.04f,7),7,false);
+                for (int reed = 0; reed < 8; reed++)
+                {
+                    Vector3 foot = p + new Vector3((reed % 4 - 1.5f) * 1.3f,0,(reed / 4 - .5f) * 2);
+                    Vector3 tip = foot + Vector3.up * (.7f + reed % 3 * .3f) + Vector3.right * .25f;
+                    chunk.Geometry(7,true).Triangle(foot - Vector3.right * .08f,tip,foot + Vector3.right * .08f);
+                    chunk.Geometry(7,true).Triangle(foot - Vector3.forward * .08f,tip,foot + Vector3.forward * .08f);
+                }
+            }
         }
 
         private static void Wing(int d, int storey, int wing, Vector3 a, Vector3 b)
@@ -191,7 +316,7 @@ namespace Stillworks.Editor
             Vector3 side = Vector3.Cross(Vector3.up, dir);
             Vector3 inside = Vector3.Dot(side, -a) > 0 ? side : -side;
             Quaternion rotation = Quaternion.LookRotation(dir);
-            Box("Structural junction court", a - Vector3.up * .8f, new Vector3(width + 13, 1.6f, width + 13), d == 2 ? 2 : 0);
+            Box("Structural junction court", a - Vector3.up * .85f, new Vector3(width + 13, 1.6f, width + 13), d == 2 ? 2 : 0);
             // Separate foundation legs stay below their own decks; they never intrude on a lower route.
             for (int k = 0; k < 3; k++)
             {
@@ -209,23 +334,31 @@ namespace Stillworks.Editor
                 Vector3 lip = mid - dir * gap / 2, land = mid + dir * gap / 2;
                 Deck("Fractured gallery / approach", a, lip, width, 1, d == 2 ? 2 : 0);
                 Deck("Fractured gallery / landing", land, flatEnd, width, 1, d == 2 ? 2 : 0);
-                AddSpan("Gallery approach", Passage.Run, a, lip, width);
                 AddSpan("Broken expansion joint", Passage.Jump, lip, land, width);
-                AddSpan("Gallery landing", Passage.Run, land, flatEnd, width);
                 Box("Exposed fracture reinforcement", mid - Vector3.up * .4f + side * (width / 2 - .6f), new Vector3(.14f, .14f, gap + .8f), 4, false, rotation);
                 Recovery(mid, dir, side, width, gap);
             }
             else
             {
                 Deck("Occupied floor slab", a, flatEnd, width, 1.1f, d == 2 ? 2 : 0);
-                AddSpan("Open circulation floor", Passage.Run, a, flatEnd, width);
             }
+            TraversalObstacles(d, storey, wing, a, flatEnd, dir, inside, width, broken);
             if ((d == 0 || d == 3 || d == 4 || d == 6) && wing % 2 == 0)
                 Stair("Processional staircase", flatEnd, rampEnd, width * .7f, 1);
             else Deck("Graded service ramp", flatEnd, rampEnd, width * .78f, 1, d == 2 ? 2 : 0);
             AddSpan("Ascending circulation", Passage.Ramp, flatEnd, rampEnd, width * .7f);
-            Deck("Upper transfer terrace", rampEnd, b, width, 1.2f, 1);
-            AddSpan("Upper terrace sprint", Passage.Run, rampEnd, b, width);
+            bool precision = (d == 3 || d == 5) && wing % 2 == 1;
+            if (precision)
+            {
+                Deck("Narrow load-bearing transfer girder",rampEnd,b,.65f,.7f,Accent[d]);
+                AddSpan("Precision transfer girder (65cm)",Passage.Precision,rampEnd,b,.65f);
+                PrecisionRecovery(rampEnd,b,-inside,width);
+            }
+            else
+            {
+                Deck("Upper transfer terrace", rampEnd, b, width, 1.2f, 1);
+                AddSpan("Upper terrace sprint", Passage.Run, rampEnd, b, width);
+            }
 
             // Broad side rooms, walls and roofs turn the circulation into occupied architecture.
             Vector3 galleryA = Vector3.Lerp(a, flatEnd, .10f);
@@ -238,23 +371,204 @@ namespace Stillworks.Editor
             {
                 float clearance = d == 4 ? 16 : 5.5f;
                 Deck("Sheltered industrial ceiling", galleryA + Vector3.up * clearance, galleryB + Vector3.up * clearance, width + 10, 1, 0);
-                for (float t = .17f; t < .86f; t += .15f)
+                foreach (float t in new[] { .17f, .39f, .61f, .84f })
                 {
                     Vector3 p = Vector3.Lerp(a, flatEnd, t) - inside * (width / 2 + 4);
-                    Box("Column arcade", p + Vector3.up * ((clearance - 1) / 2), new Vector3(1.2f, clearance - 1, 1.2f), 1);
+                    Box("Column arcade", p + Vector3.up * ((clearance - 1) / 2), new Vector3(1.2f, clearance - 1, 1.2f), 1, true, rotation);
                 }
             }
             // Perimeter rails are deliberately incomplete; lower architecture remains reachable.
             Rail(Vector3.Lerp(a, flatEnd, .17f) - inside * width / 2, Vector3.Lerp(a, flatEnd, .25f) - inside * width / 2, d >= 3);
             Rail(rampEnd - inside * width / 2, b - inside * width / 2, d >= 3);
-            if (wing == 0 || wing == 3) Exploration(galleryA, galleryB, dir, inside, width, d);
-            if (wing == 2 || wing == 5) SlideBypass(a, flatEnd, side, width, d);
+            if (wing == 0 || wing == 3) Exploration(galleryA, Vector3.Lerp(a, flatEnd, .98f), dir, inside, width, d);
             DressWing(d, storey, wing, a, flatEnd, dir, inside, width);
+            var paintRandom = new System.Random(4409 + d * 101 + storey * 37 + wing * 7);
+            float facadeLength = Vector3.Distance(galleryA,galleryB);
+            for (int panel = 0; panel < 3; panel++)
+            {
+                float t = .14f + panel * .31f;
+                float paintHeight = wallHeight * (.40f + (float)paintRandom.NextDouble() * .35f);
+                Box("Flaking district facade paint",Vector3.Lerp(galleryA,galleryB,t) + inside * (width / 2 + .035f) + Vector3.up * (paintHeight / 2 + .6f),
+                    new Vector3(.09f,paintHeight,facadeLength * (.11f + (float)paintRandom.NextDouble() * .08f)),Accent[d],false,rotation);
+            }
+            Label($"{d + 1:00} / {storey * 6 + wing + 1:00}\nKEEP SERVICES CLEAR",galleryA + dir * 10 + inside * (width / 2 - .015f) + Vector3.up * 2.7f,
+                Quaternion.LookRotation(inside),.42f);
+            Box("Faded floor service marking",a + dir * 10 + Vector3.up * .018f,new Vector3(width * .6f,.025f,.3f),Accent[d],false,rotation);
             if (wing == 0)
             {
                 Label($"{d + 1:00}  /  {Districts[d].ToUpperInvariant()}\n{a.y:000} M     SERVICE ACCESS", a + inside * (width / 2 + .06f) + dir * 18 + Vector3.up * 4,
                     Quaternion.LookRotation(inside), .7f);
             }
+        }
+
+        private static void TraversalObstacles(int d, int storey, int wing, Vector3 a, Vector3 b,
+            Vector3 dir, Vector3 side, float width, bool broken)
+        {
+            var random = new System.Random(9147 + d * 997 + storey * 113 + wing * 31);
+            int variant = wing == 0 && storey == 0 ? 0 : random.Next(6);
+            Vector3 cursor = a;
+            Quaternion rotation = Quaternion.LookRotation(dir);
+            if ((variant == 1 || variant == 4) && width >= 12)
+            {
+                float first = .22f + (float)random.NextDouble() * .05f;
+                float firstSign = random.Next(2) == 0 ? 1 : -1;
+                for (int i = 0; i < 2; i++)
+                {
+                    Vector3 p = Vector3.Lerp(a, b, first + i * .17f);
+                    float sign = i == 0 ? firstSign : -firstSign;
+                    float lane = sign * width * .28f;
+                    if (variant == 1)
+                    {
+                        float height = 1.8f + (float)random.NextDouble() * 1.2f;
+                        Box("Staggered abandoned compressor bank",p - side * sign * width * .22f + Vector3.up * height / 2,
+                            new Vector3(width * .56f,height,2.4f),Accent[d],true,rotation);
+                        for (int fan = 0; fan < 3; fan++)
+                            Cylinder("Compressor exhaust housing",p - side * sign * width * .22f + side * (fan - 1) * width * .12f + Vector3.up * (height + .25f),.45f,.5f,3);
+                    }
+                    else
+                    {
+                        // Offset openings through shutter banks force an actual direction change.
+                        const float opening = 3.4f;
+                        float left = width / 2 + lane - opening / 2, right = width / 2 - lane - opening / 2;
+                        Box("Jammed loading shutter / left leaf",p + side * (-width / 2 + left / 2) + Vector3.up * 2.2f,new Vector3(left,4.4f,.55f),3,true,rotation);
+                        Box("Jammed loading shutter / right leaf",p + side * (width / 2 - right / 2) + Vector3.up * 2.2f,new Vector3(right,4.4f,.55f),Accent[d],true,rotation);
+                        Box("Loading door transom",p + Vector3.up * 4.6f,new Vector3(width,.4f,.9f),4,true,rotation);
+                    }
+                    Vector3 before = p - dir * 4 + side * lane;
+                    Vector3 after = p + dir * 4 + side * lane;
+                    AddSpan("Weave approach", Passage.Run, cursor, before, 2.2f);
+                    AddSpan(variant == 1 ? "Weave through infrastructure" : "Weave through offset loading door",Passage.Run,before,after,2.2f);
+                    cursor = after;
+                }
+                if (variant == 4) GuardRails(Vector3.Lerp(a,b,first) - dir * 6,cursor + dir * 2,width,Accent[d]);
+            }
+            else if (variant == 3)
+            {
+                Vector3 p = Vector3.Lerp(a,b,.28f + (float)random.NextDouble() * .05f);
+                float height = .85f + (float)random.NextDouble() * .3f;
+                Box("Raised cable inspection bed",p + Vector3.up * height / 2,new Vector3(width,height,5),1,true,rotation);
+                for (int slot = 0; slot < 5; slot++)
+                    Box("Inspection bed steel cover",p + dir * (slot - 2) + Vector3.up * (height + .015f),new Vector3(width * .8f,.025f,.75f),3,false,rotation);
+                Vector3 before = p - dir * 5, upperA = p - dir * 2 + Vector3.up * height;
+                Vector3 upperB = p + dir * 2 + Vector3.up * height, after = p + dir * 5;
+                AddSpan("Inspection bed approach",Passage.Run,cursor,before,width);
+                AddSpan("Jump onto inspection bed",Passage.Jump,before,upperA,width);
+                AddSpan("Inspection bed crossing",Passage.Run,upperA,upperB,width);
+                AddSpan("Drop from inspection bed",Passage.Jump,upperB,after,width);
+                GuardRails(before - dir * 2,after + dir * 2,width,Accent[d]); cursor = after;
+            }
+            else
+            {
+                Vector3 p = Vector3.Lerp(a,b,.24f + (float)random.NextDouble() * .12f);
+                float height = .65f + (float)random.NextDouble() * .45f;
+                if (variant == 2)
+                {
+                    for (int pipe = 0; pipe < 2; pipe++)
+                        CylinderBetween("Fallen transverse pipe bundle",p + dir * (pipe == 0 ? -.7f : .7f) - side * width / 2 + Vector3.up * .48f,
+                            p + dir * (pipe == 0 ? -.7f : .7f) + side * width / 2 + Vector3.up * .48f,.45f,4);
+                }
+                else if (variant == 5)
+                {
+                    Box("Toppled electrical cabinets",p + Vector3.up * .6f,new Vector3(width,1.2f,1.7f),Accent[d],true,rotation);
+                    for (int door = 0; door < Mathf.CeilToInt(width / 2); door++)
+                        Box("Cabinet access panel",p + side * (-width / 2 + 1 + door * 2) + Vector3.up * 1.215f,new Vector3(1.65f,.025f,1.3f),3,false,rotation);
+                }
+                else
+                {
+                    Quaternion skew = rotation * Quaternion.Euler(0,random.Next(-5,6),0);
+                    Box(d == 3 ? "Fallen shuttering girder" : "Cross-gallery concrete divider",p + Vector3.up * height / 2,new Vector3(width + 1,height,.7f),d == 3 ? 4 : 0,true,skew);
+                    Box("Weathered divider top stripe",p + Vector3.up * (height + .015f),new Vector3(width * .85f,.025f,.15f),5,false,skew);
+                }
+                Vector3 before = p - dir * 3, after = p + dir * 3;
+                AddSpan("Divider run-up", Passage.Run, cursor, before, width);
+                AddSpan("Jump over divider / " + (variant == 2 ? "pipe bundle" : variant == 5 ? "toppled cabinets" : "skewed girder"),Passage.Jump,before,after,width);
+                GuardRails(before - dir * 3,after + dir * 3,width,Accent[d]);
+                cursor = after;
+            }
+            if (broken)
+            {
+                Vector3 mid = Vector3.Lerp(a, b, .59f);
+                float gap = d >= 5 ? 4.2f : 3.2f;
+                AddSpan("Gallery approach", Passage.Run, cursor, mid - dir * gap / 2, width);
+                cursor = mid + dir * gap / 2;
+                Vector3 wallLane = side * (width / 2 - .45f);
+                AddSpan("Facade wall-run crossing", Passage.WallRun,
+                    mid - dir * (gap / 2 + 2) + wallLane, mid + dir * (gap / 2 + 2) + wallLane, 1, false);
+            }
+            if (!broken && random.Next(3) == 0)
+            {
+                Vector3 p = Vector3.Lerp(a,b,.62f);
+                Box("Abandoned pallet of shuttering",p + Vector3.up * .45f,new Vector3(width,.9f,1.6f),4,true,rotation);
+                AddSpan("Shuttering approach",Passage.Run,cursor,p - dir * 3,width);
+                AddSpan("Jump over abandoned shuttering",Passage.Jump,p - dir * 3,p + dir * 3,width);
+                GuardRails(p - dir * 5,p + dir * 5,width,Accent[d]); cursor = p + dir * 3;
+            }
+            if (wing != 0 && random.Next(4) == 0)
+            { AddSpan("Open sprint gallery",Passage.Run,cursor,b,width); return; }
+            Vector3 gate = Vector3.Lerp(a,b,.85f + (float)random.NextDouble() * .05f);
+            Vector3 gateA = gate - dir * 3, gateB = gate + dir * 3;
+            AddSpan("Underpass run-up", Passage.Run, cursor, gateA, width);
+            int gateKind = random.Next(4);
+            if (gateKind == 1)
+            {
+                CylinderBetween("Sagging insulated service main / slide",gate - side * (width / 2 + .6f) + Vector3.up * 1.8f,
+                    gate + side * (width / 2 + .6f) + Vector3.up * 1.8f,.55f,4);
+                foreach (float x in new[] { -.3f,.3f })
+                    Box("Pipe joint flange",gate + side * width * x + Vector3.up * 1.8f,new Vector3(.18f,1.1f,1.1f),3,true,rotation);
+            }
+            else if (gateKind == 2)
+            {
+                Box("Half-closed roller shutter / slide",gate + Vector3.up * 2.075f,new Vector3(width + 1.2f,1.65f,.35f),Accent[d],true,rotation);
+                for (int slat = 0; slat < 6; slat++)
+                    Box("Shutter corrugation",gate - dir * .19f + Vector3.up * (1.35f + slat * .27f),new Vector3(width,.055f,.04f),3,false,rotation);
+            }
+            else if (gateKind == 3)
+            {
+                Box("Broken ventilation hood / slide",gate + Vector3.up * 1.7f,new Vector3(width + 1.2f,.9f,2.2f),11,true,rotation);
+                for (int grille = 0; grille < 8; grille++)
+                    Box("Ventilation hood grille",gate - dir * 1.12f + side * (grille - 3.5f) * width / 8 + Vector3.up * 1.7f,new Vector3(.1f,.65f,.045f),3,false,rotation);
+            }
+            else Box("Collapsed service lintel / slide clearance 1.25m",gate + Vector3.up * 1.75f,new Vector3(width + 1.2f,1,2.8f),0,true,rotation);
+            foreach (float sign in new[] { -1f, 1f })
+                Box("Underpass bearing pier", gate + side * sign * (width / 2 + .85f) + Vector3.up * .9f,
+                    new Vector3(.6f, 1.8f, 2.8f), 0, true, rotation);
+            Box("Underpass clearance marking", gate - dir * 1.43f + Vector3.up * 1.55f,
+                new Vector3(width * .9f, .15f, .04f), 5, false, rotation);
+            AddSpan("Main gallery slide", Passage.Slide, gateA, gateB, width);
+            GuardRails(gateA - dir * 5,gateB + dir,width,Accent[d]);
+            Deck("Service tunnel roof prevents jumping over lintel",gateA - dir * 5 + Vector3.up * 3.7f,
+                gateB + dir * 5 + Vector3.up * 3.7f,width + 1.4f,.7f,0);
+            AddSpan("Gallery exit", Passage.Run, gateB, b, width);
+        }
+
+        private static void GuardRails(Vector3 a, Vector3 b, float width, int colour)
+        {
+            Vector3 dir = (b - a).normalized, side = Vector3.Cross(Vector3.up,dir);
+            Quaternion rot = Quaternion.LookRotation(dir);
+            foreach (float sign in new[] { -1f,1f })
+            {
+                Vector3 p = a + side * sign * (width / 2 + .18f), q = b + side * sign * (width / 2 + .18f);
+                var fence = new GameObject("Obstacle guard fence / prevents lane bypass"); fence.layer = 6; fence.isStatic = true;
+                fence.transform.SetParent(chunk.parent); fence.transform.SetPositionAndRotation((p + q) / 2 + Vector3.up * 1.8f,rot);
+                fence.AddComponent<BoxCollider>().size = new Vector3(.16f,3.6f,Vector3.Distance(a,b)); colliderCount++;
+                for (int row = 0; row <= 6; row++)
+                    Box("Painted guard rail",(p + q) / 2 + Vector3.up * (.08f + row * .58f),new Vector3(.075f,.075f,Vector3.Distance(a,b)),colour,false,rot);
+                int posts = Mathf.CeilToInt(Vector3.Distance(a,b) / 2);
+                for (int i = 0; i <= posts; i++)
+                    Box("Guard fence upright",Vector3.Lerp(p,q,(float)i / posts) + Vector3.up * 1.8f,new Vector3(.075f,3.6f,.075f),3,false,rot);
+            }
+        }
+
+        private static void PrecisionRecovery(Vector3 a, Vector3 b, Vector3 outside, float width)
+        {
+            Vector3 mid = (a + b) / 2, dir = (b - a).normalized;
+            Deck("Lower transfer maintenance roof",a - dir * 8 - Vector3.up * 6,b + dir * 4 - Vector3.up * 6,width + 40,.7f,2);
+            Vector3 from = mid - dir * 16 + outside * (width / 2 + 18) - Vector3.up * 6;
+            Vector3 to = mid + outside * (width / 2 + 18);
+            Deck("Transfer roof recovery ramp",from,to,3,.5f,Accent[3]);
+            Deck("Transfer recovery rejoin",to,mid,3,.5f,3);
+            AddSpan("Transfer roof recovery ramp",Passage.Recovery,from,to,3);
+            AddSpan("Transfer roof recovery rejoin",Passage.Recovery,to,mid,3);
         }
 
         private static void Recovery(Vector3 mid, Vector3 dir, Vector3 side, float width, float gap)
@@ -263,7 +577,7 @@ namespace Stillworks.Editor
             Vector3 catchB = mid + dir * 14 - Vector3.up * 5;
             Deck("Lower maintenance catch floor", catchA, catchB, width + 12, .8f, 2);
             Vector3 rampA = mid - dir * 6 - Vector3.up * 5 + side * (width / 2 + 3);
-            Vector3 rampB = mid + dir * 17 + side * (width / 2 + 3);
+            Vector3 rampB = mid + dir * 6 + side * (width / 2 + 3);
             Deck("Catch floor return ramp", rampA, rampB, 4, .55f, 4);
             Vector3 bend = rampB + dir * 2;
             Deck("Level recovery elbow", rampB, bend, 4, .55f, 4);
@@ -300,20 +614,6 @@ namespace Stillworks.Editor
             Beam("Gallery tension strut", q - Vector3.up * 1, b - Vector3.up * 15, 1.4f, 1.4f, 0);
         }
 
-        private static void SlideBypass(Vector3 a, Vector3 b, Vector3 side, float width, int d)
-        {
-            Vector3 dir = (b - a).normalized;
-            // Optional loading-bay cut-through: long approach, only 2.4m under the lintel.
-            Vector3 p = Vector3.Lerp(a, b, .30f) + side * (width / 2 - .9f);
-            Vector3 q = p + dir * 2.4f;
-            Deck("Loading bay apron", p - dir * 8, q + dir * 6, 4.8f, 1.1f, d == 2 ? 2 : 0);
-            Deck("Low service lintel • 1.25m clear", p + Vector3.up * 2.25f, q + Vector3.up * 2.25f, 3.5f, 1, 0);
-            foreach (float sign in new[] { -1f, 1f })
-                Box("Service opening jamb", (p + q) / 2 + side * sign * 2.05f + Vector3.up * 1.125f, new Vector3(.5f, 2.25f, 3), 0, true, Quaternion.LookRotation(dir));
-            AddSpan("Loading lintel slide", Passage.Slide, p - dir * 2, q + dir * 2, 2.8f);
-            Box("Faded clearance stripe", p + Vector3.up * 1.85f - dir * .06f, new Vector3(3.4f, .16f, .08f), 5, false, Quaternion.LookRotation(dir));
-        }
-
         private static void DressWing(int d, int storey, int wing, Vector3 a, Vector3 b, Vector3 dir, Vector3 inside, float width)
         {
             Quaternion rot = Quaternion.LookRotation(dir);
@@ -324,7 +624,7 @@ namespace Stillworks.Editor
                 if (d == 0)
                 {
                     Box("Sealed service door", edge + inside * 1.3f + Vector3.up * 2, new Vector3(.08f, 4, 3), 3, false, rot);
-                    if (i % 2 == 0) Car(p - inside * (width / 2 - 2), rot, i == 0 ? 4 : 3);
+                    if (i % 2 == 0) Car(p - inside * (width / 2 - 2), rot, i == 0 ? 10 : 9);
                     Lamp(p - inside * (width / 2 + .7f));
                 }
                 else if (d == 1)
@@ -336,7 +636,7 @@ namespace Stillworks.Editor
                 else if (d == 2)
                 {
                     Box("Parking bay stripe", p - inside * 7 + Vector3.up * .02f, new Vector3(6, .03f, .13f), 6, false, rot);
-                    if (i == 1 || i == 4) Car(p - inside * 8, Quaternion.LookRotation(inside), 3);
+                    if (i == 1 || i == 3) Car(p - inside * 8, Quaternion.LookRotation(inside), 9);
                     Box("Low concrete divider / future vault", edge + Vector3.up * .45f, new Vector3(.5f, .9f, 5), 0, true, rot);
                 }
                 else if (d == 3)
@@ -348,7 +648,7 @@ namespace Stillworks.Editor
                 }
                 else if (d == 4)
                 {
-                    Box("Ministry facade fin", edge + inside * 2.5f + Vector3.up * 12, new Vector3(3, 24, 1.6f), 1, true, rot);
+                    Box("Ministry facade fin", edge + inside * 3.2f + Vector3.up * 12, new Vector3(3, 24, 1.6f), 1, true, rot);
                     Box("Old enamel information panel", edge + inside * 1.4f + Vector3.up * 4, new Vector3(.1f, 2, 4), 3, false, rot);
                 }
                 else if (d == 5)
@@ -358,7 +658,7 @@ namespace Stillworks.Editor
                 }
                 else
                 {
-                    Box("Crown concrete blade", edge + inside * 2 + Vector3.up * 12, new Vector3(2, 24, 3), 1, true, rot);
+                    Box("Crown concrete blade", edge + inside * 2.7f + Vector3.up * 12, new Vector3(2, 24, 3), 1, true, rot);
                     if (i == 3) Label("LISTENING STATION\nNO PERSONNEL REMAIN", edge - inside * .2f + Vector3.up * 3, Quaternion.LookRotation(inside), .45f);
                 }
                 // Collison-free secondary dressing is combined separately and distance-culled.
@@ -375,26 +675,28 @@ namespace Stillworks.Editor
             Vector3 tangent = Vector3.Cross(Vector3.up, outward);
             Vector3 centre = entry + outward * 40;
             Vector3 start = centre - tangent * 13 - outward * 8;
-            Deck("Unmarked maintenance access", entry, start, 2.2f, .5f, 4);
+            Deck("Unmarked maintenance access", entry + Vector3.up * .035f, start, 2.2f, .5f, 4);
             AddSpan("Maintenance access", Passage.Shortcut, entry, start, 2.2f);
             Vector3 current = start;
             for (int flight = 0; flight < 6; flight++)
             {
                 Vector3 next = centre + tangent * (flight % 2 == 0 ? 13 : -13) + outward * (flight % 2 == 0 ? -8 : 8);
                 next.y = entry.y + (flight + 1) * 7;
-                Stair("Narrow exposed fire stair", current, next, 1.5f, 4);
-                AddSpan("Exposed service stair", Passage.Shortcut, current, next, 1.5f);
+                float stairWidth = d >= 3 ? .72f : 1.5f;
+                Stair("Narrow exposed fire stair", current, next, stairWidth, Accent[d]);
+                AddSpan("Exposed service stair", Passage.Shortcut, current, next, stairWidth);
                 if (flight < 5)
                 {
                     Vector3 across = next + outward * (flight % 2 == 0 ? 16 : -16);
                     Vector3 direction = (across - next).normalized;
-                    Vector3 lip = Vector3.Lerp(next, across, .5f) - direction * 1.9f;
-                    Vector3 landing = lip + direction * 3.8f;
-                    Deck("Missing fire-escape grating / takeoff", next, lip, 2.3f, .3f, 3);
-                    Deck("Missing fire-escape grating / landing", landing, across, 2.3f, .3f, 3);
-                    AddSpan("Service landing takeoff", Passage.Shortcut, next, lip, 2.3f);
-                    AddSpan("Shortcut gap (3.8m)", Passage.Jump, lip, landing, 2.3f, false);
-                    AddSpan("Service landing exit", Passage.Shortcut, landing, across, 2.3f);
+                    float gap = d >= 3 ? 6.4f : 3.8f, landingWidth = d >= 3 ? .85f : 2.3f;
+                    Vector3 lip = Vector3.Lerp(next, across, .5f) - direction * gap / 2;
+                    Vector3 landing = lip + direction * gap;
+                    Deck("Missing fire-escape grating / takeoff", next, lip, landingWidth, .3f, 3);
+                    Deck("Missing fire-escape grating / landing", landing, across, landingWidth, .3f, 3);
+                    AddSpan("Service landing takeoff", Passage.Shortcut, next, lip, landingWidth);
+                    AddSpan("Shortcut gap (" + gap.ToString("0.0") + "m)", Passage.Jump, lip, landing, landingWidth, false);
+                    AddSpan("Service landing exit", Passage.Shortcut, landing, across, landingWidth);
                     current = across;
                 }
                 else current = next;
@@ -538,8 +840,71 @@ namespace Stillworks.Editor
             cameraSettings.ApplyModifiedPropertiesWithoutUndo();
             Camera camera = player.GetComponentInChildren<Camera>();
             camera.nearClipPlane = .06f; camera.farClipPlane = 2400; camera.fieldOfView = 85;
+            var effects = player.gameObject.AddComponent<StillworksEffects>(); effects.player = player;
+            string particlePath = Output + "/Materials/Concrete dust.mat";
+            Material dust = AssetDatabase.LoadAssetAtPath<Material>(particlePath);
+            if (dust == null) { dust = new Material(Shader.Find("Universal Render Pipeline/Particles/Unlit")); AssetDatabase.CreateAsset(dust, particlePath); }
+            dust.SetFloat("_Surface",1); dust.SetFloat("_Blend",0);
+            dust.SetFloat("_SrcBlend",(float)BlendMode.SrcAlpha); dust.SetFloat("_DstBlend",(float)BlendMode.OneMinusSrcAlpha);
+            dust.SetFloat("_ZWrite",0); dust.EnableKeyword("_SURFACE_TYPE_TRANSPARENT"); dust.renderQueue = 3000;
+            string texturePath = Output + "/Materials/Dust.png";
+            if (!File.Exists(texturePath))
+            {
+                var texture = new Texture2D(32,32,TextureFormat.RGBA32,false);
+                for (int y = 0; y < 32; y++) for (int x = 0; x < 32; x++)
+                {
+                    float alpha = Mathf.Clamp01(1 - Vector2.Distance(new Vector2(x,y),new Vector2(15.5f,15.5f)) / 15.5f);
+                    texture.SetPixel(x,y,new Color(1,1,1,alpha * alpha));
+                }
+                texture.Apply(); File.WriteAllBytes(texturePath,texture.EncodeToPNG()); UnityEngine.Object.DestroyImmediate(texture);
+                AssetDatabase.ImportAsset(texturePath,ImportAssetOptions.ForceSynchronousImport);
+            }
+            dust.SetTexture("_BaseMap",AssetDatabase.LoadAssetAtPath<Texture2D>(texturePath));
+            EditorUtility.SetDirty(dust); effects.particleMaterial = dust;
+            string rainPath = Output + "/Materials/Rain streaks.mat";
+            Material rain = AssetDatabase.LoadAssetAtPath<Material>(rainPath);
+            if (rain == null) { rain = new Material(Shader.Find("Stillworks/Rain streaks")); AssetDatabase.CreateAsset(rain,rainPath); }
+            rain.shader = Shader.Find("Stillworks/Rain streaks"); effects.rainMaterial = rain; EditorUtility.SetDirty(rain);
+            string splashPath = Output + "/Materials/Rain splashes.mat";
+            Material splashes = AssetDatabase.LoadAssetAtPath<Material>(splashPath);
+            if (splashes == null) { splashes = new Material(Shader.Find("Stillworks/Rain splashes")); AssetDatabase.CreateAsset(splashes,splashPath); }
+            splashes.shader = Shader.Find("Stillworks/Rain splashes"); effects.splashMaterial = splashes; EditorUtility.SetDirty(splashes);
             var session = new GameObject("Run / altitude / local timing").AddComponent<StillworksSession>();
             session.route = route; session.player = player; session.look = look;
+            session.backgroundMusic = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Stillworks/Audio/Last Wash.wav");
+            session.laundry = GameObject.Find("Laundry to bring home");
+            var narration = session.gameObject.AddComponent<StillworksNarration>(); narration.session = session;
+            narration.dialogue = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/Stillworks/Dialogue.json");
+            narration.voiceClips = Directory.GetFiles("Assets/Stillworks/Audio/Narration","*.wav").OrderBy(p => p,StringComparer.Ordinal)
+                .Select(p => AssetDatabase.LoadAssetAtPath<AudioClip>(p.Replace('\\','/'))).ToArray();
+            CreateDialogueTriggers(narration);
+        }
+
+        private static void CreateDialogueTriggers(StillworksNarration narration)
+        {
+            void Zone(string id, Vector3 position, Vector3 direction, float width)
+            {
+                var go = new GameObject("Narration location / " + id); go.layer = 2; go.transform.SetParent(root);
+                go.transform.SetPositionAndRotation(position + Vector3.up * 3,Quaternion.LookRotation(direction));
+                var sensor = go.AddComponent<BoxCollider>(); sensor.isTrigger = true; sensor.size = new Vector3(width + 16,6,5);
+                var body = go.AddComponent<Rigidbody>(); body.isKinematic = true; body.useGravity = false;
+                var trigger = go.AddComponent<StillworksDialogueTrigger>(); trigger.narrator = narration; trigger.cueId = id;
+            }
+            string[] districts = { "01-heat", "02-parking", "03-works", "04-ministry", "05-relays", "06-crown" };
+            for (int floor = 1; floor < 14; floor++)
+            {
+                int d = floor / 2;
+                string id = floor % 2 == 0 ? districts[d - 1] : $"{21 + floor / 2:00}-level-{floor + 1:00}";
+                Vector3 p = Node(floor,0), direction = Node(floor,1) - p; direction.y = 0;
+                Zone(id,p,direction,Width[d]);
+            }
+            for (int floor = 0; floor < 14; floor++) for (int waypoint = 0; waypoint < 2; waypoint++)
+            {
+                int wing = waypoint == 0 ? 1 : 4, d = floor / 2;
+                Vector3 a = Node(floor,wing), b = Node(floor,wing + 1); Vector3 direction = b - a; direction.y = 0;
+                Vector3 p = Vector3.Lerp(a,b,.04f); p.y = a.y;
+                Zone($"{28 + floor * 2 + waypoint:00}-gallery-{floor + 1:00}-{wing + 1:00}",p,direction,Width[d]);
+            }
         }
 
         private static void Atmosphere()
@@ -559,12 +924,57 @@ namespace Stillworks.Editor
             if (sky == null) { sky = new Material(Shader.Find("Stillworks/Overcast sky")); AssetDatabase.CreateAsset(sky, Output + "/Materials/Stillworks sky.mat"); }
             sky.shader = Shader.Find("Stillworks/Overcast sky");
             RenderSettings.skybox = sky; EditorUtility.SetDirty(sky);
+            CreateFilter();
+        }
+
+        private static void CreateFilter()
+        {
+            var pipeline = GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset;
+            if (pipeline == null) throw new InvalidOperationException("Stillworks requires URP.");
+            pipeline.supportsHDR = true; EditorUtility.SetDirty(pipeline);
+            string path = Output + "/Stillworks atmosphere.asset";
+            VolumeProfile profile = AssetDatabase.LoadAssetAtPath<VolumeProfile>(path);
+            if (profile == null) { profile = ScriptableObject.CreateInstance<VolumeProfile>(); AssetDatabase.CreateAsset(profile,path); }
+            T Effect<T>() where T : VolumeComponent
+            {
+                if (profile.TryGet<T>(out var effect)) return effect;
+                effect = profile.Add<T>(true); AssetDatabase.AddObjectToAsset(effect,profile); return effect;
+            }
+            Effect<Tonemapping>().mode.Override(TonemappingMode.ACES);
+            var color = Effect<ColorAdjustments>();
+            color.postExposure.Override(.4f); color.contrast.Override(24); color.saturation.Override(4);
+            color.colorFilter.Override(new Color(.88f,.97f,1f));
+            var white = Effect<WhiteBalance>(); white.temperature.Override(-12); white.tint.Override(3);
+            var tone = Effect<SplitToning>();
+            tone.shadows.Override(new Color(.35f,.48f,.58f)); tone.highlights.Override(new Color(.62f,.56f,.43f)); tone.balance.Override(12);
+            var bloom = Effect<Bloom>(); bloom.threshold.Override(1.1f); bloom.intensity.Override(.16f); bloom.scatter.Override(.55f);
+            var grain = Effect<FilmGrain>(); grain.type.Override(FilmGrainLookup.Thin1); grain.intensity.Override(.11f); grain.response.Override(.8f);
+            var vignette = Effect<Vignette>(); vignette.intensity.Override(.19f); vignette.smoothness.Override(.6f);
+            Effect<ChromaticAberration>().intensity.Override(0);
+            Effect<LensDistortion>().intensity.Override(0);
+            EditorUtility.SetDirty(profile);
+            Volume volume = new GameObject("Stillworks global atmosphere / cool concrete and warm sun").AddComponent<Volume>();
+            volume.isGlobal = true; volume.priority = 10; volume.sharedProfile = profile;
+            Camera camera = UnityEngine.Object.FindFirstObjectByType<Camera>();
+            camera.allowHDR = true;
+            var data = camera.GetUniversalAdditionalCameraData(); data.renderPostProcessing = true; data.volumeLayerMask = 1;
+            data.antialiasing = AntialiasingMode.SubpixelMorphologicalAntiAliasing;
+            data.antialiasingQuality = AntialiasingQuality.High;
+            var speed = camera.GetComponent<PlayerSpeedFX>();
+            if (speed != null)
+            {
+                var settings = new SerializedObject(speed);
+                settings.FindProperty("speedVolume").objectReferenceValue = volume;
+                settings.FindProperty("speedForMaximumFX").floatValue = 14;
+                settings.FindProperty("maxVignette").floatValue = .06f;
+                settings.ApplyModifiedPropertiesWithoutUndo();
+            }
         }
 
         private static void AddSpan(string label, Passage kind, Vector3 a, Vector3 b, float width, bool main = true)
         {
             Spans.Add(new RouteSpan(chunk.name + " / " + label, kind, a, b, width));
-            if (main && (kind == Passage.Run || kind == Passage.Ramp || kind == Passage.Jump)) metres += Vector3.Distance(a, b);
+            if (main && (kind == Passage.Run || kind == Passage.Ramp || kind == Passage.Jump || kind == Passage.Slide || kind == Passage.Precision)) metres += Vector3.Distance(a, b);
         }
 
         private static void Box(string name, Vector3 centre, Vector3 size, int material, bool collision = true, Quaternion? rotation = null)
@@ -722,9 +1132,18 @@ namespace Stillworks.Editor
             if (route == null) throw new InvalidOperationException("Build the map first.");
             Physics.SyncTransforms();
             var failures = new List<string>();
-            int samples = 0, jumps = 0, slides = 0;
+            int samples = 0, jumps = 0, slides = 0, walls = 0;
             foreach (RouteSpan span in route.spans)
             {
+                if (span.passage == Passage.WallRun)
+                {
+                    walls++;
+                    Vector3 side = Vector3.Cross(Vector3.up,(span.to - span.from).normalized);
+                    Vector3 centre = (span.from + span.to) / 2 + Vector3.up;
+                    if (!Physics.Raycast(centre,side,.9f,1 << 6) && !Physics.Raycast(centre,-side,.9f,1 << 6))
+                        failures.Add(span.name + ": no reachable wall beside crossing");
+                    continue;
+                }
                 if (span.passage == Passage.Jump)
                 {
                     jumps++;
@@ -756,11 +1175,12 @@ namespace Stillworks.Editor
             report.AppendLine("THE STILLWORKS — generated geometry validation");
             report.AppendLine($"Main route: {route.mainRouteMetres:0} m; summit: {route.summit.y:0} m; districts: 7");
             report.AppendLine($"14 m/s uninterrupted sprint floor: {route.mainRouteMetres / 14 / 60:0.0} minutes. 15–30 minute target requires human playtesting.");
-            report.AppendLine($"Ground/headroom samples: {samples}; jump spans: {jumps}; slide openings: {slides}");
+            report.AppendLine($"Ground/headroom samples: {samples}; jump spans: {jumps}; slide openings: {slides}; wall crossings: {walls}");
             report.AppendLine($"Issues: {failures.Count}");
             foreach (string failure in failures) report.AppendLine(failure);
             Directory.CreateDirectory("Documentation"); File.WriteAllText("Documentation/Stillworks-validation.txt", report.ToString());
-            if (failures.Count > 0) Debug.LogError(report.ToString()); else Debug.Log(report.ToString());
+            if (failures.Count > 0) throw new InvalidOperationException(report.ToString());
+            Debug.Log(report.ToString());
         }
 
         // Reproducible renders are useful in CI and do not require entering play mode.
@@ -769,26 +1189,66 @@ namespace Stillworks.Editor
             EditorSceneManager.OpenScene(ScenePath, OpenSceneMode.Single);
             Camera camera = UnityEngine.Object.FindFirstObjectByType<Camera>();
             camera.transform.SetParent(null);
-            Directory.CreateDirectory("Documentation/Previews");
-            Vector3[] positions = { new Vector3(-650, 540, -760), Node(0,0) + Vector3.up * 1.62f, new Vector3(-340, 420, 280), new Vector3(0, 596, -22) };
-            Vector3[] targets = { new Vector3(0,300,0), Node(0,1) + Vector3.up * 13, new Vector3(0,340,0), new Vector3(-105,240,-130) };
-            string[] names = { "01-city-overview", "02-first-person-intake", "03-ministry-and-construction", "04-summit-view" };
+            string previewDirectory = "Documentation/Previews/Map-" + DateTime.UtcNow.ToString("yyyyMMdd-HHmmss");
+            Directory.CreateDirectory(previewDirectory);
+            var route = AssetDatabase.LoadAssetAtPath<StillworksRoute>(Output + "/StillworksRoute.asset");
+            RouteSpan divider = route.spans.First(s => s.name.Contains("Jump over divider"));
+            RouteSpan slide = route.spans.First(s => s.name.StartsWith("D2_") && s.name.Contains("Main gallery slide"));
+            Vector3[] positions = { new Vector3(-650, 540, -760), Node(0,0) + Vector3.up * 1.62f, new Vector3(-340, 420, 280), new Vector3(46.5f,592,-38.5f),
+                divider.from - (divider.to - divider.from).normalized * 5 + Vector3.up * 1.62f,
+                slide.from - (slide.to - slide.from).normalized * 6 + Vector3.up * 1.62f };
+            Vector3[] targets = { new Vector3(0,300,0), Node(0,1) + Vector3.up * 13, new Vector3(0,340,0), new Vector3(140,310,-80),
+                divider.to + Vector3.up, slide.to + Vector3.up };
+            string[] names = { "01-city-overview", "02-first-person-intake", "03-ministry-and-construction", "04-summit-view", "05-divider-obstacle", "06-industrial-slide" };
             for (int i = 0; i < positions.Length; i++)
             {
                 camera.transform.position = positions[i]; camera.transform.LookAt(targets[i]); camera.fieldOfView = i == 0 ? 55 : 78;
                 var target = new RenderTexture(1600, 1000, 24); camera.targetTexture = target; camera.Render();
                 RenderTexture.active = target;
                 var image = new Texture2D(1600,1000,TextureFormat.RGB24,false); image.ReadPixels(new Rect(0,0,1600,1000),0,0); image.Apply();
-                File.WriteAllBytes("Documentation/Previews/" + names[i] + ".png", image.EncodeToPNG());
+                File.WriteAllBytes(Path.Combine(previewDirectory, names[i] + ".png"), image.EncodeToPNG());
                 camera.targetTexture = null; RenderTexture.active = null; UnityEngine.Object.DestroyImmediate(target); UnityEngine.Object.DestroyImmediate(image);
             }
-            Debug.Log("STILLWORKS: four previews captured.");
+            Debug.Log("STILLWORKS: six previews captured.");
         }
 
         public static void BuildAndCapture()
         {
             Build();
             Capture();
+        }
+
+        public static void BakeAndBuildWindows()
+        {
+            Build();
+            BuildWindows();
+        }
+
+        [MenuItem("Stillworks/Build Windows game")]
+        public static void BuildWindows()
+        {
+            EditorSceneManager.OpenScene(ScenePath, OpenSceneMode.Single);
+            Validate();
+            string destination = "Builds/Stillworks/Stillworks.exe";
+            string[] args = Environment.GetCommandLineArgs();
+            for (int i = 0; i < args.Length - 1; i++) if (args[i] == "-buildOutput") destination = args[i + 1];
+            Directory.CreateDirectory(Path.GetDirectoryName(destination));
+            PlayerSettings.companyName = "Stillworks";
+            PlayerSettings.productName = "The Stillworks";
+            PlayerSettings.bundleVersion = "0.5.0";
+            PlayerSettings.defaultScreenWidth = 1600; PlayerSettings.defaultScreenHeight = 900;
+            PlayerSettings.resizableWindow = true;
+            PlayerSettings.fullScreenMode = FullScreenMode.FullScreenWindow;
+            PlayerSettings.SetScriptingBackend(UnityEditor.Build.NamedBuildTarget.Standalone, ScriptingImplementation.Mono2x);
+            var result = BuildPipeline.BuildPlayer(new BuildPlayerOptions {
+                scenes = new[] { ScenePath }, locationPathName = destination, target = BuildTarget.StandaloneWindows64,
+                options = BuildOptions.CompressWithLz4HC
+            });
+            File.WriteAllText("Documentation/Stillworks-build.txt", $"{result.summary.result}\nWindows x64\nSize: {result.summary.totalSize / 1048576f:0.0} MiB\nErrors: {result.summary.totalErrors}\n");
+            if (result.summary.result != UnityEditor.Build.Reporting.BuildResult.Succeeded)
+                throw new InvalidOperationException("Windows player build failed. Inspect the Unity build log.");
+            File.WriteAllText(Path.Combine(Path.GetDirectoryName(destination), "READ ME.txt"),
+                "THE STILLWORKS / THE LAST WASH — v0.5\nLaunch Stillworks.exe. Keep the executable beside its Data folder and UnityPlayer.dll.\n\nWASD move | Shift toggle sprint | Space jump | Ctrl slide | E take laundry | Esc pause\nHold Space while airborne beside a wall at speed to wall-run; release Space to wall-jump. Hold Ctrl while falling against a wall to wall-slide; press Space to kick away.\nClimb to the clothesline at 588 metres, collect the clothes, and bring them back to the starting shelter before 45 minutes of rain soak them.\nVaried pipes, raised inspection beds, offset loading shutters and toppled machinery join the fenced slide/jump lanes and precision fire escapes. Catch floors provide recovery.\nSettings offer master, music and rain volumes. Reduced motion disables camera lean and movement particles.\nUse Save & Return to Title to suspend a run. Pausing stops wetness. Saves and settings are local to this computer.\n56 original voiced narrator cues include physical level/gallery triggers and six rotating fall taunts. Weathered surface textures, flaking facade paint and layered city-wide rain complete the environment. The original ambient soundtrack requires no network.\n\nOriginal game environment. Built with Unity 6. Not affiliated with Only Up! or Vholume.\n");
         }
     }
 }

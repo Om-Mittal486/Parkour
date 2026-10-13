@@ -43,6 +43,7 @@ public class PlayerCamera : MonoBehaviour
 
     private float pitch;
     private float yaw;
+    private float roll;
 
     private float bobTimer;
     private float slideShakeTimer;
@@ -52,6 +53,26 @@ public class PlayerCamera : MonoBehaviour
     private Vector3 originalCameraPosition;
 
     private bool wasGrounded;
+    private bool reducedMotion;
+    private bool invertY;
+
+    public void Configure(float mouseSensitivity, bool reduceMotion, bool inverted)
+    {
+        sensitivity = mouseSensitivity;
+        reducedMotion = reduceMotion;
+        invertY = inverted;
+        if (reducedMotion) landingOffset = 0f;
+    }
+
+    public void ResetView(float heading)
+    {
+        yaw = heading;
+        pitch = 0f;
+        landingOffset = bobTimer = slideShakeTimer = roll = 0f;
+        player.rotation = Quaternion.Euler(0, yaw, 0);
+        transform.localRotation = Quaternion.identity;
+        playerCamera.transform.localPosition = originalCameraPosition;
+    }
 
     private void Awake()
     {
@@ -79,10 +100,10 @@ public class PlayerCamera : MonoBehaviour
     private void Update()
     {
         HandleLook();
-        HandleHeadBob();
-        HandleTilt();
+        if (!reducedMotion) HandleHeadBob();
+        if (!reducedMotion) HandleTilt();
         HandleSlideCamera();
-        HandleLanding();
+        if (!reducedMotion) HandleLanding();
 
         ApplyCameraPosition();
     }
@@ -97,7 +118,7 @@ public class PlayerCamera : MonoBehaviour
             lookAction.action.ReadValue<Vector2>();
 
         yaw += look.x * sensitivity;
-        pitch -= look.y * sensitivity;
+        pitch -= look.y * sensitivity * (invertY ? -1f : 1f);
 
         pitch =
             Mathf.Clamp(
@@ -118,7 +139,7 @@ public class PlayerCamera : MonoBehaviour
             Quaternion.Euler(
                 pitch,
                 0f,
-                0f
+                reducedMotion ? 0f : roll
             );
     }
 
@@ -208,21 +229,18 @@ public class PlayerCamera : MonoBehaviour
             targetTilt =
                 -input.x * slideCameraTilt;
         }
+        if (movement.IsWallRunning) targetTilt = movement.WallSide * 7f;
+        else if (movement.IsWallSliding) targetTilt = movement.WallSide * 4f;
 
+        roll = Mathf.Lerp(roll,targetTilt,tiltSmoothSpeed * Time.deltaTime);
         Quaternion targetRotation =
             Quaternion.Euler(
                 pitch,
                 0f,
-                targetTilt
+                roll
             );
 
-        transform.localRotation =
-            Quaternion.Lerp(
-                transform.localRotation,
-                targetRotation,
-                tiltSmoothSpeed *
-                Time.deltaTime
-            );
+        transform.localRotation = targetRotation;
     }
 
     // =========================================================
@@ -242,7 +260,7 @@ public class PlayerCamera : MonoBehaviour
         targetPosition.y +=
             targetDrop;
 
-        if (movement.IsSliding)
+        if (movement.IsSliding && !reducedMotion)
         {
             slideShakeTimer +=
                 Time.deltaTime *
